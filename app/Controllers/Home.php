@@ -18,4 +18,14 @@ class Home extends BaseController
 	{
 		return view('contact');
 	}
+
+	public function shop()
+	{
+		return view('shop');
+	}
+
+	public function detail()
+	{
+		return view('detail');
+	}
 }

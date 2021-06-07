@@ -4,22 +4,31 @@ Custom Css for Hi Valeeqa
 
 /* General */
 :root {
-    --hv-primary: #F09AA1;
-    --hv-primary-dark: #e87c80;
-    --hv-primary-dark-hover: #e05156;
+    --hv-primary: #e87c80;
+    --hv-primary-hover: #e05156;
     --hv-primary-light: #f5e9e9;
 }
 .text-pink { color: var(--hv-primary) !important;}
 .btn-pink { 
-    background-color: var(--hv-primary-dark);
+    background-color: var(--hv-primary);
     color: #ffffff;
 }
 .btn-pink:hover {
-    background-color: var(--hv-primary-dark-hover);
+    background-color: var(--hv-primary-hover);
     color: #ffffff;
 }
+.btn-outline-pink {
+    background-color: #ffffff;
+    color: var(--hv-primary);
+    border-color: var(--hv-primary);
+}
+.btn-outline-pink:hover {
+    background-color: var(--hv-primary);
+    color: #ffffff;
+    border-color: var(--hv-primary);
+}
 .bg-pink { 
-    background-color: var(--hv-primary-dark);
+    background-color: var(--hv-primary);
     color: #ffffff;
 }
 .bg-light {

@@ -35,6 +35,13 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('about', 'Home::about');
 $routes->get('contact', 'Home::contact');
+$routes->get('shop', 'Home::shop');
+$routes->get('detail', 'Home::detail');
+
+
+// Admin
+$routes->get('admin/index', 'Admin::index');
+
 
 /*
  * --------------------------------------------------------------------
