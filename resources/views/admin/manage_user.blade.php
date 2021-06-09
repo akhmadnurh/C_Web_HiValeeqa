@@ -46,7 +46,7 @@
                           <td>Perempuan</td>
                           <td>6281233567098</td>
                           <td>Jember</td>
-                          <td><a href="#" class="btn btn-info">Edit</a></td>
+                          <td><a href="/admin/management-user/edit" class="btn btn-info">Edit</a></td>
                         </tr>
                       </tbody>
                     </table>

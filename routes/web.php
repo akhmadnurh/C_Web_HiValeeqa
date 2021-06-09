@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::view('admin/index', 'admin.home');
 Route::view('admin/management-user', 'admin.manage_user');
 Route::view('admin/management-user/tambah', 'admin.manage_user_tambah');
+Route::view('admin/management-user/edit', 'admin.manage_user_edit');
 
 Route::get('/', [\App\Http\Controllers\user\C_Overview::class, 'index']);
 Route::post('/login', [\App\Http\Controllers\user\C_Overview::class, 'login']);
