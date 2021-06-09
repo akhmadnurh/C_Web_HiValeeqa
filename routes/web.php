@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('user.home');
 });
+
+Route::view('admin/index', 'admin.home');
+Route::view('admin/management-user', 'admin.manage_user');
+Route::view('admin/management-user/tambah', 'admin.manage_user_tambah');
