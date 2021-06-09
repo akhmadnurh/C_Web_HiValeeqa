@@ -39,13 +39,17 @@
                 <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
                     <i class="fa fa-fw fa-search text-dark mr-2"></i>
                 </a>
+                    @if(session('loggedIn') !== null && session('loggedIn'))
+                            <a href="{{ url('logout') }}" class="btn btn-pink">Logout</a>
 
-                    <!-- Login and Register -->
-                    <a href="#" class="btn btn-outline-pink me-2" data-bs-toggle="modal" data-bs-target="#masukModal">Masuk</a>
-                    <a href="#" class="btn btn-pink">Daftar</a>
-                    <!-- Login and Register end -->
+                    @else
+                        <!-- Login and Register -->
+                            <a href="#" class="btn btn-outline-pink me-2" data-bs-toggle="modal" data-bs-target="#masukModal">Masuk</a>
+                            <a href="#" class="btn btn-pink">Daftar</a>
+                            <!-- Login and Register end -->
+                    @endif
 
-                    <!-- User has logged in -->
+            <!-- User has logged in -->
                     <!-- <a class="nav-icon position-relative text-decoration-none" href="#">
                         <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
                         <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
@@ -91,14 +95,14 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form>
+            <form action="{{ url('login') }}" method="POST">
                 <div class="mb-3">
                   <label for="userEmail" class="form-label">Email/Username</label>
-                  <input type="text" class="form-control" id="userEmail">
+                  <input type="text" class="form-control" id="userEmail" name="userEmail">
                 </div>
                 <div class="mb-3">
                   <label for="password" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="password">
+                  <input type="password" class="form-control" id="password" name="password">
                 </div>
                 <div class="mb-3 form-check">
                   <input type="checkbox" class="form-check-input" id="showPass">

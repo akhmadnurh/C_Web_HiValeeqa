@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('user.home');
-});
-
 Route::view('admin/index', 'admin.home');
 Route::view('admin/management-user', 'admin.manage_user');
 Route::view('admin/management-user/tambah', 'admin.manage_user_tambah');
+
+Route::get('/', [\App\Http\Controllers\user\C_Overview::class, 'index']);
+Route::post('/login', [\App\Http\Controllers\user\C_Overview::class, 'login']);
+Route::get('/logout', [\App\Http\Controllers\user\C_Overview::class, 'logout']);
