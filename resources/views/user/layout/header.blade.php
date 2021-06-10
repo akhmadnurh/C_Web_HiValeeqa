@@ -40,16 +40,31 @@
                     <i class="fa fa-fw fa-search text-dark mr-2"></i>
                 </a>
                     @if(session('loggedIn') !== null && session('loggedIn'))
-                            <a href="{{ url('logout') }}" class="btn btn-pink">Logout</a>
-
+                        <!-- User has logged in -->
+                        <a class="nav-icon position-relative text-decoration-none" href="#">
+                            <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                            <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
+                        </a>
+                        <div class="dropdown">
+                            <a class="nav-icon position-relative text-decoration-none dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                                {{-- <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span> --}}
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                <li><span class="dropdown-item-text">Hai, User</span></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a href="{{ url('logout') }}" class="dropdown-item">Logout</a></li>
+                            </ul>
+                        </div>
+                        <!-- User has logged in end -->
                     @else
                         <!-- Login and Register -->
-                            <a href="#" class="btn btn-outline-pink me-2" data-bs-toggle="modal" data-bs-target="#masukModal">Masuk</a>
-                            <a href="#" class="btn btn-pink">Daftar</a>
-                            <!-- Login and Register end -->
+                        <a href="#" class="btn btn-outline-pink me-2" data-bs-toggle="modal" data-bs-target="#masukModal">Masuk</a>
+                        <a href="#" class="btn btn-pink">Daftar</a>
+                        <!-- Login and Register end -->
                     @endif
 
-            <!-- User has logged in -->
+                    <!-- User has logged in -->
                     <!-- <a class="nav-icon position-relative text-decoration-none" href="#">
                         <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
                         <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
