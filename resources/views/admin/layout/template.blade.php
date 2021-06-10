@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <title>Admin &mdash; {{ config('app.name')}}</title>
-    
+
     <link rel="apple-touch-icon" href="{{ asset('assets/img/apple-icon.png')}}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/favicon.ico')}}">
 
@@ -24,7 +24,9 @@
     <link rel="stylesheet" href="{{ asset('admin/assets/css/style.css')}}">
     <link rel="stylesheet" href="{{ asset('admin/assets/css/components.css')}}">
 </head>
-
+@if(session('role') != 1)
+    <script>location.href = '{{ url('/') }}'</script>
+@endif
 <body>
     <div id="app">
         <div class="main-wrapper">
@@ -36,7 +38,7 @@
             @include('admin/layout.sidebar')
 
             @yield('content')
-        
+
             @include('admin/layout.footer')
 
         </div>
@@ -67,5 +69,6 @@
     <!-- Page Specific JS File -->
     <script src="{{ asset('admin/assets/js/page/index.js')}}"></script>
     <script src="{{ asset('admin/assets/js/page/modules-datatables.js')}}"></script>
+
 </body>
 </html>

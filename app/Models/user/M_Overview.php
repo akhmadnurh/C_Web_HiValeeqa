@@ -18,7 +18,8 @@ class M_Overview extends Model
             session(['id' => $data->id_user]);
             session(['username' => $data->username]);
             session(['nama' => $data->nama]);
+            session(['role' => $data->role]);
         }
-        return $count;
+        return $data;
     }
 }

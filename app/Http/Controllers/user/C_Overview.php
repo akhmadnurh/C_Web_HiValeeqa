@@ -15,8 +15,11 @@ class C_Overview extends Controller
     public function login(Request $request){
         $model = new M_Overview();
         $login = $model->login($request->input());
-
-        return redirect('/');
+        if($login->role == '1'){
+            return redirect('/adm');
+        }else{
+            return redirect('/');
+        }
     }
     public function logout(Request $request){
         $request->session()->flush();
