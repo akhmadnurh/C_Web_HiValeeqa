@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\admin\M_UserManagement;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class C_UserManagement extends Controller
 {
@@ -32,6 +34,13 @@ class C_UserManagement extends Controller
     public function addUser(Request $request)
     {
         $model = new M_UserManagement();
+
+//        // Randomize filename
+//        $file_ext = $request->file('img')->extension();
+//        $file_name = Str::random(10);
+//        $file = $file_name.'.'.$file_ext;
+//        Storage::move($request->file('img'), $file);
+//        dd($request->file('img'));
         $addData = $model->addUser($request->input());
         if ($addData) {
             return redirect('/adm/user-management');
@@ -46,7 +55,7 @@ class C_UserManagement extends Controller
         if ($editData) {
             return redirect('/adm/user-management');
         } else {
-            return redirect('/adm/user-management/edit');
+            return redirect('/adm/user-management/');
         }
     }
     public function deleteUser(Request $request)
@@ -56,4 +65,5 @@ class C_UserManagement extends Controller
         $model->deleteUser($id);
         return redirect('/adm/user-management');
     }
+
 }

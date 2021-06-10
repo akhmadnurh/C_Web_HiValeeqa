@@ -18,7 +18,7 @@
             <div class="row">
               <div class="col-12">
                 <div class="card">
-                    <form class="needs-validation" novalidate="" action="{{ url('adduser') }}" method="post">
+                    <form class="needs-validation" novalidate="" action="{{ url('adduser') }}" method="post" enctype="multipart/form-data">
                       <div class="card-body">
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Nama</label>
@@ -79,17 +79,17 @@
                                   </div>
                             </div>
                         </div>
-{{--                        <div class="form-group row">--}}
-{{--                            <div class="col-sm-3 col-form-label">Upload Foto</div>--}}
-{{--                            <div class="col-sm-9">--}}
-{{--                                <div class="input-group">--}}
-{{--                                    <div class="custom-file">--}}
-{{--                                      <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">--}}
-{{--                                      <label class="custom-file-label" for="inputGroupFile01">Choose file</label>--}}
-{{--                                    </div>--}}
-{{--                                  </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+                        <div class="form-group row">
+                            <div class="col-sm-3 col-form-label">Upload Foto</div>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                      <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="img">
+                                      <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
                         <div class="form-group mb-0 row">
                           <label class="col-sm-3 col-form-label">Alamat</label>
                           <div class="col-sm-9">
