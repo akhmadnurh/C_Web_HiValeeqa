@@ -11,7 +11,7 @@
             <li class="active"><a class="nav-link" href="/admin/index"><i class="fas fa-fire"></i> <span>Dashboard</span></a></li>
             <li class="menu-header">Manajemen Akun</li>
             <li><a class="nav-link" href="{{ url('/adm/user-management') }}"><i class="fas fa-user"></i> <span>User</span></a></li>
-            <li><a class="nav-link" href="#"><i class="fas fa-user-cog"></i> <span>Admin</span></a></li>
+            <li><a class="nav-link" href="{{ url('/adm/admin-management') }}"><i class="fas fa-user-cog"></i> <span>Admin</span></a></li>
         </ul>
     </aside>
 </div>

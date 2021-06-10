@@ -30,3 +30,7 @@ Route::get('/adm/user-management/edit/{id}', [\App\Http\Controllers\admin\C_User
 Route::post('/adduser', [\App\Http\Controllers\admin\C_UserManagement::class, 'addUser']);
 Route::post('/edit-user', [\App\Http\Controllers\admin\C_UserManagement::class, 'editUser']);
 Route::get('/delete-user/{id}', [\App\Http\Controllers\admin\C_UserManagement::class, 'deleteUser'])->whereNumber('id');
+
+Route::view('adm/admin-management', 'admin.manage_admin');
+Route::view('adm/admin_management/add', 'admin.manage_admin_tambah');
+Route::view('adm/admin_management/edit', 'admin.manage_admin_edit');

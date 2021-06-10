@@ -9,8 +9,7 @@
             <h1>Management User</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="#">Admin</a></div>
-                <div class="breadcrumb-item"><a href="#">Management Akun</a></div>
-                <div class="breadcrumb-item">User</div>
+                <div class="breadcrumb-item">Management User</div>
             </div>
         </div>
 
@@ -36,7 +35,7 @@
                                           <th>Jenis Kelamin</th>
                                           <th>No. WA</th>
                                           <th>Alamat</th>
-                                          <th>Action</th>
+                                          <th width="10%">Action</th>
                                       </tr>
                                       </thead>
                                       <tbody>
@@ -49,9 +48,9 @@
                                               <td>{{ $item->nomor_wa }}</td>
                                               <td>{{ $item->alamat }}</td>
                                               <td>
-                                                  <div class="d-flex justify-content-around">
+                                                  <div class="d-flex">
                                                       <a href="{{ url('/adm/user-management/edit').'/'.$item->id_user }}"
-                                                         class="btn btn-info">Edit</a><a
+                                                         class="btn btn-info mr-2">Edit</a><a
                                                           href="{{ url('/delete-user').'/'.$item->id_user }}"
                                                           class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
                                                   </div>
