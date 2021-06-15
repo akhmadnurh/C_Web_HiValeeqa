@@ -1,0 +1,61 @@
+/* @import url('node_modules/boxicons/css/boxicons.min.css'); */
+
+:root {
+    --hv-pink: #e87c80;
+    --hv-pink-dark: #e4676b;
+    --hv-pink-light: #FAE4E5;
+    --hv-black: #000;
+}
+
+/* Umum */
+.btn-pink {
+    background-color: var(--hv-pink);
+    color: var(--bs-white);
+}
+.btn-pink:hover {
+    background-color: var(--hv-pink-dark);
+    color: var(--bs-white);
+}
+.bg-pink-light {
+    background-color: var(--hv-pink-light);
+}
+.bg-black {
+    background-color: var(--hv-black);
+}
+.hv-garis {
+    background-color: var(--bs-dark);
+    width: 3rem;
+    height: .25rem;
+}
+
+/* Nav */
+.nav-link {
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    transition: .2s ease-in;
+}
+.nav-link:hover {
+    color: var(--hv-pink) !important;
+}
+.nav-link.active {
+    color: var(--hv-pink) !important;
+    font-weight: 500;
+}
+
+/* Selingan */
+.selingan-bg {
+    background: url('/img/chayra.png') no-repeat center/cover;
+    text-align: center;
+    color: var(--bs-white);
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+.selingan-title {
+    letter-spacing: .2rem;
+    text-transform: uppercase;
+}
+.selingan-desc {
+    letter-spacing: .1rem;
+    margin-bottom: 1rem;
+}
+
