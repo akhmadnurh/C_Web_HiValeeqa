@@ -3,7 +3,7 @@
       <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
       </button>
-      
+
       <a class="navbar-brand" href="#"><strong>HI VALEEQA</strong></a>
       <div class="collapse navbar-collapse sticky-top" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -25,7 +25,7 @@
               <li class="nav-item d-lg-none me-lg-5">
                   <div class="dropdown">
                       <a href="#" class="nav-link dropdown-toggle" role="button" id="userManageMobile" data-bs-toggle="dropdown" aria-expanded="false">user</a>
-  
+
                       <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="userManageMobile">
                           <li><span class="dropdown-item-text">Hai, user</span></li>
                           <li><hr class="dropdown-divider"></li>
@@ -40,7 +40,7 @@
                   <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#login" role="button">Masuk</a>
               </li>
               <li class="nav-item d-lg-none me-lg-5">
-                  <a class="nav-link" href="daftar">Daftar</a>
+                  <a class="nav-link" href="{{ url('register') }}">Daftar</a>
               </li>
               @endif
 
@@ -63,7 +63,7 @@
             </div>
           @else
             <button class="btn btn-pink" data-bs-toggle="modal" data-bs-target="#login">Masuk</button>
-            <a href="daftar" class="btn btn-pink">Daftar</a>
+            <a href="{{ url('register') }}" class="btn btn-pink">Daftar</a>
           @endif
       </div>
 

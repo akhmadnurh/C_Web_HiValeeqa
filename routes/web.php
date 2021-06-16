@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\user\C_Overview::class, 'index']);
 Route::post('/login', [\App\Http\Controllers\user\C_Overview::class, 'login']);
+Route::get('/register', [\App\Http\Controllers\user\C_Overview::class, 'register']);
 Route::get('/logout', [\App\Http\Controllers\user\C_Overview::class, 'logout']);
 
 //Admin

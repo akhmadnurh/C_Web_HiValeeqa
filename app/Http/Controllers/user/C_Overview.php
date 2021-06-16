@@ -12,16 +12,25 @@ class C_Overview extends Controller
     {
         return view('user.home');
     }
-    public function login(Request $request){
+
+    public function login(Request $request)
+    {
         $model = new M_Overview();
         $login = $model->login($request->input());
-        if($login->role == '1'){
+        if ($login->role == '1') {
             return redirect('/adm');
-        }else{
+        } else {
             return redirect('/');
         }
     }
-    public function logout(Request $request){
+
+    public function register()
+    {
+        return view('user/register');
+    }
+
+    public function logout(Request $request)
+    {
         $request->session()->flush();
 
         return redirect('/');

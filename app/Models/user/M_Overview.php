@@ -22,4 +22,5 @@ class M_Overview extends Model
         }
         return $data;
     }
+
 }
