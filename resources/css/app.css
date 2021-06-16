@@ -1,13 +1,23 @@
-/* @import url('node_modules/boxicons/css/boxicons.min.css'); */
+@import url('/node_modules/boxicons/css/boxicons.min.css');
 
 :root {
     --hv-pink: #e87c80;
     --hv-pink-dark: #e4676b;
     --hv-pink-light: #FAE4E5;
+    --hv-pink-darkest: #643e40;
     --hv-black: #000;
 }
 
 /* Umum */
+.text-pink {
+    color: var(--hv-pink) !important;
+}
+a.text-pink:hover {
+    color: var(--hv-pink-dark) !important;
+}
+.text-pink-dark {
+    color: var(--hv-pink-darkest) !important;
+}
 .btn-pink {
     background-color: var(--hv-pink);
     color: var(--bs-white);
@@ -27,6 +37,9 @@
     width: 3rem;
     height: .25rem;
 }
+.border-foot {
+    border-color: #3b3b3b !important;
+}
 
 /* Nav */
 .nav-link {
@@ -40,6 +53,11 @@
 .nav-link.active {
     color: var(--hv-pink) !important;
     font-weight: 500;
+}
+.scroll-header {
+    background-color: var(--bs-white);
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    transition: .2s ease-in;
 }
 
 /* Selingan */
@@ -59,3 +77,16 @@
     margin-bottom: 1rem;
 }
 
+/* Footer */
+section.footer {
+    color: var(--bs-white) !important;
+}
+section.footer a {
+    color: var(--bs-white) !important;
+    text-decoration: none !important;
+    transition: .1s ease-in;
+}
+section.footer a:hover {
+    color: var(--hv-pink) !important;
+    text-decoration: none !important;
+}
