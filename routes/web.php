@@ -34,3 +34,5 @@ Route::get('/delete-user/{id}', [\App\Http\Controllers\admin\C_UserManagement::c
 Route::view('adm/admin-management', 'admin.manage_admin');
 Route::view('adm/admin_management/add', 'admin.manage_admin_tambah');
 Route::view('adm/admin_management/edit', 'admin.manage_admin_edit');
+
+Route::view('daftar', 'user.register');
