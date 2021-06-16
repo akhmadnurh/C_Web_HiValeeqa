@@ -21,11 +21,11 @@
                     <form class="needs-validation" novalidate="" action="{{ url('edit-user') }}" method="post" enctype="multipart/form-data">
                       <div class="card-body">
                           <!-- id user -->
-                          <input type="hidden" class="form-control" required="" name="id" value="{{ $user->id_user }}">
+                          <input type="hidden" class="form-control" required="" name="id" value="{{ $user->user_id }}">
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Nama</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" required="" name="nama" value="{{ $user->nama }}">
+                            <input type="text" class="form-control" required="" name="nama" value="{{ $user->name }}">
                           </div>
                         </div>
                         <div class="form-group row">
@@ -71,7 +71,7 @@
                                         +62
                                       </div>
                                     </div>
-                                    <input type="text" class="form-control phone-number" name="wa" value="{{ $user->nomor_wa }}">
+                                    <input type="text" class="form-control phone-number" name="wa" value="{{ $user->whatsapp }}">
                                   </div>
                             </div>
                         </div>
@@ -89,7 +89,7 @@
                         <div class="form-group mb-0 row">
                           <label class="col-sm-3 col-form-label">Alamat</label>
                           <div class="col-sm-9">
-                            <textarea class="form-control" required="" name="alamat">{{ $user->alamat }}</textarea>
+                            <textarea class="form-control" required="" name="alamat">{{ $user->address }}</textarea>
                           </div>
                         </div>
                       </div>

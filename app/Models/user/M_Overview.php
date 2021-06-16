@@ -15,9 +15,9 @@ class M_Overview extends Model
         $data = $query->first();
         if ($count > 0) {
             session(['loggedIn' => true]);
-            session(['id' => $data->id_user]);
+            session(['id' => $data->user_id]);
             session(['username' => $data->username]);
-            session(['nama' => $data->nama]);
+            session(['name' => $data->name]);
             session(['role' => $data->role]);
         }
         return $data;

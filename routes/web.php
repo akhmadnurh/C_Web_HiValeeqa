@@ -31,6 +31,10 @@ Route::post('/adduser', [\App\Http\Controllers\admin\C_UserManagement::class, 'a
 Route::post('/edit-user', [\App\Http\Controllers\admin\C_UserManagement::class, 'editUser']);
 Route::get('/delete-user/{id}', [\App\Http\Controllers\admin\C_UserManagement::class, 'deleteUser'])->whereNumber('id');
 
-Route::view('adm/admin-management', 'admin.manage_admin');
-Route::view('adm/admin_management/add', 'admin.manage_admin_tambah');
-Route::view('adm/admin_management/edit', 'admin.manage_admin_edit');
+Route::get('adm/admin-management', [\App\Http\Controllers\admin\C_AdminManagement::class, 'index']);
+Route::get('adm/admin-management/add', [\App\Http\Controllers\admin\C_AdminManagement::class, 'manageAdminAdd']);
+Route::get('adm/admin-management/edit/{id}', [\App\Http\Controllers\admin\C_AdminManagement::class, 'manageAdminEdit'])->whereNumber('id');
+Route::post('/addadmin', [\App\Http\Controllers\admin\C_AdminManagement::class, 'addUser']);
+Route::post('/edit-admin', [\App\Http\Controllers\admin\C_AdminManagement::class, 'editUser']);
+Route::get('/delete-admin/{id}', [\App\Http\Controllers\admin\C_AdminManagement::class, 'deleteAdmin'])->whereNumber('id');
+

@@ -42,16 +42,16 @@
                                       @foreach($data as $key => $item)
                                           <tr>
                                               <td>{{ ++$key }}</td>
-                                              <td>{{ $item->nama }}</td>
+                                              <td>{{ $item->name }}</td>
                                               <td>{{ $item->email }}</td>
                                               <td>{{ $item->gender }}</td>
-                                              <td>{{ $item->nomor_wa }}</td>
-                                              <td>{{ $item->alamat }}</td>
+                                              <td>{{ $item->whatsapp }}</td>
+                                              <td>{{ $item->address }}</td>
                                               <td>
                                                   <div class="d-flex">
-                                                      <a href="{{ url('/adm/user-management/edit').'/'.$item->id_user }}"
+                                                      <a href="{{ url('/adm/user-management/edit').'/'.$item->user_id }}"
                                                          class="btn btn-info mr-2">Edit</a><a
-                                                          href="{{ url('/delete-user').'/'.$item->id_user }}"
+                                                          href="{{ url('/delete-user').'/'.$item->user_id }}"
                                                           class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
                                                   </div>
                                               </td>
