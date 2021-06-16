@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateImageTable extends Migration
+class CreateTransactionStatusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateImageTable extends Migration
      */
     public function up()
     {
-        Schema::create('image', function (Blueprint $table) {
-            $table->integer('user_id');
-            $table->string('image', 15);
+        Schema::create('transaction_status', function (Blueprint $table) {
+            $table->tinyInteger('status_id');
+            $table->string('status', 15);
         });
     }
 
@@ -26,6 +26,6 @@ class CreateImageTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('image');
+        Schema::dropIfExists('transaction_status');
     }
 }
