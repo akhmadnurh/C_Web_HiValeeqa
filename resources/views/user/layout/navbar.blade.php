@@ -19,21 +19,55 @@
               <li class="nav-item me-lg-5">
                   <a class="nav-link" href="#">Contact</a>
               </li>
+
+              {{-- This is for Mobile --}}
+              @if(session('loggedIn') !== null && session('loggedIn'))
               <li class="nav-item d-lg-none me-lg-5">
-                  <a class="nav-link" href="#">Masuk</a>
+                  <div class="dropdown">
+                      <a href="#" class="nav-link dropdown-toggle" role="button" id="userManageMobile" data-bs-toggle="dropdown" aria-expanded="false">user</a>
+  
+                      <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="userManageMobile">
+                          <li><span class="dropdown-item-text">Hai, user</span></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item" href="#"><i class='bx bx-user-circle me-2'></i> Akun</a></li>
+                          <li><a class="dropdown-item" href="#"><i class='bx bx-heart me-2'></i> Wishlist</a></li>
+                          <li><a class="dropdown-item" href="{{ url('logout') }}"><i class='bx bx-log-out me-2'></i> Keluar</a></li>
+                      </ul>
+                  </div>
+              </li>
+              @else
+              <li class="nav-item d-lg-none me-lg-5">
+                  <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#login" role="button">Masuk</a>
               </li>
               <li class="nav-item d-lg-none me-lg-5">
-                  <a class="nav-link" href="#">Daftar</a>
+                  <a class="nav-link" href="daftar">Daftar</a>
               </li>
+              @endif
+
           </ul>
       </div>
 
+      {{-- This is for desktop --}}
       <div class="btn-group ms-lg-5 me-lg-5 d-none d-lg-flex">
-          <button class="btn btn-pink" data-bs-toggle="modal" data-bs-target="#login">Masuk</button>
-          <button class="btn btn-pink">Daftar</button>
+          @if(session('loggedIn') !== null && session('loggedIn'))
+            <div class="dropdown">
+                <a href="#" class="text-pink dropdown-toggle" role="button" id="userManage" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-user bx-sm"></i></a>
+
+                <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="userManage">
+                    <li><span class="dropdown-item-text">Hai, user</span></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#"><i class='bx bx-user-circle me-2'></i> Akun</a></li>
+                    <li><a class="dropdown-item" href="#"><i class='bx bx-heart me-2'></i> Wishlist</a></li>
+                    <li><a class="dropdown-item" href="{{ url('logout') }}"><i class='bx bx-log-out me-2'></i> Keluar</a></li>
+                </ul>
+            </div>
+          @else
+            <button class="btn btn-pink" data-bs-toggle="modal" data-bs-target="#login">Masuk</button>
+            <a href="daftar" class="btn btn-pink">Daftar</a>
+          @endif
       </div>
 
-      <box-icon name="shopping-bag" color="var(--hv-pink)"></box-icon>
+      <a href="#" class="text-pink"><i class="bx bx-shopping-bag bx-sm"></i></a>
   </div>
 </nav>
 
@@ -71,7 +105,6 @@
                 </div>
                 <div class="d-flex justify-content-center mt-5">
                     <button type="submit" class="btn btn-pink btn-lg">Masuk</button>
-
                 </div>
             </form>
         </div>

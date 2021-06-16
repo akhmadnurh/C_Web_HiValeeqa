@@ -37,4 +37,3 @@ Route::get('adm/admin-management/edit/{id}', [\App\Http\Controllers\admin\C_Admi
 Route::post('/addadmin', [\App\Http\Controllers\admin\C_AdminManagement::class, 'addUser']);
 Route::post('/edit-admin', [\App\Http\Controllers\admin\C_AdminManagement::class, 'editUser']);
 Route::get('/delete-admin/{id}', [\App\Http\Controllers\admin\C_AdminManagement::class, 'deleteAdmin'])->whereNumber('id');
-

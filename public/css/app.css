@@ -16968,6 +16968,9 @@ readers do not read off random characters that represent icons */
 .text-pink {
     color: var(--hv-pink) !important;
 }
+a.text-pink {
+    text-decoration: none;
+}
 a.text-pink:hover {
     color: var(--hv-pink-dark) !important;
 }
