@@ -23,6 +23,9 @@ Route::post('/login', [\App\Http\Controllers\user\C_Overview::class, 'login']);
 Route::get('/register', [\App\Http\Controllers\user\C_Overview::class, 'register']);
 Route::get('/logout', [\App\Http\Controllers\user\C_Overview::class, 'logout']);
 
+Route::view('detail', 'user.detail');
+Route::view('shop', 'user.shop');
+
 //Admin
 Route::get('/adm', [\App\Http\Controllers\admin\C_Overview::class, 'index']);
 Route::get('/adm/user-management', [\App\Http\Controllers\admin\C_UserManagement::class, 'manageUser']);

@@ -16965,6 +16965,9 @@ readers do not read off random characters that represent icons */
 }
 
 /* Umum */
+a {
+    text-decoration: none;
+}
 .text-pink {
     color: var(--hv-pink) !important;
 }
@@ -16985,6 +16988,13 @@ a.text-pink:hover {
     background-color: var(--hv-pink-dark);
     color: var(--bs-white);
 }
+.btn-outline-pink {
+    border-color: var(--hv-pink);
+    color: var(--hv-pink);
+}
+.btn-outline-pink:hover {
+    color: var(--hv-pink);
+}
 .bg-pink-light {
     background-color: var(--hv-pink-light);
 }
@@ -16994,6 +17004,11 @@ a.text-pink:hover {
 .hv-garis {
     background-color: var(--bs-dark);
     width: 3rem;
+    height: .25rem;
+}
+.hv-garis-pink {
+    background-color: var(--hv-pink);
+    width: 4.5rem;
     height: .25rem;
 }
 .border-foot {

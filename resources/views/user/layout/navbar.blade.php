@@ -4,17 +4,17 @@
           <span class="navbar-toggler-icon"></span>
       </button>
 
-      <a class="navbar-brand" href="#"><strong>HI VALEEQA</strong></a>
+      <a class="navbar-brand" href="/"><strong>HI VALEEQA</strong></a>
       <div class="collapse navbar-collapse sticky-top" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="navList">
               <li class="nav-item me-lg-5">
-                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  <a class="nav-link active" aria-current="page" href="/">Home</a>
               </li>
               <li class="nav-item me-lg-5">
-                  <a class="nav-link" href="#">Shop</a>
+                  <a class="nav-link" href="shop">Shop</a>
               </li>
               <li class="nav-item me-lg-5">
-                  <a class="nav-link" href="#">New</a>
+                  <a class="nav-link" href="#new-product">New</a>
               </li>
               <li class="nav-item me-lg-5">
                   <a class="nav-link" href="#">Contact</a>
@@ -84,7 +84,7 @@
             <form action="{{ url('login') }}" method="POST">
                 <div class="mb-3">
                   <label for="userEmail" class="form-label">Email/Username</label>
-                  <input type="text" class="form-control" id="userEmail" name="userEmail" placeholder="Masukkan Email/Username">
+                  <input type="text" class="form-control" id="userEmail" name="userEmail" placeholder="Email/Username">
                 </div>
                 <div class="mb-3">
                   <label for="password" class="form-label">Password</label>
