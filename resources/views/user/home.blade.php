@@ -83,7 +83,8 @@
     <section class="selingan my-5 pt-5">
         <div class="selingan-bg">
             <h1 class="selingan-title">Tabungan</h1>
-            <p class="selingan-desc">HI VALEEQA punya fitur tabungan yang bisa kamu pakai untuk beli gamis seperti menabung.</p>
+            <p class="selingan-desc">HI VALEEQA punya fitur tabungan yang bisa kamu pakai untuk beli gamis seperti
+                menabung.</p>
             <button class="btn btn-pink btn-lg">Cobain Yuk!</button>
         </div>
     </section>
@@ -92,69 +93,26 @@
         <div class="hv-garis mb-3 mx-auto"></div>
         <h2 class="mb-5 text-center">Produk Terbaru</h2>
         <div class="row mb-5">
-            <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-3">
-                <div class="card border-0" style="height: 30rem;">
-                    <a href="detail">
-                        <div class="img-cart" style="overflow: hidden;">
-                            <img src="{{ asset('assets/img/produk/yumna2.png')}}" alt="aa" class="img-fluid">
+            @foreach($product as $item)
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-3">
+                    <a href="{{ url('/detail')."/".$item->product_id }}">
+                        <div class="card border-0" style="height: 30rem;">
+                            <div class="img-cart" style="overflow: hidden;">
+                                <img src="{{ asset('assets/img/produk/yumna2.png')}}" alt="aa" class="img-fluid">
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-title text-center text-uppercase text-pink-dark">{{ $item->product_name }}</h6>
+                                <p class="card-text text-center text-muted">
+                                    Rp {{ number_format($item->price, 2, ',', '.') }}</p>
+                            </div>
                         </div>
                     </a>
-                    <div class="card-body">
-                        <a href="detail">
-                            <h6 class="card-title text-center text-uppercase text-pink-dark">Yumna Dress</h6>
-                            <p class="card-text text-center text-muted">Rp 150.000,00</p>
-                        </a>
-                    </div>
                 </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-3">
-                <div class="card border-0" style="height: 30rem;">
-                    <a href="detail">
-                        <div class="img-cart" style="overflow: hidden;">
-                            <img src="{{ asset('assets/img/produk/yumna2.png')}}" alt="aa" class="img-fluid">
-                        </div>
-                    </a>
-                    <div class="card-body">
-                        <a href="detail">
-                            <h6 class="card-title text-center text-uppercase text-pink-dark">Yumna Dress</h6>
-                            <p class="card-text text-center text-muted">Rp 150.000,00</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-3">
-                <div class="card border-0" style="height: 30rem;">
-                    <a href="detail">
-                        <div class="img-cart" style="overflow: hidden;">
-                            <img src="{{ asset('assets/img/produk/yumna2.png')}}" alt="aa" class="img-fluid">
-                        </div>
-                    </a>
-                    <div class="card-body">
-                        <a href="detail">
-                            <h6 class="card-title text-center text-uppercase text-pink-dark">Yumna Dress</h6>
-                            <p class="card-text text-center text-muted">Rp 150.000,00</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-3">
-                <div class="card border-0" style="height: 30rem;">
-                    <a href="detail">
-                        <div class="img-cart" style="overflow: hidden;">
-                            <img src="{{ asset('assets/img/produk/yumna2.png')}}" alt="aa" class="img-fluid">
-                        </div>
-                    </a>
-                    <div class="card-body">
-                        <a href="detail">
-                            <h6 class="card-title text-center text-uppercase text-pink-dark">Yumna Dress</h6>
-                            <p class="card-text text-center text-muted">Rp 150.000,00</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
         <div class="d-flex justify-content-center mt-5 pt-5">
-            <button class="btn-outline-dark btn btn-lg">Lebih Banyak <i class='bx bx-arrow-back bx-rotate-180'></i></i></button>
+            <button class="btn-outline-dark btn btn-lg">Lebih Banyak <i class='bx bx-arrow-back bx-rotate-180'></i></i>
+            </button>
         </div>
     </section>
 

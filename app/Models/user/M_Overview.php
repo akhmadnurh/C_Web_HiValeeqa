@@ -23,4 +23,9 @@ class M_Overview extends Model
         return $data;
     }
 
+    public function getRandomProducts(){
+        $query = DB::table('product')->select('*')->inRandomOrder()->limit(4)->get();
+        return $query;
+    }
+
 }

@@ -10,18 +10,25 @@ class C_Overview extends Controller
 {
     public function index()
     {
-        return view('user.home');
+        $model = new M_Overview();
+        $data['product'] = $model->getRandomProducts();
+        return view('user.home', $data);
     }
 
     public function login(Request $request)
     {
         $model = new M_Overview();
         $login = $model->login($request->input());
-        if ($login->role == '1') {
-            return redirect('/adm');
+        if ($login !== null) {
+            if ($login->role == '1') {
+                return redirect('/adm');
+            } else {
+                return redirect('/');
+            }
         } else {
             return redirect('/');
         }
+
     }
 
     public function register()

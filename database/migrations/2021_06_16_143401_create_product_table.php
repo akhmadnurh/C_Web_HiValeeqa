@@ -21,7 +21,7 @@ class CreateProductTable extends Migration
             $table->string('material', 30);
             $table->integer('price');
             $table->text('description');
-            $table->smallInteger('stok');
+            $table->smallInteger('stock');
             $table->tinyInteger('best_seller');
         });
     }

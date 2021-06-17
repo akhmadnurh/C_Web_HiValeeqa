@@ -21,9 +21,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [\App\Http\Controllers\user\C_Overview::class, 'index']);
 Route::post('/login', [\App\Http\Controllers\user\C_Overview::class, 'login']);
 Route::get('/register', [\App\Http\Controllers\user\C_Overview::class, 'register']);
+Route::post('/register', [\App\Http\Controllers\user\C_User::class, 'registerProcess']);
 Route::get('/logout', [\App\Http\Controllers\user\C_Overview::class, 'logout']);
 
-Route::view('detail', 'user.detail');
+Route::get('/detail/{id}', [\App\Http\Controllers\user\C_Product::class, 'detail'])->whereNumber('id');
 Route::view('shop', 'user.shop');
 
 //Admin
