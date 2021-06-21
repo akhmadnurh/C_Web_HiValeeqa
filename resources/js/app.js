@@ -1,22 +1,21 @@
-require('./bootstrap');
-window.bootstrap = require('bootstrap/dist/js/bootstrap.bundle.js');
+import axios from 'axios';
+window.axios = axios;
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import routes from './router';
 import 'boxicons';
 import './custom';
 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl);
-// });
 
+Vue.use(VueRouter);
+Vue.component('navbar', require('./components/Navbar.vue').default);
+Vue.component('newfooter', require('./components/NewFooter.vue').default);
 
-// var myToastEl = document.getElementById('liveToastBtn')
-// myToastEl.addEventListener('click', function () {
-//    const id = document.getElementById('liveToast');
-//    const toastEl = new bootstrap.Toast(id);
-//    toastEl.show();
-// });
+const app = new Vue({
+    el: '#app',
+    router: new VueRouter(routes)
 
-// var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-// var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-//   return new bootstrap.Tooltip(tooltipTriggerEl)
-// });
+});
