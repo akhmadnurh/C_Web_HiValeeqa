@@ -17,7 +17,7 @@
                   <a class="nav-link" href="#new-product">New</a>
               </li>
               <li class="nav-item me-lg-5">
-                  <a class="nav-link" href="#">Contact</a>
+                  <a class="nav-link" href="contact">Contact</a>
               </li>
 
               {{-- This is for Mobile --}}

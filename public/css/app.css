@@ -16965,55 +16965,80 @@ readers do not read off random characters that represent icons */
 }
 
 /* Umum */
-a {
-    text-decoration: none;
-}
-.text-pink {
-    color: var(--hv-pink) !important;
-}
-a.text-pink {
-    text-decoration: none;
-}
-a.text-pink:hover {
-    color: var(--hv-pink-dark) !important;
-}
-.text-pink-dark {
-    color: var(--hv-pink-darkest) !important;
-}
-.btn-pink {
-    background-color: var(--hv-pink);
-    color: var(--bs-white);
-}
-.btn-pink:hover {
-    background-color: var(--hv-pink-dark);
-    color: var(--bs-white);
-}
-.btn-outline-pink {
+    /* Link */
+    a {
+        text-decoration: none;
+    }
+    a.text-pink {
+        text-decoration: none;
+    }
+    a.text-pink:hover {
+        color: var(--hv-pink-dark) !important;
+    }
+
+    /* Text */
+    .text-pink {
+        color: var(--hv-pink) !important;
+    }
+    .text-pink-dark {
+        color: var(--hv-pink-darkest) !important;
+    }
+
+    /* Button */
+    .btn-pink {
+        background-color: var(--hv-pink);
+        color: var(--bs-white);
+    }
+    .btn-pink:hover {
+        background-color: var(--hv-pink-dark);
+        color: var(--bs-white);
+    }
+    .btn-outline-pink {
+        border-color: var(--hv-pink);
+        color: var(--hv-pink);
+    }
+    .btn-outline-pink:hover {
+        color: var(--hv-pink);
+    }
+    .btn:focus {
+        box-shadow: 0 0 0 0.25rem rgba(232, 124, 128, 0.25);
+    }
+
+    /* Background */
+    .bg-pink-light {
+        background-color: var(--hv-pink-light);
+    }
+    .bg-black {
+        background-color: var(--hv-black);
+    }
+
+    /* Garis */
+    .hv-garis {
+        background-color: var(--bs-dark);
+        width: 3rem;
+        height: .25rem;
+    }
+    .hv-garis-pink {
+        background-color: var(--hv-pink);
+        width: 4.5rem;
+        height: .25rem;
+    }
+
+    /* Border */
+    .border-foot {
+        border-color: #3b3b3b !important;
+    }
+    .border-radius-1 {
+        border-radius: 1rem;
+    }
+
+
+/* Form */
+.form-control:focus {
     border-color: var(--hv-pink);
-    color: var(--hv-pink);
+    box-shadow: 0 0 0 0.25rem rgba(232, 124, 128, 0.25);
 }
-.btn-outline-pink:hover {
-    color: var(--hv-pink);
-}
-.bg-pink-light {
-    background-color: var(--hv-pink-light);
-}
-.bg-black {
-    background-color: var(--hv-black);
-}
-.hv-garis {
-    background-color: var(--bs-dark);
-    width: 3rem;
-    height: .25rem;
-}
-.hv-garis-pink {
-    background-color: var(--hv-pink);
-    width: 4.5rem;
-    height: .25rem;
-}
-.border-foot {
-    border-color: #3b3b3b !important;
-}
+
 
 /* Nav */
 .nav-link {
@@ -17064,3 +17089,4 @@ section.footer a:hover {
     color: var(--hv-pink) !important;
     text-decoration: none !important;
 }
+

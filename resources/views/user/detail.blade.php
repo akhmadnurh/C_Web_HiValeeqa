@@ -24,7 +24,7 @@
                 <div class="col-lg-6">
                     <h1 class="display-5 text-uppercase text-pink-dark">{{ $product->product_name }}</h1>
                     <h5 class="text-dark my-3">Rp {{ number_format($product->price, 2, ',', '.') }}</h5>
-                    <p class="text-muted">Stok: {{ $product->stok }}</p>
+                    <p class="text-muted">Stok: {{ $product->stock }}</p>
                     <div class="d-grid gap-2 w-75">
                         <button class="btn btn-pink btn-lg" type="button"><i class='bx bx-plus'></i> Add to Cart
                         </button>
@@ -40,8 +40,8 @@
                     <div class="row">
                         <dt class="col-sm-3">Warna</dt>
                         <dd class="col-sm-9">{{$product->color}}</dd>
-                        <dt class="col-sm-3">Ukuran</dt>
-                        <dd class="col-sm-9">M / L / XL</dd>
+                        <dt class="col-sm-3">Bahan</dt>
+                        <dd class="col-sm-9">{{$product->material}}</dd>
                     </div>
                     </p>
                 </div>

@@ -25,7 +25,10 @@ Route::post('/register', [\App\Http\Controllers\user\C_User::class, 'registerPro
 Route::get('/logout', [\App\Http\Controllers\user\C_Overview::class, 'logout']);
 
 Route::get('/detail/{id}', [\App\Http\Controllers\user\C_Product::class, 'detail'])->whereNumber('id');
+
+
 Route::view('shop', 'user.shop');
+Route::view('contact', 'user.contact');
 
 //Admin
 Route::get('/adm', [\App\Http\Controllers\admin\C_Overview::class, 'index']);
