@@ -20,17 +20,19 @@ use Composer\Semver\VersionParser;
 
 
 
+
+
 class InstalledVersions
 {
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => 'dev-master',
-    'version' => 'dev-master',
+    'pretty_version' => 'v8.5.19',
+    'version' => '8.5.19.0',
     'aliases' => 
     array (
     ),
-    'reference' => 'da41e4ea77558e39742879a718b7205e4f2b4153',
+    'reference' => NULL,
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -455,12 +457,12 @@ private static $installed = array (
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => 'dev-master',
-      'version' => 'dev-master',
+      'pretty_version' => 'v8.5.19',
+      'version' => '8.5.19.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'da41e4ea77558e39742879a718b7205e4f2b4153',
+      'reference' => NULL,
     ),
     'laravel/sail' => 
     array (
@@ -479,15 +481,6 @@ private static $installed = array (
       array (
       ),
       'reference' => '04ad32c1a3328081097a181875733fa51f402083',
-    ),
-    'laravel/ui' => 
-    array (
-      'pretty_version' => 'v3.3.0',
-      'version' => '3.3.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '07d725813350c695c779382cbd6dac0ab8665537',
     ),
     'league/commonmark' => 
     array (
@@ -784,8 +777,8 @@ private static $installed = array (
     array (
       'provided' => 
       array (
-        0 => '1.0.0',
-        1 => '1.0',
+        0 => '1.0',
+        1 => '1.0.0',
       ),
     ),
     'psr/simple-cache' => 
@@ -1313,7 +1306,6 @@ foreach (self::getInstalled() as $installed) {
 $packages[] = array_keys($installed['versions']);
 }
 
-
 if (1 === \count($packages)) {
 return $packages[0];
 }
@@ -1505,6 +1497,7 @@ public static function reload($data)
 self::$installed = $data;
 self::$installedByVendor = array();
 }
+
 
 
 
