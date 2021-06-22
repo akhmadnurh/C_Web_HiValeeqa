@@ -93,7 +93,7 @@
         <h2 class="mb-5 text-center">Produk Terbaru</h2>
         <div class="row mb-5">
             <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-3">
-                <router-link to="/detail">
+                <a href="#">
                     <div class="card border-0" style="height: 30rem;">
                         <div class="img-cart" style="overflow: hidden;">
                             <img src="assets/img/produk/yumna2.png" alt="aa" class="img-fluid">
@@ -104,7 +104,7 @@
                                 Rp 190.000</p>
                         </div>
                     </div>
-                </router-link>
+                </a>
             </div>
         </div>
         <div class="d-flex justify-content-center mt-5 pt-5">

@@ -1,7 +1,7 @@
 <template>
     <div class="bg-light">
         <div class="container d-flex align-items-center justify-content-center" style="height: 100vh;">
-            <div class="card bg-white border border-white px-5 pt-5 pb-3" style="border-radius: 2rem">
+            <div class="card bg-white border border-white px-5 py-5" style="border-radius: 2rem">
                 <div class="card-body">
                     <div class="row">
                         <div class="d-none d-lg-inline col-lg-7">
@@ -36,12 +36,9 @@
                                     <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
                                         placeholder="Konfirmasi Password">
                                 </div>
-                                <div class="d-flex">
-                                    <button type="submit" class="btn btn-pink btn-lg me-3">Daftar</button>
-                                    <router-link to="/" class="btn btn-light btn-lg">Back to Home</router-link>
-                                </div>
+                                <button type="submit" class="btn btn-pink btn-lg me-3">Daftar</button>
                             </form>
-                            <p class="text-center mt-5">Sudah punya akun? <router-link class="text-pink" to="/login">Masuk</router-link></p>
+                            <router-link to="/" class="btn btn-light btn-lg mt-2">Back to Home</router-link>
                         </div>
                     </div>
                 </div>
