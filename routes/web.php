@@ -27,9 +27,12 @@ Route::get('/logout', [\App\Http\Controllers\user\C_Overview::class, 'logout']);
 Route::get('/detail/{id}', [\App\Http\Controllers\user\C_Product::class, 'detail'])->whereNumber('id');
 
 
+Route::view('login', 'user.login');
 Route::view('shop', 'user.shop');
 Route::view('contact', 'user.contact');
 Route::view('cart', 'user.cart');
+Route::view('verify-email', 'user.verify-email');
+Route::view('complete-data', 'user.complete-data');
 
 //Admin
 Route::get('/adm', [\App\Http\Controllers\admin\C_Overview::class, 'index']);

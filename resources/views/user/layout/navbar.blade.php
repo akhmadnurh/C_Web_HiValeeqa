@@ -37,7 +37,7 @@
               </li>
               @else
               <li class="nav-item d-lg-none me-lg-5">
-                  <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#login" role="button">Masuk</a>
+                  <a class="nav-link" href="login">Masuk</a>
               </li>
               <li class="nav-item d-lg-none me-lg-5">
                   <a class="nav-link" href="{{ url('register') }}">Daftar</a>
@@ -62,7 +62,7 @@
                 </ul>
             </div>
           @else
-            <button class="btn btn-pink" data-bs-toggle="modal" data-bs-target="#login">Masuk</button>
+            <a class="btn btn-pink" href="login">Masuk</a>
             <a href="{{ url('register') }}" class="btn btn-pink">Daftar</a>
           @endif
       </div>
