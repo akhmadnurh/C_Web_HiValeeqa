@@ -29,6 +29,7 @@ Route::get('/detail/{id}', [\App\Http\Controllers\user\C_Product::class, 'detail
 
 Route::view('shop', 'user.shop');
 Route::view('contact', 'user.contact');
+Route::view('cart', 'user.cart');
 
 //Admin
 Route::get('/adm', [\App\Http\Controllers\admin\C_Overview::class, 'index']);

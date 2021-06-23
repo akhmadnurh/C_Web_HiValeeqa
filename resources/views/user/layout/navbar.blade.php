@@ -67,7 +67,7 @@
           @endif
       </div>
 
-      <a href="#" class="text-pink"><i class="bx bx-shopping-bag bx-sm"></i></a>
+      <a href="cart" class="text-pink"><i class="bx bx-shopping-bag bx-sm"></i></a>
   </div>
 </nav>
 
