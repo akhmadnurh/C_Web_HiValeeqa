@@ -26,7 +26,9 @@ class C_Overview extends Controller
                 return redirect('/');
             }
         } else {
-            return redirect('/');
+            session(['status' => 'error']);
+            session(['msg' => 'Username atau password tidak sesuai.']);
+            return redirect('/login');
         }
 
     }

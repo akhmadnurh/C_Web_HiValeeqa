@@ -18,7 +18,6 @@ class M_Product extends Model
 
     public function getRandomProducts()
     {
-        $query = DB::table('product')->select('*')->inRandomOrder()->limit(4)->get();
-        return $query;
+        return DB::table('product')->select('*')->inRandomOrder()->limit(4)->get();
     }
 }

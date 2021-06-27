@@ -17,7 +17,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="d-none d-lg-inline col-lg-7">
-                        <img src="{{ asset('assets/img/window-shop.svg')}}" alt="Daftar Akun" class="img-fluid w-75">
+                        <img src="{{ asset('assets/img/window-shop.svg')}}" alt="Masuk Akun" class="img-fluid w-75">
                     </div>
                     <div class="col-12 col-lg-5">
                         <h6 class="text-uppercase d-flex align-items-center">
@@ -26,9 +26,13 @@
                             Hi Valeeqa
                         </h6>
                         <h2 class="my-4 text-pink">Login</h2>
-                        <form action="#" method="POST">
+                        <form action="{{ url('login') }}" method="POST">
+                            @if(session()->has('status'))
+                                <div class="alert {{ session('status') == 'success' ? 'alert-success' : 'alert-danger' }}">{{ session('msg') }}</div>
+                                {{ session()->forget(['status', 'msg']) }}
+                            @endif
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="useremail" name="useremail"
+                                <input type="text" class="form-control" id="userEmail" name="userEmail"
                                     placeholder="Username/Email">
                             </div>
                             <div class="mb-3">
