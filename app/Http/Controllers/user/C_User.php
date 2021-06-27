@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\user\M_User;
 use Illuminate\Http\Request;
 
-class C_User extends Controller
+class   C_User extends Controller
 {
     public function registerProcess(Request $request)
     {

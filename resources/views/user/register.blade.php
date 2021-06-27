@@ -25,7 +25,7 @@
                         Hi Valeeqa
                     </h6>
                     <h2 class="my-4 text-pink">Welcome to Family</h2>
-                    <form action="{{ url('/register') }}" method="POST">
+                    <form action="{{ url('/register') }}" method="POST" onsubmit="return passwordValidation()" >
                         <div id="alert">
                             @if(session()->has('status'))
                                 <div
@@ -35,24 +35,24 @@
                         </div>
                         <div class="mb-3">
                             <input type="text" class="form-control" id="fullname" name="fullname"
-                                   placeholder="Nama Lengkap">
+                                   placeholder="Nama Lengkap" onfocus="removeAlert()">
                         </div>
                         <div class="mb-3">
                             <input type="email" class="form-control" id="email" name="email"
                                    aria-describedby="emailHelp"
-                                   placeholder="Email">
+                                   placeholder="Email" onfocus="removeAlert()">
                         </div>
                         <div class="mb-3">
                             <input type="text" class="form-control" id="username" name="username"
-                                   placeholder="Username">
+                                   placeholder="Username" onfocus="removeAlert()">
                         </div>
                         <div class="mb-3">
                             <input type="password" class="form-control" id="password" name="password"
-                                   placeholder="Password">
+                                   placeholder="Password" onfocus="removeAlert()">
                         </div>
                         <div class="mb-3">
                             <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
-                                   placeholder="Konfirmasi Password">
+                                   placeholder="Konfirmasi Password" onfocus="removeAlert()"    >
                         </div>
                         <div class="d-flex">
                             <button type="submit" class="btn btn-pink btn-lg me-3">Daftar</button>
@@ -64,6 +64,25 @@
     </div>
 </div>
 </div>
+<script>
+    alert = document.getElementById('alert')
+
+    const passwordValidation = () => {
+        pwd = document.getElementById('password').value
+        pwdC = document.getElementById('confirmPassword').value
+
+        if (pwd !== pwdC) {
+            alert.innerHTML = "<div class='alert alert-danger'>Password tidak sesuai</div>"
+            return false
+        } else {
+            return true
+        }
+    }
+
+    const removeAlert = () => {
+        alert.innerHTML = ""
+    }
+</script>
 <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>
