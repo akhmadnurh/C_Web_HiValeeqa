@@ -1905,18 +1905,31 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ (() => {
 
 // Ini JS Custom
-// Navbar
-window.onscroll = function () {
-  var nav = document.getElementById('headerHv');
+activeNavLink();
+newProductLink(); // Navbar Link
 
-  if (this.scrollY >= 200) {
-    nav.classList.add('scroll-header');
-    nav.classList.remove('bg-light');
-  } else {
-    nav.classList.add('bg-light');
-    nav.classList.remove('scroll-heder');
+function activeNavLink() {
+  var currentLink = window.location.href;
+  var navLink = document.querySelectorAll('#navList li a');
+
+  for (var i = 0; i < navLink.length; i++) {
+    if (navLink[i].href === currentLink) {
+      navLink[i].classList.add('active');
+    }
   }
-};
+}
+
+function newProductLink() {
+  var newProduct = document.getElementById('newProductLink');
+  var baseUrl = window.location.origin;
+  newProduct.addEventListener('click', function () {
+    var currentLink = window.location.href;
+
+    if (currentLink !== baseUrl) {
+      window.location.replace(baseUrl + '/#new-product');
+    }
+  });
+}
 
 /***/ }),
 

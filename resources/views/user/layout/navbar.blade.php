@@ -1,4 +1,4 @@
-<nav class="navbar py-4 navbar-expand-lg navbar-light bg-light sticky-top" id="headerHv">
+<nav class="navbar py-4 navbar-expand-lg navbar-light bg-white sticky-top" id="headerHv">
   <div class="container">
       <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -8,16 +8,16 @@
       <div class="collapse navbar-collapse sticky-top" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="navList">
               <li class="nav-item me-lg-5">
-                  <a class="nav-link active" aria-current="page" href="/">Home</a>
+                  <a class="nav-link" href="/">Home</a>
               </li>
               <li class="nav-item me-lg-5">
-                  <a class="nav-link" href="shop">Shop</a>
+                  <a class="nav-link" href="/shop">Shop</a>
               </li>
               <li class="nav-item me-lg-5">
-                  <a class="nav-link" href="#new-product">New</a>
+                  <a class="nav-link" href="#new-product" id="newProductLink">New</a>
               </li>
               <li class="nav-item me-lg-5">
-                  <a class="nav-link" href="contact">Contact</a>
+                  <a class="nav-link" href="/contact">Contact</a>
               </li>
 
               {{-- This is for Mobile --}}
