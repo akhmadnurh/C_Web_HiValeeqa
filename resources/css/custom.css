@@ -50,6 +50,9 @@
     .bg-pink-light {
         background-color: var(--hv-pink-light);
     }
+    .bg-pink {
+        background-color: var(--hv-pink);
+    }
     .bg-black {
         background-color: var(--hv-black);
     }

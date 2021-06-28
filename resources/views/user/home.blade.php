@@ -33,6 +33,10 @@
                                 <h4 class="card-title">Chayra Abaya</h4>
 
                                 <p class="card-text">Pilihan Gamis Terbaik</p>
+
+                                <div class="d-flex mt-5">
+                                    <button class=" justify-content-center align-items-center btn btn-outline-pink mt-5">Explore <i class='bx bx-arrow-back bx-rotate-180'></i></button>
+                                </div>
                             </div>
                             <div class="col-4">
                                 <img src="{{ asset('assets/img/abayaweb1.png')}}" class="img-fluid" alt="Chayra Abaya">
@@ -49,6 +53,10 @@
                                 <h4 class="card-title">Yumna Dress</h4>
 
                                 <p class="card-text">Pilihan Gamis Terbaik</p>
+
+                                <div class="d-flex mt-5">
+                                    <button class=" justify-content-center align-items-center btn btn-outline-pink mt-5">Explore <i class='bx bx-arrow-back bx-rotate-180'></i></button>
+                                </div>
                             </div>
                             <div class="col-4">
                                 <img src="{{ asset('assets/img/abayaweb1.png')}}" class="img-fluid" alt="Yumna Dress">
@@ -91,7 +99,7 @@
             @endforeach
         </div>
         <div class="d-flex justify-content-center mt-5 pt-5">
-            <button class="btn-outline-dark btn btn-lg">Lebih Banyak <i class='bx bx-arrow-back bx-rotate-180'></i></i>
+            <button class="btn-outline-dark btn btn-lg">Lebih Banyak <i class='bx bx-arrow-back bx-rotate-180'></i>
             </button>
         </div>
     </section>
