@@ -37,4 +37,9 @@ class M_User extends Model
     {
         DB::table('email_verification')->insert(['email' => $data['email'], 'token' => $token, 'status' => 0]);
     }
+
+    public function verifyEmail($token)
+    {
+        return DB::table('email_verification')->where('token', '=', $token)->update(['status' => 1]);
+    }
 }

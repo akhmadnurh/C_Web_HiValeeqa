@@ -8,11 +8,15 @@
                     <h3 class="card-title">Verifikasi Email</h3>
                     <div class="hv-garis mt-3 mb-5"></div>
                     <p class="card-text">
-                        Masukkan kode verifikasi yang telah dikirim ke <strong>user@email.com</strong>
+                        Masukkan kode verifikasi yang telah dikirim.
                     </p>
-                    <form action="#" method="post">
+                    <form action="{{ url('verify-email') }}" method="post">
+                        @if(session()->has('status'))
+                            <div class="alert {{ session('status') == 'success' ? 'alert-success' : 'alert-danger' }}">{{ session('msg') }}</div>
+                            {{ session()->forget(['status', 'msg']) }}
+                        @endif
                         <div class="mb-3">
-                            <input type="text" class="form-control w-50" placeholder="Kode">
+                            <input type="text" class="form-control w-50" placeholder="Kode" name="token" required>
                         </div>
                         <div class="mb-3">
                             <a href="#" class="text-pink">Kirim ulang?</a>

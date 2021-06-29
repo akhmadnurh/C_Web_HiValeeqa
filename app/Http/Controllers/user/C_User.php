@@ -58,4 +58,20 @@ class C_User extends Controller
     {
         return Str::random('6');
     }
+
+    public function verifyEmail(Request $request)
+    {
+        $input = $request->input();
+        $model = new M_User();
+        $verify = $model->verifyEmail($input['token']);
+        if ($verify) {
+            session(['msg' => 'Verifikasi email berhasil!']);
+            session(['status' => 'success']);
+            return redirect('/login');
+        } else {
+            session(['msg' => 'Kode token tidak sesuai!']);
+            session(['status' => 'error']);
+            return redirect('/verify-email');
+        }
+    }
 }

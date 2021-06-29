@@ -20,10 +20,18 @@ class C_Overview extends Controller
         $model = new M_Overview();
         $login = $model->login($request->input());
         if ($login !== null) {
-            if ($login->role == '1') {
-                return redirect('/adm');
+            // Jika belum verifikasi
+            if ($login == 'error-verification') {
+                session(['status' => 'error']);
+                session(['msg' => 'Email belum diverifikasi, mohon periksa kembali email anda.']);
+                return redirect('/login');
             } else {
-                return redirect('/');
+                // Jika sudah verifikasi
+                if ($login->role == '1') {
+                    return redirect('/adm');
+                } else {
+                    return redirect('/');
+                }
             }
         } else {
             session(['status' => 'error']);

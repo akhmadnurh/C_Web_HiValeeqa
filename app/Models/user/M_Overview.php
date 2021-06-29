@@ -12,15 +12,21 @@ class M_Overview extends Model
     {
         $query = DB::table('user')->select('*')->where(function ($query) use ($data) { $query->where('username', '=', $data['userEmail'])->orWhere('email', '=', $data['userEmail']);})->where('password', '=', md5($data['password']));
         $count = $query->count();
-        $data = $query->first();
+        $result = $query->first();
         if ($count > 0) {
-            session(['loggedIn' => true]);
-            session(['id' => $data->user_id]);
-            session(['username' => $data->username]);
-            session(['name' => $data->name]);
-            session(['role' => $data->role]);
+            // Cek apakah email sudah terverifikasi atau belum
+            $query = DB::table('email_verification')->select("status")->where('email', '=', $result->email)->count();
+            if ($query < 1) {
+                return 'error-verification';
+            } else {
+                session(['loggedIn' => true]);
+                session(['id' => $result->user_id]);
+                session(['username' => $result->username]);
+                session(['name' => $result->name]);
+                session(['role' => $result->role]);
+            }
         }
-        return $data;
+        return $result;
     }
 
     public function getRandomProducts(){
