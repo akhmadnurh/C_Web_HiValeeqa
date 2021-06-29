@@ -17000,7 +17000,7 @@ readers do not read off random characters that represent icons */
     .btn-outline-pink:hover {
         color: var(--hv-pink);
     }
-    .btn:focus:not(.btn.btn-primary, .btn.btn-success, .btn.btn-info, .btn.btn-light, .btn.btn-secondary, .btn.btn-warning, .btn.btn-danger, .btn.btn-link) {
+    .btn-pink:focus, .btn-outline-pink:focus {
         box-shadow: 0 0 0 0.25rem rgba(232, 124, 128, 0.25);
     }
 
@@ -17038,6 +17038,10 @@ readers do not read off random characters that represent icons */
 
 /* Form */
 .form-control:focus {
+    border-color: var(--hv-pink);
+    box-shadow: 0 0 0 0.25rem rgba(232, 124, 128, 0.25);
+}
+.form-select:focus {
     border-color: var(--hv-pink);
     box-shadow: 0 0 0 0.25rem rgba(232, 124, 128, 0.25);
 }

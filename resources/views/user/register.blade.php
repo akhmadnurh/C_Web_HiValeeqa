@@ -35,29 +35,35 @@
                         </div>
                         <div class="mb-3">
                             <input type="text" class="form-control" id="fullname" name="fullname"
-                                   placeholder="Nama Lengkap" onfocus="removeAlert()">
+                                   placeholder="Nama Lengkap" onfocus="removeAlert()" required>
                         </div>
                         <div class="mb-3">
                             <input type="email" class="form-control" id="email" name="email"
                                    aria-describedby="emailHelp"
-                                   placeholder="Email" onfocus="removeAlert()">
+                                   placeholder="Email" onfocus="removeAlert()" required>
                         </div>
                         <div class="mb-3">
                             <input type="text" class="form-control" id="username" name="username"
-                                   placeholder="Username" onfocus="removeAlert()">
+                                   placeholder="Username" onfocus="removeAlert()" required>
                         </div>
                         <div class="mb-3">
                             <input type="password" class="form-control" id="password" name="password"
-                                   placeholder="Password" onfocus="removeAlert()">
+                                   placeholder="Password" onfocus="removeAlert()" required>
                         </div>
                         <div class="mb-3">
                             <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
-                                   placeholder="Konfirmasi Password" onfocus="removeAlert()"    >
+                                   placeholder="Konfirmasi Password" onfocus="removeAlert()" required>
                         </div>
-                        <div class="d-flex">
+                        <div class="d-grid mb-3">
                             <button type="submit" class="btn btn-pink btn-lg me-3">Daftar</button>
+                        </div>
                     </form>
-                    <a href="/" class="btn btn-light btn-lg">Back to Home</a>
+                    <div class="d-grid">
+                        <a href="/" class="btn btn-light btn-lg">Back to Home</a>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center mt-3">
+                        Sudah Punya Akun? <a href="/login" class="text-pink ms-1">Masuk</a>
+                    </div>
                 </div>
             </div>
         </div>

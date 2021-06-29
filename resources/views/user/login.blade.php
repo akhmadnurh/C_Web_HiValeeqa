@@ -33,17 +33,25 @@
                             @endif
                             <div class="mb-3">
                                 <input type="text" class="form-control" id="userEmail" name="userEmail"
-                                    placeholder="Username/Email">
+                                    placeholder="Username/Email" required>
                             </div>
                             <div class="mb-3">
                                 <input type="password" class="form-control" id="password" name="password"
-                                    placeholder="Password">
+                                    placeholder="Password" required>
                             </div>
-                            <div class="d-flex">
-                                <button type="submit" class="btn btn-pink btn-lg me-3">Login</button>
-                                <a href="/" class="btn btn-light btn-lg">Back to Home</a>
+                            <div class="mb-3 justify-content-end d-flex">
+                                <a href="/forgot-password" class="text-pink">Lupa Password?</a>
+                            </div>
+                            <div class="d-grid mb-3">
+                                <button type="submit" class="btn btn-pink btn-lg">Masuk</button>
                             </div>
                         </form>
+                        <div class="d-grid">
+                            <a href="/" class="btn btn-light btn-lg">Back to Home</a>
+                        </div>
+                        <div class="d-flex justify-content-center align-items-center mt-5">
+                            Belum Punya Akun? <a href="/register" class="text-pink ms-1">Daftar</a>
+                        </div>
                     </div>
                 </div>
             </div>
