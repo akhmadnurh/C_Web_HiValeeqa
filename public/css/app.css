@@ -17096,6 +17096,17 @@ section.cart li.list-group-item img {
     margin-top: .1rem;
     margin-bottom: .1rem;
 }
+span.item-qty {
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    pointer-events: none;
+}
 
 /* Footer */
 section.footer {

@@ -19,7 +19,7 @@ function newProductLink() {
     newProduct.addEventListener('click', function () {
         const currentLink = window.location.href;
         if (currentLink !== baseUrl) {
-            window.location.replace(baseUrl + '/#new-product')
+            window.location.replace(baseUrl + '/#new-product');
         }
     });    
 }

@@ -26,9 +26,9 @@
                                 </div>
                                 <div class="col-3">
                                     <div class="d-flex justify-content-center align-items-center">
-                                        <button class="btn"><strong>-</strong></button>
-                                        <input type="number" class="form-control mx-1" value="12" style="width: 5rem">
-                                        <button class="btn"><strong>+</strong></button>
+                                        <button class="btn btn-pink"><strong>-</strong></button>
+                                        <span class="item-qty mx-1">12</span>
+                                        <button class="btn btn-pink"><strong>+</strong></button>
                                     </div>
                                 </div>
                                 <div class="col-3">
@@ -55,9 +55,9 @@
                                 </div>
                                 <div class="col-3">
                                     <div class="d-flex justify-content-center align-items-center">
-                                        <button class="btn"><strong>-</strong></button>
-                                        <input type="number" class="form-control mx-1" value="12" style="width: 5rem">
-                                        <button class="btn"><strong>+</strong></button>
+                                        <button class="btn btn-pink"><strong>-</strong></button>
+                                        <span class="item-qty mx-1">12</span>
+                                        <button class="btn btn-pink"><strong>+</strong></button>
                                     </div>
                                 </div>
                                 <div class="col-3">
@@ -106,7 +106,7 @@
                                 <h4>Rp 300.000</h4>
                             </div>
                             <div class="d-grid mt-5">
-                                <a href="#" class="btn btn-pink">Checkout</a>
+                                <a href="/invoices" class="btn btn-pink">Checkout</a>
                             </div>
                         </div>
                     </div>
