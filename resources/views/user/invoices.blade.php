@@ -43,7 +43,45 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6"></div>
+                <div class="col-lg-6">
+                    <div class="card border-radius-1 p-3">
+                        <div class="card-body">
+                            <h4 class="card-title mb-2">
+                                Konfirmasi Pembayaran
+                            </h4>
+                            <div class="hv-garis mb-4"></div>
+                            <form action="#" method="post">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Nama</label>
+                                    <input type="text" class="form-control" id="name">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="userBank" class="form-label">Bank Anda</label>
+                                    <input type="text" class="form-control" id="userBank">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="adminBank" class="form-label">Bank Tujuan</label>
+                                    <select id="adminBank" class="form-select">
+                                        <option selected>Pilih Bank</option>
+                                        <option value="BNI">BNI</option>
+                                        <option value="BRI">BRI</option>
+                                        <option value="Gopay">Gopay</option>
+                                        <option value="LinkAja">LinkAja</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="trfDate" class="form-label">Tanggal Transfer</label>
+                                    <input type="date" id="trfDate" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="trfNominal" class="form-label">Jumlah</label>
+                                    <input type="text" class="form-control" id="trfNominal" value="300.000">
+                                </div>
+                                <button class="btn btn-pink" type="submit">Kirim</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

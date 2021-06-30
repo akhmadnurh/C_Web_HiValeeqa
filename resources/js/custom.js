@@ -1,6 +1,7 @@
 // Ini JS Custom
 activeNavLink();
 newProductLink();
+transferDate();
 
 // Navbar Link
 function activeNavLink() {
@@ -22,4 +23,14 @@ function newProductLink() {
             window.location.replace(baseUrl + '/#new-product');
         }
     });    
+}
+
+// Billing
+function transferDate() {
+    Date.prototype.toDateInputValue = (function() {
+        var local = new Date(this);
+        local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+        return local.toJSON().slice(0,10);
+    });
+    document.getElementById('trfDate').value = new Date().toDateInputValue();
 }
