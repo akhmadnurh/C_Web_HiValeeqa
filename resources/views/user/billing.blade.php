@@ -2,7 +2,7 @@
 
 @section('content')
     
-    <section class="billing my-4">
+    <section class="billing mt-4 mb-5 pb-5">
         <div class="container">
             <div class="bg-danger bg-gradient border-radius-1 p-3 my-3">
                 <h5 class="text-light d-flex align-items-center mb-0">
@@ -11,37 +11,59 @@
             </div>
             <div class="row">
                 <div class="col-lg-6">
+                    {{-- Invoices --}}
                     <div class="card border-radius-1 mb-3">
                         <div class="card-header bg-transparent fw-bold">
                             #KODE_TRANSAKSI
                         </div>
                         <div class="card-body">
-                            <table class="table table-borderless">
+                            <table class="table table-borderless mb-4">
                                 <thead>
                                     <tr>
                                         <th scope="col">No.</th>
                                         <th scope="col">Nama Barang</th>
-                                        <th scope="col" class="text-center">Jumlah</th>
                                         <th scope="col">Harga</th>
+                                        <th scope="col" class="text-center">Jumlah</th>
+                                        <th scope="col">Total Harga</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>1.</td>
                                         <td>Yumna Dress 2</td>
-                                        <td class="text-center">2</td>
                                         <td>Rp 190.000</td>
+                                        <td class="text-center">2</td>
+                                        <td>Rp 380.000</td>
                                     </tr>
                                     <tr>
                                         <td>2.</td>
-                                        <td>Yumna Dress 2</td>
-                                        <td class="text-center">2</td>
+                                        <td>Yumna Dress 3</td>
                                         <td>Rp 190.000</td>
+                                        <td class="text-center">2</td>
+                                        <td>Rp 380.000</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <hr>
+                            <table class="table table-borderless">
+                                <tbody>
+                                    <tr>
+                                        <td class="w-75 text-end">Total:</td>
+                                        <td class="w-25 fw-bold">Rp 760.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="w-75 text-end">Ongkos Pengiriman:</td>
+                                        <td class="w-25 fw-bold">Rp 20.000</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
+                        <div class="card-footer bg-transparent d-flex justify-content-end">
+                            <h6>Grand Total: Rp 780.000</h6>
+                        </div>
                     </div>
+                    {{-- Invoices End --}}
+
                     {{-- Bank Transfer --}}
                     <div class="card border-radius-1 mb-3">
                         <div class="card-header bg-transparent fw-bold d-flex justify-content-between align-items-center">
@@ -49,7 +71,7 @@
                             <i class='bx bx-credit-card'></i>
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
                                 <span>
                                     <div class="fw-bolder text-secondary">BNI (Akhmad Nur Hidayatullah)</div>
                                     <div class="fw-bolder">
@@ -69,6 +91,8 @@
                             </li>
                         </ul>
                     </div>
+                    {{-- Bank Transfer end --}}
+
                     {{-- E Wallet Transfer --}}
                     <div class="card border-radius-1 mb-3">
                         <div class="card-header bg-transparent fw-bold d-flex justify-content-between align-items-center">
@@ -76,7 +100,7 @@
                             <i class='bx bx-mobile-alt' ></i>
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
                                 <span>
                                     <div class="fw-bolder text-secondary">Gopay (Akhmad Nur Hidayatullah)</div>
                                     <div class="fw-bolder">
@@ -96,7 +120,10 @@
                             </li>
                         </ul>
                     </div>
+                    {{-- E Wallet Transfer end --}}
+
                 </div>
+
                 <div class="col-lg-6">
                     <div class="card border-radius-1 p-3">
                         <div class="card-body">
@@ -131,13 +158,14 @@
                                     <label for="trfNominal" class="form-label">Jumlah</label>
                                     <input type="text" class="form-control" id="trfNominal" value="300.000">
                                 </div>
-                                <button class="btn btn-pink" type="submit">Kirim</button>
+                                <button class="btn btn-pink btn-lg" type="submit">Konfirmasi</button>
                             </form>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+
+            </div> <!-- Row End -->
+        </div> <!-- container end -->
     </section>
 
 @endsection
