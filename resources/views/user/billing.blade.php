@@ -2,7 +2,7 @@
 
 @section('content')
     
-    <section class="invoices my-4">
+    <section class="billing my-4">
         <div class="container">
             <div class="bg-danger bg-gradient border-radius-1 p-3 my-3">
                 <h5 class="text-light d-flex align-items-center mb-0">
@@ -11,7 +11,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="card border-radius-1">
+                    <div class="card border-radius-1 mb-3">
                         <div class="card-header bg-transparent fw-bold">
                             #KODE_TRANSAKSI
                         </div>
@@ -41,6 +41,60 @@
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                    {{-- Bank Transfer --}}
+                    <div class="card border-radius-1 mb-3">
+                        <div class="card-header bg-transparent fw-bold d-flex justify-content-between align-items-center">
+                            <span>Bank Transfer</span>
+                            <i class='bx bx-credit-card'></i>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span>
+                                    <div class="fw-bolder text-secondary">BNI (Akhmad Nur Hidayatullah)</div>
+                                    <div class="fw-bolder">
+                                        8901882882
+                                    </div>
+                                </span>
+                                <img src="{{ asset('img/logo-bni.svg')}}" alt="Bank BNI" class="img-fluid" style="height: 1.25rem">
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
+                                <span>
+                                    <div class="fw-bolder text-secondary">BRI (Akhmad Nur Hidayatullah)</div>
+                                    <div class="fw-bolder">
+                                        14117289100928
+                                    </div>
+                                </span>
+                                <img src="{{ asset('img/logo-bri.svg')}}" alt="Bank BRI" class="img-fluid" style="height: 1.25rem">
+                            </li>
+                        </ul>
+                    </div>
+                    {{-- E Wallet Transfer --}}
+                    <div class="card border-radius-1 mb-3">
+                        <div class="card-header bg-transparent fw-bold d-flex justify-content-between align-items-center">
+                            <span>E Wallet</span>
+                            <i class='bx bx-mobile-alt' ></i>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span>
+                                    <div class="fw-bolder text-secondary">Gopay (Akhmad Nur Hidayatullah)</div>
+                                    <div class="fw-bolder">
+                                        08123456789
+                                    </div>
+                                </span>
+                                <img src="{{ asset('img/logo-gopay.svg')}}" alt="Gopay" class="img-fluid" style="height: 1.25rem">
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
+                                <span>
+                                    <div class="fw-bolder text-secondary">LinkAja (Akhmad Nur Hidayatullah)</div>
+                                    <div class="fw-bolder">
+                                        08123456789
+                                    </div>
+                                </span>
+                                <img src="{{ asset('img/logo-linkaja.svg')}}" alt="LinkAja" class="img-fluid" style="height: 2rem">
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div class="col-lg-6">

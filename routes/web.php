@@ -35,7 +35,7 @@ Route::view('cart', 'user.cart');
 Route::view('verify-email', 'user.verify-email');
 Route::view('complete-data', 'user.complete-data');
 Route::view('forgot-password', 'user.forgot-password');
-Route::view('invoices', 'user.invoices');
+Route::view('billing', 'user.billing');
 
 //Admin
 Route::get('/adm', [\App\Http\Controllers\admin\C_Overview::class, 'index']);

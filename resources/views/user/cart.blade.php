@@ -106,7 +106,7 @@
                                 <h4>Rp 300.000</h4>
                             </div>
                             <div class="d-grid mt-5">
-                                <a href="/invoices" class="btn btn-pink">Checkout</a>
+                                <a href="/billing" class="btn btn-pink">Checkout</a>
                             </div>
                         </div>
                     </div>
