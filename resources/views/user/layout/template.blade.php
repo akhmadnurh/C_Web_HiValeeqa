@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hi Valeeqa</title>
 
-    <link rel="apple-touch-icon" href="{{ asset('assets/img/apple-icon.png')}}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/favicon.ico')}}">
+    <link rel="apple-touch-icon" href="{{ asset('img/apple-icon.png')}}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/favicon.ico')}}">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </head>
 <body>

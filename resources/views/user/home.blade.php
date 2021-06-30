@@ -39,7 +39,7 @@
                                 </div>
                             </div>
                             <div class="col-4">
-                                <img src="{{ asset('assets/img/abayaweb1.png')}}" class="img-fluid" alt="Chayra Abaya">
+                                <img src="{{ asset('img/abayaweb1.png')}}" class="img-fluid" alt="Chayra Abaya">
                             </div>
                         </div>
                     </div>
@@ -59,7 +59,7 @@
                                 </div>
                             </div>
                             <div class="col-4">
-                                <img src="{{ asset('assets/img/abayaweb1.png')}}" class="img-fluid" alt="Yumna Dress">
+                                <img src="{{ asset('img/abayaweb1.png')}}" class="img-fluid" alt="Yumna Dress">
                             </div>
                         </div>
                     </div>
@@ -86,7 +86,7 @@
                     <a href="{{ url('/detail')."/".$item->product_id }}">
                         <div class="card border-0" style="height: 30rem;">
                             <div class="img-cart" style="overflow: hidden;">
-                                <img src="{{ asset('assets/img/produk/yumna2.png')}}" alt="aa" class="img-fluid">
+                                <img src="{{ asset('img/produk/yumna2.png')}}" alt="aa" class="img-fluid">
                             </div>
                             <div class="card-body">
                                 <h6 class="card-title text-center text-uppercase text-pink-dark">{{ $item->product_name }}</h6>

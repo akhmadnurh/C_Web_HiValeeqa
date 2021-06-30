@@ -19,7 +19,7 @@
         <div class="container mb-5">
             <div class="row">
                 <div class="col-lg-6 text-center">
-                    <img src="{{ asset('assets/img/produk/yumna2.png')}}" alt="Yumna Dress" style="height: 32rem">
+                    <img src="{{ asset('img/produk/yumna2.png')}}" alt="Yumna Dress" style="height: 32rem">
                 </div>
                 <div class="col-lg-6">
                     <h1 class="display-5 text-uppercase text-pink-dark">{{ $product->product_name }}</h1>
@@ -59,7 +59,7 @@
                         <div class="card border border-white" style="height: 30rem;border-radius: 1rem;">
                             <div class="img-cart"
                                  style="overflow: hidden;border-top-left-radius: 1rem;border-top-right-radius: 1rem;">
-                                <img src="{{ asset('assets/img/produk/yumna2.png')}}" alt="aa" class="img-fluid">
+                                <img src="{{ asset('img/produk/yumna2.png')}}" alt="aa" class="img-fluid">
                             </div>
                             <div class="card-body">
                                 <h6 class="card-title text-center text-uppercase text-pink-dark">{{ $item->product_name }}</h6>

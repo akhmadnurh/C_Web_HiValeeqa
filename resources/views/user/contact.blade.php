@@ -14,7 +14,7 @@
                     <div class="d-flex flex-column">
                         <h3 class="display-2 pe-4 mb-2">Kirim Pesan, Kritik atau Saran</h3>
                         <div class="p-5">
-                            <img src="{{ asset('assets/img/contact-us.svg')}}" alt="Contact Us" class="img-fluid">
+                            <img src="{{ asset('img/contact-us.svg')}}" alt="Contact Us" class="img-fluid">
                         </div>
                     </div>
                 </div>

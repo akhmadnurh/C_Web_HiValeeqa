@@ -18,7 +18,7 @@
                             <div class="row justify-content-center align-items-center">
                                 <div class="col-2">
                                     <div class="d-flex justify-content-center align-items-center">
-                                        <img src="{{ asset('assets/img/produk/yumna2.png')}}" alt="Yumna Dress">
+                                        <img src="{{ asset('img/produk/yumna2.png')}}" alt="Yumna Dress">
                                     </div>
                                 </div>
                                 <div class="col-3">
@@ -47,7 +47,7 @@
                             <div class="row justify-content-center align-items-center">
                                 <div class="col-2">
                                     <div class="d-flex justify-content-center align-items-center">
-                                        <img src="{{ asset('assets/img/produk/yumna2.png')}}" alt="Yumna Dress">
+                                        <img src="{{ asset('img/produk/yumna2.png')}}" alt="Yumna Dress">
                                     </div>
                                 </div>
                                 <div class="col-3">

@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hi Valeeqa</title>
 
-    <link rel="apple-touch-icon" href="{{ asset('assets/img/apple-icon.png')}}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/favicon.ico')}}">
+    <link rel="apple-touch-icon" href="{{ asset('img/apple-icon.png')}}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/favicon.ico')}}">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </head>
 <body class="bg-light">
@@ -16,11 +16,11 @@
         <div class="card-body">
             <div class="row">
                 <div class="d-none d-lg-inline col-lg-7">
-                    <img src="{{ asset('assets/img/window-shop.svg')}}" alt="Daftar Akun" class="img-fluid w-75">
+                    <img src="{{ asset('img/window-shop.svg')}}" alt="Daftar Akun" class="img-fluid w-75">
                 </div>
                 <div class="col-12 col-lg-5">
                     <h6 class="text-uppercase d-flex align-items-center">
-                        <img src="{{ asset('assets/img/hi-valeeqa.png')}}" class="float-left me-2" alt="Hi Valeeqa"
+                        <img src="{{ asset('img/hi-valeeqa.png')}}" class="float-left me-2" alt="Hi Valeeqa"
                              style="height: 1rem">
                         Hi Valeeqa
                     </h6>

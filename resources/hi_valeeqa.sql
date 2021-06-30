@@ -80,7 +80,7 @@ CREATE TABLE `gambar` (
 
 INSERT INTO `gambar` (`id_produk`, `lokasi_gambar`) VALUES
 (14, 'images/product-img/yumna1.png'),
-(15, 'images/product-img/yumna2.png'),
+(15, 'images/product-img/abayaweb1.png'),
 (16, 'images/product-img/yumna3.png'),
 (17, 'images/product-img/yumna4.png'),
 (18, 'images/product-img/yumna5.png'),

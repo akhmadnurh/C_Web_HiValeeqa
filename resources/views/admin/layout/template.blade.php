@@ -5,8 +5,8 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <title>Admin &mdash; {{ config('app.name')}}</title>
 
-    <link rel="apple-touch-icon" href="{{ asset('assets/img/apple-icon.png')}}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/favicon.ico')}}">
+    <link rel="apple-touch-icon" href="{{ asset('img/apple-icon.png')}}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/favicon.ico')}}">
 
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('admin/modules/bootstrap/dist/css/bootstrap.min.css')}}">

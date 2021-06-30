@@ -5,7 +5,7 @@
             <a href="index.html">{{ config('app.name')}}</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html"><img src="{{ asset('/assets/img/logo-hv.svg')}}"></a>
+            <a href="index.html"><img src="{{ asset('img/logo-hv.svg')}}"></a>
         </div>
         <ul class="sidebar-menu">
             <li><a class="nav-link" href="{{ url('/adm') }}"><i class="fas fa-fire"></i> <span>Dashboard</span></a></li>
