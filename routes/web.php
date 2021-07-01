@@ -13,11 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::view('admin/index', 'admin.home');
-//Route::view('admin/management-user', 'admin.manage_user');
-//Route::view('admin/management-user/tambah', 'admin.manage_user_tambah');
-//Route::view('admin/management-user/edit', 'admin.manage_user_edit');
-
 Route::get('/', [\App\Http\Controllers\user\C_Overview::class, 'index']);
 Route::post('/login', [\App\Http\Controllers\user\C_Overview::class, 'login']);
 Route::get('/register', [\App\Http\Controllers\user\C_Overview::class, 'register']);
@@ -29,13 +24,11 @@ Route::post('/verify-email', [\App\Http\Controllers\user\C_User::class, 'verifyE
 Route::post('/forgot-password', [\App\Http\Controllers\user\C_Overview::class, 'forgotPassword']);
 
 
-Route::view('login', 'user.login');
 Route::view('shop', 'user.shop');
 Route::view('contact', 'user.contact');
 Route::view('cart', 'user.cart');
-Route::view('verify-email', 'user.verify-email');
 Route::view('complete-data', 'user.complete-data');
-Route::view('forgot-password', 'user.forgot-password');
+Route::view('reset-password', 'user.reset-password');
 Route::view('billing', 'user.billing');
 
 //Admin

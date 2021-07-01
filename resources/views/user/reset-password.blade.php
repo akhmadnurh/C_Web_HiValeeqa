@@ -20,25 +20,20 @@
                     <img src="{{ asset('img/hi-valeeqa.png') }}" class="float-left me-2" alt="Hi Valeeqa" style="height: 1rem">
                     Hi Valeeqa
                 </h6>
-                <h2 class="my-4 text-pink">Lupa Password</h2>
-                <form action="{{ url('forgot-password') }}" method="post">
-                    @if (session()->has('status'))
-                        <div class="alert {{ session()->get('status') == 'success' ? 'alert-success' : 'alert-danger' }}">
-                            {{ session()->get('msg') }}
-                        </div>
-                        {{ session()->forget(['status', 'msg']) }}
-                    @endif
+                <h2 class="my-4 text-pink">Reset Password</h2>
+                <form action="#" method="post">
                     <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" placeholder="example@email.com" id="email" name="email" required>
+                        <label for="newPassword" class="form-label">Password Baru</label>
+                        <input type="password" class="form-control" id="newPassword" name="newPassword" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirmPassword" class="form-label">Ulangi Password</label>
+                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
                     </div>
                     <div class="d-grid mb-5">
-                        <button class="btn btn-pink btn-lg">Kirim</button>
+                        <button class="btn btn-pink btn-lg">Reset</button>
                     </div>
                 </form>
-                <div class="d-flex justify-content-center align-items-center">
-                    <a href="/login" class="text-pink me-1">Masuk</a> atau <a href="/register" class="text-pink ms-1">Daftar</a>
-                </div>
             </div>
         </div>
     </div>
