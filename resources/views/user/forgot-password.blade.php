@@ -25,6 +25,7 @@
                 @if(session()->has('status'))
                     <div
                         class="alert {{ session()->get('status') == 'success' ? 'alert-success' : 'alert-danger' }}">{{ session()->get('msg') }}</div>
+                    {{ session()->forget(['status', 'msg']) }}
                 @endif
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
