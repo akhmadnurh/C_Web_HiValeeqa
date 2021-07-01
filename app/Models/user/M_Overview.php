@@ -29,9 +29,22 @@ class M_Overview extends Model
         return $result;
     }
 
-    public function getRandomProducts(){
+    public function getRandomProducts()
+    {
         $query = DB::table('product')->select('*')->inRandomOrder()->limit(4)->get();
         return $query;
     }
 
+    public function forgotPassword($input)
+    {
+        $query = DB::table('user')->select(['user_id', 'name'])->where('email', '=', $input);
+        $data['count'] = $query->count();
+        $data['data'] = $query->first();
+        return $data;
+    }
+
+    public function saveResetPasswordToken($email, $token)
+    {
+        return DB::table('reset_password')->insert(['email' => $email, 'token' => $token]);
+    }
 }

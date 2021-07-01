@@ -54,7 +54,7 @@ class C_User extends Controller
         Mail::to($email)->send(new HiValeeqaMail($name, $token));
     }
 
-    private function generateToken()
+    public function generateToken()
     {
         return Str::random('6');
     }

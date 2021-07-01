@@ -26,6 +26,7 @@ Route::get('/logout', [\App\Http\Controllers\user\C_Overview::class, 'logout']);
 
 Route::get('/detail/{id}', [\App\Http\Controllers\user\C_Product::class, 'detail'])->whereNumber('id');
 Route::post('/verify-email', [\App\Http\Controllers\user\C_User::class, 'verifyEmail']);
+Route::post('/forgot-password', [\App\Http\Controllers\user\C_Overview::class, 'forgotPassword']);
 
 
 Route::view('login', 'user.login');
