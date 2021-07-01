@@ -17,7 +17,7 @@
             <div class="section-body">
 
                 <div class="d-flex justify-content-start mb-3">
-                    <a class="btn btn-lg btn-primary" href="/adm/product/add"><i class="fas fa-user-plus mr-1"></i> Tambah Produk</a>
+                    <a class="btn btn-lg btn-primary" href="/adm/product/add"><i class="fas fa-plus mr-1"></i> Tambah Produk</a>
                 </div>
 
                 <div class="row">
@@ -29,18 +29,20 @@
                                         <thead>
                                             <tr>
                                                 <th style="width: 4.5%;">No.</th>
+                                                <th style="width: 9%;">Gambar</th>
                                                 <th style="width: 13.5%;">Nama Produk</th>
                                                 <th style="width: 9%;">Stok</th>
                                                 <th style="width: 9%;">Bahan</th>
                                                 <th style="width: 9%;">Warna</th>
                                                 <th style="width: 13.5%;">Harga</th>
                                                 <th style="width: 22.5%;">Deskripsi</th>
-                                                <th style="width: 18%;">Action</th>
+                                                <th style="width: 9%;">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td>1.</td>
+                                                <td><img src="{{ asset('img/produk/yumna2.png')}}" alt="nama produk" class="img-fluid"></td>
                                                 <td>Yumna Dress</td>
                                                 <td>120</td>
                                                 <td>Katun</td>
