@@ -29,7 +29,6 @@
                         <form action="{{ url('login') }}" method="POST">
                             @if(session()->has('status'))
                                 <div class="alert {{ session('status') == 'success' ? 'alert-success' : 'alert-danger' }}">{{ session('msg') }}</div>
-                                {{ session()->forget(['status', 'msg']) }}
                             @endif
                             <div class="mb-3">
                                 <input type="text" class="form-control" id="userEmail" name="userEmail"
@@ -39,18 +38,22 @@
                                 <input type="password" class="form-control" id="password" name="password"
                                     placeholder="Password" required>
                             </div>
-                            <div class="mb-3 justify-content-end d-flex">
-                                <a href="/forgot-password" class="text-pink">Lupa Password?</a>
+                            <div class="mb-3 {{ session()->has('status') && session('status') == 'error-email' ? 'justify-content-between' : 'justify-content-end' }} d-flex">
+                                @if(session()->has('status') && session('status') == 'error-email')
+                                    <a href="{{ url('/resend-email-token').'?email='.session('email') }}" class="text-pink">Kirim ulang kode</a>
+                                    {{ session()->forget(['status', 'msg', 'email']) }}
+                                @endif
+                                <a href="{{ url('/forgot-password') }}" class="text-pink">Lupa Password?</a>
                             </div>
                             <div class="d-grid mb-3">
                                 <button type="submit" class="btn btn-pink btn-lg">Masuk</button>
                             </div>
                         </form>
                         <div class="d-grid">
-                            <a href="/" class="btn btn-light btn-lg">Back to Home</a>
+                            <a href="{{ url('/') }}" class="btn btn-light btn-lg">Back to Home</a>
                         </div>
                         <div class="d-flex justify-content-center align-items-center mt-5">
-                            Belum Punya Akun? <a href="/register" class="text-pink ms-1">Daftar</a>
+                            Belum Punya Akun? <a href="{{ url('/register') }}" class="text-pink ms-1">Daftar</a>
                         </div>
                     </div>
                 </div>

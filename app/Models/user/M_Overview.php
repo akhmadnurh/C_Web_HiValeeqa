@@ -15,9 +15,11 @@ class M_Overview extends Model
         $result = $query->first();
         if ($count > 0) {
             // Cek apakah email sudah terverifikasi atau belum
-            $query = DB::table('email_verification')->select("status")->where('email', '=', $result->email)->count();
-            if ($query < 1) {
-                return 'error-verification';
+            $query = DB::table('email_verification')->select("status")->where('email', '=', $result->email)->first();
+            if ($query->status < 1) {
+                $data['email'] = $result->email;
+                $data['status'] = 'error-verification';
+                return $data;
             } else {
                 session(['loggedIn' => true]);
                 session(['id' => $result->user_id]);
@@ -26,7 +28,8 @@ class M_Overview extends Model
                 session(['role' => $result->role]);
             }
         }
-        return $result;
+        $data['status'] = 'success';
+        return $data;
     }
 
     public function getRandomProducts()
@@ -45,6 +48,41 @@ class M_Overview extends Model
 
     public function saveResetPasswordToken($email, $token)
     {
-        return DB::table('reset_password')->insert(['email' => $email, 'token' => $token]);
+        // Check email if exist on reset_password table
+        $query = DB::table('reset_password')->select('*')->where('email', $email)->count();
+        if ($query > 0) {
+            return DB::table('reset_password')->where('email', $email)->update(['token' => $token]);
+        } else {
+            return DB::table('reset_password')->insert(['email' => $email, 'token' => $token]);
+        }
+
+    }
+
+    public function checkToken($token)
+    {
+        return DB::table('reset_password')->select('*')->where('token', '=', $token)->count();
+    }
+
+    public function resetPasswordProcess($input)
+    {
+        $email = DB::table('reset_password')->select('email')->where('token', $input['t'])->first();
+        $email = $email->email;
+        return DB::table('user')->where('email', '=', $email)->update(['password' => md5($input['newPassword'])]);
+    }
+
+    public function removeResetPasswordToken($token)
+    {
+        DB::table('reset_password')->where('token', '=', $token)->delete();
+    }
+
+    public function updateEmailToken($email, $token)
+    {
+        DB::table('email_verification')->where('email', $email)->update(['token' => $token]);
+    }
+
+    public function getName($email)
+    {
+        $query = DB::table('user')->select('name')->where('email', $email)->first();
+        return $query->name;
     }
 }

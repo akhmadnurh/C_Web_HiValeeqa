@@ -27,7 +27,9 @@ Route::get('/logout', [\App\Http\Controllers\user\C_Overview::class, 'logout']);
 Route::get('/detail/{id}', [\App\Http\Controllers\user\C_Product::class, 'detail'])->whereNumber('id');
 Route::post('/verify-email', [\App\Http\Controllers\user\C_User::class, 'verifyEmail']);
 Route::post('/forgot-password', [\App\Http\Controllers\user\C_Overview::class, 'forgotPassword']);
-
+Route::get('/reset-password', [\App\Http\Controllers\user\C_Overview::class, 'resetPasswordCheckToken']);
+Route::post('/reset-password', [\App\Http\Controllers\user\C_Overview::class, 'resetPasswordProcess']);
+Route::get('//resend-email-token', [\App\Http\Controllers\user\C_Overview::class, 'resendEmailToken']);
 
 Route::view('login', 'user.login');
 Route::view('shop', 'user.shop');
@@ -36,7 +38,6 @@ Route::view('cart', 'user.cart');
 Route::view('verify-email', 'user.verify-email');
 Route::view('complete-data', 'user.complete-data');
 Route::view('forgot-password', 'user.forgot-password');
-Route::view('reset-password', 'user.reset-password');
 Route::view('billing', 'user.billing');
 
 //Admin

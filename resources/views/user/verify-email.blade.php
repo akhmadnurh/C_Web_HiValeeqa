@@ -18,9 +18,6 @@
                         <div class="mb-3">
                             <input type="text" class="form-control w-50" placeholder="Kode" name="token" required>
                         </div>
-                        <div class="mb-3">
-                            <a href="#" class="text-pink">Kirim ulang?</a>
-                        </div>
                         <button class="btn-pink btn">Submit</button>
                     </form>
                 </div>

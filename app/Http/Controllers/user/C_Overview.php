@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
+use App\Mail\HiValeeqaMail;
+use App\Mail\resendToken;
 use App\Mail\resetPassword;
 use App\Models\user\M_Overview;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 class C_Overview extends Controller
 {
@@ -23,13 +26,14 @@ class C_Overview extends Controller
         $login = $model->login($request->input());
         if ($login !== null) {
             // Jika belum verifikasi
-            if ($login == 'error-verification') {
-                session(['status' => 'error']);
-                session(['msg' => 'Email belum diverifikasi, mohon periksa kembali email anda.']);
+            if ($login['status'] == 'error-verification') {
+                session(['status' => 'error-email']);
+                session(['email' => $login['email']]);
+                session(['msg' => 'Email belum diverifikasi, mohon periksa kembali email anda']);
                 return redirect('/login');
             } else {
                 // Jika sudah verifikasi
-                if ($login->role == '1') {
+                if (session('role') == '1') {
                     return redirect('/adm');
                 } else {
                     return redirect('/');
@@ -88,5 +92,54 @@ class C_Overview extends Controller
     public function sendResetPasswordEmail($email, $name, $token)
     {
         Mail::to($email)->send(new resetPassword($name, $token));
+    }
+
+    public function resetPasswordCheckToken(Request $request)
+    {
+        $model = new M_Overview();
+        if ($request->input('t') !== null) {
+            $checkToken = $model->checkToken($request->input('t'));
+            if ($checkToken > 0) {
+                $data['token'] = $request->input('t');
+                $data['status'] = 'success';
+            } else {
+                $data['token'] = '';
+                $data['status'] = 'error';
+            }
+            return view('user.reset-password', $data);
+        } else {
+            $data['token'] = '';
+            $data['status'] = 'error';
+            return view('user.reset-password', $data);
+        }
+    }
+
+    public function resetPasswordProcess(Request $request){
+        $input = $request->input();
+        $model = new M_Overview();
+        $reset = $model->resetPasswordProcess($input);
+        if($reset){
+            $model->removeResetPasswordToken($input['t']);
+            session(['status' => 'success']);
+            session(['msg' => 'Password berhasil diubah!']);
+            return redirect('/login');
+        }
+    }
+
+    public function resendEmailToken(Request $request){
+        $email = $request->input('email');
+        $token = Str::random('6');
+        $model = new M_Overview();
+        $name = $model->getName($email);
+
+        // Update database
+        $model->updateEmailToken($email, $token);
+
+        // Send email
+        Mail::to($email)->send(new resendToken($name, $token));
+
+        session(['status' => 'success']);
+        session(['msg' => 'Token berhasil dikirim! Silakan cek email anda']);
+        return redirect('/login');
     }
 }
