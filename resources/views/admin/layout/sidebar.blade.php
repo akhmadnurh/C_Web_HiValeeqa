@@ -15,6 +15,8 @@
             <li class="menu-header">Produk & Kategori</li>
             <li><a class="nav-link" href="{{ url('/adm/product') }}"><i class="fas fa-cube"></i> <span>Produk</span></a></li>
             <li><a class="nav-link" href="{{ url('/adm/category') }}"><i class="fas fa-th-list"></i> <span>Kategori</span></a></li>
+            <li class="menu-header">Transaksi</li>
+            <li><a class="nav-link" href="{{ url('/adm/product') }}"><i class="fas fa-cube"></i> <span>Produk</span></a></li>
         </ul>
     </aside>
 </div>

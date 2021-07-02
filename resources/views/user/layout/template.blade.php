@@ -19,5 +19,8 @@
     @include('user/layout.footer')
 
     <script src="{{ mix('js/app.js') }}"></script>
+    
+    @yield('script')
+    
 </body>
 </html>

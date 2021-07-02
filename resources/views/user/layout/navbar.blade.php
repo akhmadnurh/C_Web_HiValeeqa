@@ -77,45 +77,29 @@
 </nav>
 
 
-<!-- Modal -->
-<div class="modal fade" id="login" tabindex="-1" aria-labelledby="loginLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content p-2" style="border-radius: 2rem;">
-        <div class="modal-header border-0">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <h3 class="modal-title mb-4" id="loginLabel">Masuk</h3>
-            <form action="{{ url('login') }}" method="POST">
-                <div class="mb-3">
-                  <label for="userEmail" class="form-label">Email/Username</label>
-                  <input type="text" class="form-control" id="userEmail" name="userEmail" placeholder="Email/Username">
-                </div>
-                <div class="mb-3">
-                  <label for="password" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="password" name="password" placeholder="********">
-                </div>
-                <div class="row">
-                    <div class="col-12 col-md-6">
-                        <div class="mb-3 form-check">
-                          <input type="checkbox" class="form-check-input" id="showPass">
-                          <label class="form-check-label" for="showPass">Show Password</label>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="d-flex justify-content-end">
-                            <a href="#" class="text-decoration-none text-pink">Lupa Password?</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex justify-content-center mt-5">
-                    <button type="submit" class="btn btn-pink btn-lg">Masuk</button>
-                </div>
-            </form>
-        </div>
-        <div class="modal-footer justify-content-center border-0">
-          Belum punya akun? <a href="#" class="text-decoration-none text-pink">Daftar</a>
-        </div>
-      </div>
-    </div>
-</div>
+<script>
+    activeNavLink();
+    newProductLink();
+
+    // Navbar Link
+    function activeNavLink() {
+        const currentLink = window.location.href;
+        const navLink = document.querySelectorAll('#navList li a');
+        for (let i = 0; i < navLink.length; i++) {
+            if (navLink[i].href === currentLink) {
+                navLink[i].classList.add('active');
+            }
+        }
+
+    }
+    function newProductLink() {
+        const newProduct = document.getElementById('newProductLink');
+        const baseUrl = window.location.origin;
+        newProduct.addEventListener('click', function () {
+            const currentLink = window.location.href;
+            if (currentLink !== baseUrl) {
+                window.location.replace(baseUrl + '/#new-product');
+            }
+        });    
+    }
+</script>

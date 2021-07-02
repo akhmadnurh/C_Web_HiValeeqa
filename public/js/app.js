@@ -1850,20 +1850,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.bootstrap = __webpack_require__(/*! bootstrap/dist/js/bootstrap.bundle.js */ "./node_modules/bootstrap/dist/js/bootstrap.bundle.js");
 
- // var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl);
-// });
-// var myToastEl = document.getElementById('liveToastBtn')
-// myToastEl.addEventListener('click', function () {
-//    const id = document.getElementById('liveToast');
-//    const toastEl = new bootstrap.Toast(id);
-//    toastEl.show();
-// });
-// var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-// var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-//   return new bootstrap.Tooltip(tooltipTriggerEl)
-// });
+
 
 /***/ }),
 
@@ -1905,43 +1892,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ (() => {
 
 // Ini JS Custom
-activeNavLink();
-newProductLink();
-transferDate(); // Navbar Link
-
-function activeNavLink() {
-  var currentLink = window.location.href;
-  var navLink = document.querySelectorAll('#navList li a');
-
-  for (var i = 0; i < navLink.length; i++) {
-    if (navLink[i].href === currentLink) {
-      navLink[i].classList.add('active');
-    }
-  }
-}
-
-function newProductLink() {
-  var newProduct = document.getElementById('newProductLink');
-  var baseUrl = window.location.origin;
-  newProduct.addEventListener('click', function () {
-    var currentLink = window.location.href;
-
-    if (currentLink !== baseUrl) {
-      window.location.replace(baseUrl + '/#new-product');
-    }
-  });
-} // Billing
-
-
-function transferDate() {
-  Date.prototype.toDateInputValue = function () {
-    var local = new Date(this);
-    local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
-    return local.toJSON().slice(0, 10);
-  };
-
-  document.getElementById('trfDate').value = new Date().toDateInputValue();
-}
 
 /***/ }),
 
