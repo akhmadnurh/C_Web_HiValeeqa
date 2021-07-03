@@ -30,13 +30,15 @@
                             @if(session()->has('status'))
                                 <div class="alert {{ session('status') == 'success' ? 'alert-success' : 'alert-danger' }}">{{ session('msg') }}</div>
                             @endif
-                            <div class="mb-3">
+                            <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="userEmail" name="userEmail"
                                     placeholder="Username/Email" required>
+                                <label for="userEmail" class="text-secondary">Username/Email</label>
                             </div>
-                            <div class="mb-3">
+                            <div class="form-floating mb-3">
                                 <input type="password" class="form-control" id="password" name="password"
                                     placeholder="Password" required>
+                                <label for="password" class="text-secondary">Password</label>
                             </div>
                             <div class="mb-3 {{ session()->has('status') && session('status') == 'error-email' ? 'justify-content-between' : 'justify-content-end' }} d-flex">
                                 @if(session()->has('status') && session('status') == 'error-email')

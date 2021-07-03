@@ -29,8 +29,9 @@
                         <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="userManageMobile">
                             <li><span class="dropdown-item-text">Hai, user</span></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#"><i class='bx bx-user-circle me-2'></i> Akun</a></li>
-                            <li><a class="dropdown-item" href="#"><i class='bx bx-heart me-2'></i> Wishlist</a></li>
+                            <li><a class="dropdown-item" href="/profile"><i class='bx bx-user-circle me-2'></i> Akun</a></li>
+                            <li><a class="dropdown-item" href="/transaction"><i class='bx bx-receipt me-2'></i> Wishlist</a></li>
+                            <li><a class="dropdown-item" href="/wishlist"><i class='bx bx-heart me-2'></i> Wishlist</a></li>
                             <li><a class="dropdown-item" href="{{ url('logout') }}"><i class='bx bx-log-out me-2'></i> Keluar</a></li>
                         </ul>
                     </div>
@@ -56,8 +57,9 @@
                     <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="userManage">
                         <li><span class="dropdown-item-text">Hai, user</span></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#"><i class='bx bx-user-circle me-2'></i> Akun</a></li>
-                        <li><a class="dropdown-item" href="#"><i class='bx bx-heart me-2'></i> Wishlist</a></li>
+                        <li><a class="dropdown-item" href="/profile"><i class='bx bx-user-circle me-2'></i> Akun Saya</a></li>
+                        <li><a class="dropdown-item" href="/transaction"><i class='bx bx-receipt me-2'></i> Transaksi Saya</a></li>
+                        <li><a class="dropdown-item" href="/wishlist"><i class='bx bx-heart me-2'></i> Wishlist</a></li>
                         <li><a class="dropdown-item" href="{{ url('logout') }}"><i class='bx bx-log-out me-2'></i> Keluar</a></li>
                     </ul>
                 </div>

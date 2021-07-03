@@ -39,6 +39,11 @@ Route::view('verify-email', 'user.verify-email');
 Route::view('complete-data', 'user.complete-data');
 Route::view('forgot-password', 'user.forgot-password');
 Route::view('billing', 'user.billing');
+Route::view('profile', 'user/account.profile');
+Route::view('address', 'user/account.address');
+Route::view('change-password', 'user/account.change-password');
+Route::view('transaction', 'user.transaction');
+Route::view('wishlist', 'user.wishlist');
 
 //Admin
 Route::get('/adm', [\App\Http\Controllers\admin\C_Overview::class, 'index']);

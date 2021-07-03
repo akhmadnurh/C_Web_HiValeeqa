@@ -7,6 +7,10 @@
 }
 
 /* Umum */
+    /* Font */
+    .fw-600 {
+        font-weight: 600;
+    }
     /* Link */
     a {
         text-decoration: none;
@@ -87,6 +91,13 @@
     border-color: var(--hv-pink);
     box-shadow: 0 0 0 0.25rem rgba(232, 124, 128, 0.25);
 }
+.form-check-input:checked {
+    background-color: var(--hv-pink);
+    border-color: var(--hv-pink);
+}
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.25rem rgba(232, 124, 128, 0.25);
+}
 
 
 /* Nav */
@@ -165,6 +176,23 @@ span.item-qty {
     box-shadow: 0 0 0 0.25rem rgba(232, 124, 128, 0.25);
     color: var(--hv-pink);
 }
+
+/* My Account */
+    /* Sidebar */
+    #sidebarMyAcc li a{
+        color: rgba(0, 0, 0, 0.55);
+        transition: .2s ease-in;
+    }
+    #sidebarMyAcc li a:hover{
+        color: var(--hv-pink);
+    }
+    #sidebarMyAcc li a.active{
+        color: var(--hv-pink);
+    }
+    #sidebarMyAcc li{
+        margin-bottom: 1rem;
+    }
+
 
 /* Footer */
 section.footer {
