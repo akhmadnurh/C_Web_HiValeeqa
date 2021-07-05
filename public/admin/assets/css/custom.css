@@ -6,3 +6,27 @@
  */
 
 /*# sourceMappingURL=custom.css.map */
+body.sidebar-mini .main-sidebar {
+    width: 65px !important;
+}
+body.sidebar-mini .navbar {
+    left: 65px !important;
+}
+body.sidebar-mini .main-content {
+    padding-left: 95px !important;
+}
+body.sidebar-mini .main-footer {
+    padding-left: 95px !important;
+}
+.main-sidebar {
+    width: 320px !important;
+}
+.navbar {
+    left: 320px !important;
+}
+.main-content {
+    padding-left: 350px !important;
+}
+.main-footer {
+    padding-left: 350px !important;
+}

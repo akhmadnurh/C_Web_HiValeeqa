@@ -59,7 +59,7 @@
                             </table>
                         </div>
                         <div class="card-footer bg-transparent d-flex justify-content-end">
-                            <h6>Grand Total: Rp 780.000</h6>
+                            <h4>Grand Total: Rp 780.000</h4>
                         </div>
                     </div>
                     {{-- Invoices End --}}

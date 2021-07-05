@@ -23,6 +23,7 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('admin/assets/css/style.css')}}">
     <link rel="stylesheet" href="{{ asset('admin/assets/css/components.css')}}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/custom.css')}}">
 </head>
 @if(session('role') != 1)
     <script>location.href = '{{ url('/') }}'</script>
