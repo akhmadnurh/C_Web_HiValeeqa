@@ -3,7 +3,9 @@
     {{-- Username --}}
     <div class="d-flex flex-row">
         <div class="me-2">
-            <i class='bx bx-user-circle text-secondary' style="font-size: 3rem"></i>
+            <div class="img-user-side">
+                <img src="{{ asset('img/users/default.png')}}" alt="username">
+            </div>
         </div>
         <div class="d-flex flex-column">
             <div class="fw-bold">Username</div>
