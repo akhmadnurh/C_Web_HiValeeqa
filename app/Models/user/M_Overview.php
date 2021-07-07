@@ -27,8 +27,11 @@ class M_Overview extends Model
                 session(['name' => $result->name]);
                 session(['role' => $result->role]);
             }
+            $data['status'] = 'success';
+        }else{
+            $data['status'] = 'error';
         }
-        $data['status'] = 'success';
+
         return $data;
     }
 

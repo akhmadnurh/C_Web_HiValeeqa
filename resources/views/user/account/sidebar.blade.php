@@ -8,7 +8,7 @@
             </div>
         </div>
         <div class="d-flex flex-column">
-            <div class="fw-bold">Username</div>
+            <div class="fw-bold">{{ session()->get('name') }}</div>
             <a href="#" class="text-secondary d-flex align-items-center">
                 <i class='bx bxs-pencil me-1' ></i>
                 <span>Ubah Profile</span>
@@ -45,7 +45,7 @@
                 Transaksi Saya
             </a>
         </li>
-        
+
         {{-- wishlist --}}
         <li>
             <a href="/wishlist" class="d-flex align-items-center fw-600">

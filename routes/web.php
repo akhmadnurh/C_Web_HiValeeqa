@@ -31,6 +31,9 @@ Route::get('/reset-password', [\App\Http\Controllers\user\C_Overview::class, 're
 Route::post('/reset-password', [\App\Http\Controllers\user\C_Overview::class, 'resetPasswordProcess']);
 Route::get('/resend-email-token', [\App\Http\Controllers\user\C_Overview::class, 'resendEmailToken']);
 
+Route::get('/profile', [\App\Http\Controllers\user\C_User::class, 'profile']);
+Route::post('/profile', [\App\Http\Controllers\user\C_User::class, 'updateProfile']);
+
 Route::view('login', 'user.login');
 Route::view('shop', 'user.shop');
 Route::view('contact', 'user.contact');
@@ -39,7 +42,6 @@ Route::view('verify-email', 'user.verify-email');
 Route::view('complete-data', 'user.complete-data');
 Route::view('forgot-password', 'user.forgot-password');
 Route::view('billing', 'user.billing');
-Route::view('profile', 'user/account.profile');
 Route::view('address', 'user/account.address');
 Route::view('change-password', 'user/account.change-password');
 Route::view('transaction', 'user.transaction');

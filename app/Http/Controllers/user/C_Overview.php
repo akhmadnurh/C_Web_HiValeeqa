@@ -24,7 +24,7 @@ class C_Overview extends Controller
     {
         $model = new M_Overview();
         $login = $model->login($request->input());
-        if ($login !== null) {
+        if ($login !== null && $login['status'] !== 'error') {
             // Jika belum verifikasi
             if ($login['status'] == 'error-verification') {
                 session(['status' => 'error-email']);

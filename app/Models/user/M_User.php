@@ -42,4 +42,14 @@ class M_User extends Model
     {
         return DB::table('email_verification')->where('token', '=', $token)->update(['status' => 1]);
     }
+
+    public function getProfile($id)
+    {
+        return DB::table('user')->select('*')->where('user_id', $id)->first();
+    }
+
+    public function updateProfile($input, $id)
+    {
+        return DB::table('user')->where('user_id', $id)->update(['name' => $input['name'], 'email' => $input['email'], 'whatsapp' => $input['nohp'], 'gender' => $input['gender']]);
+    }
 }

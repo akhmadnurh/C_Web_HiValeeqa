@@ -74,4 +74,27 @@ class C_User extends Controller
             return redirect('/verify-email');
         }
     }
+
+    public function profile()
+    {
+        $model = new M_User();
+        $data['user'] = $model->getProfile(session()->get('id'));
+
+        return view('user.account.profile', $data);
+    }
+
+    public function updateProfile(Request $request)
+    {
+        $model = new M_User();
+        $update = $model->updateProfile($request->input(), session()->get('id'));
+        if($update){
+            session(['msg' => 'Data berhasil diperbarui.']);
+            session(['status' => 'success']);
+        }else{
+            session(['msg' => 'Data gagal diperbarui.']);
+            session(['status' => 'error']);
+        }
+
+        return redirect('/profile');
+    }
 }
