@@ -87,14 +87,33 @@ class C_User extends Controller
     {
         $model = new M_User();
         $update = $model->updateProfile($request->input(), session()->get('id'));
-        if($update){
+        if ($update) {
             session(['msg' => 'Data berhasil diperbarui.']);
             session(['status' => 'success']);
-        }else{
+        } else {
             session(['msg' => 'Data gagal diperbarui.']);
             session(['status' => 'error']);
         }
 
         return redirect('/profile');
+    }
+
+    public function changePassword(Request $request)
+    {
+        $model = new M_User();
+
+        //Check password
+        $checkPassword = $model->checkPassword($request->input('passwordNow'));
+        if ($checkPassword > 0) {
+            $model->changePassword($request->input('newPassword'));
+
+            session(['msg' => 'Data berhasil diperbarui.']);
+            session(['status' => 'success']);
+        } else {
+            session(['msg' => 'Password lama tidak sesuai.']);
+            session(['status' => 'error']);
+        }
+
+        return redirect('/change-password');
     }
 }

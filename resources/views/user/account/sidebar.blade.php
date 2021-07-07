@@ -9,7 +9,7 @@
         </div>
         <div class="d-flex flex-column">
             <div class="fw-bold">{{ session()->get('name') }}</div>
-            <a href="#" class="text-secondary d-flex align-items-center">
+            <a href="{{ url('profile') }}" class="text-secondary d-flex align-items-center">
                 <i class='bx bxs-pencil me-1' ></i>
                 <span>Ubah Profile</span>
             </a>

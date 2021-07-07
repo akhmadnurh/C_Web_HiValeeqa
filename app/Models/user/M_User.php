@@ -52,4 +52,14 @@ class M_User extends Model
     {
         return DB::table('user')->where('user_id', $id)->update(['name' => $input['name'], 'email' => $input['email'], 'whatsapp' => $input['nohp'], 'gender' => $input['gender']]);
     }
+
+    public function checkPassword($pwd)
+    {
+        return DB::table('user')->select('*')->where('user_id', session()->get('id'))->where('password', md5($pwd))->count();
+    }
+
+    public function changePassword($pwd)
+    {
+        return DB::table('user')->where('user_id', session()->get('id'))->update(['password' => md5($pwd)]);
+    }
 }
