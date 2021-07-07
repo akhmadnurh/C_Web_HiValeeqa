@@ -1,7 +1,7 @@
 @extends('admin/layout.template')
 
 @section('content')
-    
+
     <div class="main-content">
         <section class="section">
 
@@ -13,7 +13,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <form action="#" class="needs-validation" novalidate="">
+                            <form action="{{ url('adm/category/add') }}" class="needs-validation" method="post">
                                 <div class="card-body">
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label" for="categoryName">Nama Kategori</label>
@@ -25,7 +25,7 @@
                                         </div>
                                     </div>
                                     <div class="card-footer text-right">
-                                        <a class="btn btn-secondary btn-lg mr-2" href="/adm/category">Batal</a>
+                                        <a class="btn btn-secondary btn-lg mr-2" href="{{ url('/adm/category') }}">Batal</a>
                                         <button class="btn btn-primary btn-lg" type="submit">Tambah</button>
                                     </div>
                                 </div>

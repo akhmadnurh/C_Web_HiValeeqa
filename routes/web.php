@@ -65,6 +65,9 @@ Route::view('adm/product', 'admin/product.index');
 Route::view('adm/product/add', 'admin/product.add');
 Route::view('adm/product/edit', 'admin/product.edit');
 
-Route::view('adm/category', 'admin/category.index');
+Route::get('adm/category', [\App\Http\Controllers\admin\C_Category::class, 'index']);
+Route::get('adm/category/delete/{id}', [\App\Http\Controllers\admin\C_Category::class, 'delete'])->whereNumber('id');
+Route::get('adm/category/edit/{id}', [\App\Http\Controllers\admin\C_Category::class, 'edit'])->whereNumber('id');
+Route::post('adm/category/edit/{id}', [\App\Http\Controllers\admin\C_Category::class, 'editProcess'])->whereNumber('id');
+Route::post('adm/category/add', [\App\Http\Controllers\admin\C_Category::class, 'add']);
 Route::view('adm/category/add', 'admin/category.add');
-Route::view('adm/category/edit', 'admin/category.edit');
