@@ -14,6 +14,7 @@ class C_Product extends Controller
         $model = new M_Product();
         $data['product'] = $model->getProductById($id);
         $data['etc'] = $model->getRandomProducts();
+        $data['wishlist'] = $model->checkWishlist(session()->get('id'), $id);
 
         return view('user.detail', $data);
     }

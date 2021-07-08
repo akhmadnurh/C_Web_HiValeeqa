@@ -140,4 +140,18 @@ class C_User extends Controller
 
         return redirect('address');
     }
+
+    public function wishlist(Request $request)
+    {
+        $model = new M_User();
+        $model->wishlist(session()->get('id'), $request->segment(2));
+        return redirect('/detail' . '/' . $request->segment(2));
+    }
+
+    public function removeWishlist(Request $request)
+    {
+        $model = new M_User();
+        $model->removeWishlist(session()->get('id'), $request->segment(2));
+        return redirect('/detail' . '/' . $request->segment(2));
+    }
 }

@@ -20,4 +20,9 @@ class M_Product extends Model
     {
         return DB::table('product')->select('*')->inRandomOrder()->limit(4)->get();
     }
+
+    public function checkWishlist($id, $product_id)
+    {
+        return DB::table('wishlist')->select('*')->where('user_id', $id)->where('product_id', $product_id)->count();
+    }
 }
