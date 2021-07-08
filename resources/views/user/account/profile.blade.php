@@ -28,7 +28,7 @@
                                         <div class="row mb-3">
                                             <label for="username" class="col-sm-3 col-form-label">Username</label>
                                             <div class="col-sm-9">
-                                                <input type="text" name="username" id="username" value="username"
+                                                <input type="text" name="username" id="username" value="{{ $user->username}}"
                                                        class="form-control" disabled>
                                             </div>
                                         </div>
