@@ -116,4 +116,28 @@ class C_User extends Controller
 
         return redirect('/change-password');
     }
+
+    public function address()
+    {
+        $model = new M_User();
+        $data['address'] = $model->getAddress(session()->get('id'));
+
+        return view('user.account.address', $data);
+    }
+
+    public function saveAddress(Request $request)
+    {
+        $model = new M_User();
+        $save = $model->saveAddress($request->input(), session()->get('id'));
+
+        if ($save) {
+            session(['msg' => 'Data berhasil diperbarui.']);
+            session(['status' => 'success']);
+        } else {
+            session(['msg' => 'Data gagal diperbarui, mohon periksa kembali data anda.']);
+            session(['status' => 'error']);
+        }
+
+        return redirect('address');
+    }
 }

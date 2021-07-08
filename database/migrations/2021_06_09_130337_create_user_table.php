@@ -20,6 +20,11 @@ class CreateUserTable extends Migration
             $table->string('username', 50);
             $table->string('password', 50);
             $table->string('gender', 1);
+            $table->string('province', 30);
+            $table->string('city', 30);
+            $table->string('district', 30);
+            $table->string('village', 30);
+            $table->string('postal_code', 5);
             $table->text('address');
             $table->string('whatsapp', 15);
             $table->tinyInteger('role');

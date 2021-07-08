@@ -33,8 +33,10 @@ Route::get('/resend-email-token', [\App\Http\Controllers\user\C_Overview::class,
 
 Route::get('/profile', [\App\Http\Controllers\user\C_User::class, 'profile']);
 Route::post('/profile', [\App\Http\Controllers\user\C_User::class, 'updateProfile']);
-Route::view('change-password', 'user/account.change-password');
-Route::post('change-password', [\App\Http\Controllers\user\C_User::class, 'changePassword']);
+Route::view('/change-password', 'user/account.change-password');
+Route::post('/change-password', [\App\Http\Controllers\user\C_User::class, 'changePassword']);
+Route::get('/address', [\App\Http\Controllers\user\C_User::class, 'address']);
+Route::post('/address', [\App\Http\Controllers\user\C_User::class, 'saveAddress']);
 
 Route::view('login', 'user.login');
 Route::view('shop', 'user.shop');
@@ -44,7 +46,6 @@ Route::view('verify-email', 'user.verify-email');
 Route::view('complete-data', 'user.complete-data');
 Route::view('forgot-password', 'user.forgot-password');
 Route::view('billing', 'user.billing');
-Route::view('address', 'user/account.address');
 Route::view('transaction', 'user.transaction');
 Route::view('wishlist', 'user.wishlist');
 
