@@ -39,9 +39,10 @@ Route::get('/address', [\App\Http\Controllers\user\C_User::class, 'address']);
 Route::post('/address', [\App\Http\Controllers\user\C_User::class, 'saveAddress']);
 Route::get('/wishlist/{id}', [\App\Http\Controllers\user\C_User::class, 'wishlist'])->whereNumber('id');
 Route::get('/r-wishlist/{id}', [\App\Http\Controllers\user\C_User::class, 'removeWishlist'])->whereNumber('id');
+Route::get('/shop', [\App\Http\Controllers\user\C_Product::class, 'shop']);
+Route::post('/shop', [\App\Http\Controllers\user\C_Product::class, 'shopFilter']);
 
 Route::view('login', 'user.login');
-Route::view('shop', 'user.shop');
 Route::view('contact', 'user.contact');
 Route::view('cart', 'user.cart');
 Route::view('verify-email', 'user.verify-email');

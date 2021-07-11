@@ -18,4 +18,18 @@ class C_Product extends Controller
 
         return view('user.detail', $data);
     }
+
+    public function shop(){
+        $model = new M_Product();
+        $data['products'] = $model->showAllProducts();
+
+        return view('user.shop', $data);
+    }
+
+    public function shopFilter(Request $request){
+        $model = new M_Product();
+        $data['products'] = $model->getProductsWithFilter($request->input());
+
+        return view('user.shop', $data);
+    }
 }
