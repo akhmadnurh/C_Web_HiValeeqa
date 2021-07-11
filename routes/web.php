@@ -78,3 +78,11 @@ Route::get('adm/category/edit/{id}', [\App\Http\Controllers\admin\C_Category::cl
 Route::post('adm/category/edit/{id}', [\App\Http\Controllers\admin\C_Category::class, 'editProcess'])->whereNumber('id');
 Route::post('adm/category/add', [\App\Http\Controllers\admin\C_Category::class, 'add']);
 Route::view('adm/category/add', 'admin/category.add');
+
+Route::view('adm/payment-pending', 'admin/transaction.payment-pending');
+Route::view('adm/payment-approval', 'admin/transaction.payment-approval');
+Route::view('adm/shipment-pending', 'admin/transaction.shipment-pending');
+Route::view('adm/shipment-process', 'admin/transaction.shipment-process');
+Route::view('adm/order-completed', 'admin/transaction.order-completed');
+Route::view('adm/order-canceled', 'admin/transaction.order-canceled');
+Route::view('adm/all-transaction', 'admin/transaction.all-transaction');
