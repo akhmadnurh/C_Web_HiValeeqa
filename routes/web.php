@@ -68,7 +68,7 @@ Route::post('/addadmin', [\App\Http\Controllers\admin\C_AdminManagement::class, 
 Route::post('/edit-admin', [\App\Http\Controllers\admin\C_AdminManagement::class, 'editUser']);
 Route::get('/delete-admin/{id}', [\App\Http\Controllers\admin\C_AdminManagement::class, 'deleteAdmin'])->whereNumber('id');
 
-Route::view('adm/product', 'admin/product.index');
+Route::get('adm/product', [\App\Http\Controllers\admin\C_Product::class, 'index']);
 Route::view('adm/product/add', 'admin/product.add');
 Route::view('adm/product/edit', 'admin/product.edit');
 

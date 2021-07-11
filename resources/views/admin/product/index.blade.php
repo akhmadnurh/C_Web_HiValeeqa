@@ -40,22 +40,28 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        @foreach($products as $key => $product)
                                             <tr>
-                                                <td>1.</td>
-                                                <td><img src="{{ asset('img/produk/yumna2.png')}}" alt="nama produk" class="img-fluid"></td>
-                                                <td>Yumna Dress</td>
-                                                <td>120</td>
-                                                <td>Katun</td>
-                                                <td>Pink</td>
-                                                <td>Rp 120.000</td>
-                                                <td>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi placeat facilis nostrum et tempore porro totam in, sunt optio repellat vel perferendis quod blanditiis omnis molestias hic quibusdam, id corporis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque at quos accusamus quis, quia exercitationem modi perspiciatis vitae minima corrupti magnam excepturi repudiandae placeat molestiae unde vel dolorem ut ipsam!</td>
+                                                <td>{{ ++$key }}</td>
+                                                <td><img src="{{ asset('img/produk/yumna2.png')}}" alt="nama produk"
+                                                         class="img-fluid"></td>
+                                                <td>{{ $product->product_name }}</td>
+                                                <td>{{ $product->stock }}</td>
+                                                <td>{{ $product->material }}</td>
+                                                <td>{{ $product->color }}</td>
+                                                <td>Rp {{ number_format($product->price, 0, '', '.')   }}</td>
+                                                <td>{{ $product->description }}</td>
                                                 <td>
                                                     <div class="d-flex">
-                                                        <a href="/adm/product/edit" class="btn btn-info mr-2">Edit</a>
-                                                        <a href="#" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
+                                                        <a href="{{ url('/adm/product/edit').'/'.$product->product_id }}"
+                                                           class="btn btn-info mr-2">Edit</a>
+                                                        <a href="{{ url('/adm/product/delete').'/'.$product->product_id }}"
+                                                           class="btn btn-danger"
+                                                           onclick="return confirm('Are you sure?')">Delete</a>
                                                     </div>
                                                 </td>
                                             </tr>
+                                        @endforeach
                                         </tbody>
                                     </table>
                                 </div>
