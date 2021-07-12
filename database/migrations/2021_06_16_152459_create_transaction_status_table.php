@@ -15,7 +15,7 @@ class CreateTransactionStatusTable extends Migration
     {
         Schema::create('transaction_status', function (Blueprint $table) {
             $table->tinyInteger('status_id');
-            $table->string('status', 15);
+            $table->string('status', 30);
         });
     }
 

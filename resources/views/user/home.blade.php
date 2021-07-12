@@ -35,7 +35,7 @@
                                 <p class="card-text">Pilihan Gamis Terbaik</p>
 
                                 <div class="d-flex mt-5">
-                                    <button class=" justify-content-center align-items-center btn btn-outline-pink mt-5">Explore Now <i class='bx bx-arrow-back bx-rotate-180'></i></button>
+                                    <a href="{{ url('shop') }}" class=" justify-content-center align-items-center btn btn-outline-pink mt-5">Explore Now <i class='bx bx-arrow-back bx-rotate-180'></i></a>
                                 </div>
                             </div>
                             <div class="col-4">
@@ -55,7 +55,7 @@
                                 <p class="card-text">Pilihan Gamis Terbaik</p>
 
                                 <div class="d-flex mt-5">
-                                    <button class=" justify-content-center align-items-center btn btn-outline-pink mt-5">Explore Now <i class='bx bx-arrow-back bx-rotate-180'></i></button>
+                                    <a href="{{ url('shop') }}" class=" justify-content-center align-items-center btn btn-outline-pink mt-5">Explore Now <i class='bx bx-arrow-back bx-rotate-180'></i></a>
                                 </div>
                             </div>
                             <div class="col-4">
@@ -71,9 +71,8 @@
     <section class="selingan my-5 pt-5">
         <div class="selingan-bg">
             <h1 class="selingan-title">Tabungan</h1>
-            <p class="selingan-desc">HI VALEEQA punya fitur tabungan yang bisa kamu pakai untuk beli gamis seperti
-                menabung.</p>
-            <button class="btn btn-pink btn-lg">Cobain Yuk!</button>
+            <p class="selingan-desc">HI VALEEQA punya fitur menarik yang bisa kamu pakai untuk beli gamis.</p>
+            <a href="{{ url('shop') }}" class="btn btn-pink btn-lg">Cobain Yuk!</a>
         </div>
     </section>
 
@@ -86,7 +85,7 @@
                     <a href="{{ url('/detail')."/".$item->product_id }}">
                         <div class="card border-0" style="height: 30rem;">
                             <div class="img-cart" style="overflow: hidden;">
-                                <img src="{{ asset('img/produk/yumna2.png')}}" alt="aa" class="img-fluid">
+                                <img src="{{ asset('img/produk').'/'.$item->image}}" alt="aa" class="img-fluid">
                             </div>
                             <div class="card-body">
                                 <h6 class="card-title text-center text-uppercase text-pink-dark">{{ $item->product_name }}</h6>
@@ -99,8 +98,8 @@
             @endforeach
         </div>
         <div class="d-flex justify-content-center mt-5 pt-5">
-            <button class="btn-outline-dark btn btn-lg">Lebih Banyak <i class='bx bx-arrow-back bx-rotate-180'></i>
-            </button>
+            <a href="{{ url('shop') }}" class="btn-outline-dark btn btn-lg">Lebih Banyak <i class='bx bx-arrow-back bx-rotate-180'></i>
+            </a>
         </div>
     </section>
 

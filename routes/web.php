@@ -82,7 +82,7 @@ Route::post('adm/category/edit/{id}', [\App\Http\Controllers\admin\C_Category::c
 Route::post('adm/category/add', [\App\Http\Controllers\admin\C_Category::class, 'add']);
 Route::view('adm/category/add', 'admin/category.add');
 
-Route::view('adm/payment-pending', 'admin/transaction.payment-pending');
+Route::get('adm/payment-pending', [\App\Http\Controllers\admin\C_Transaction::class, 'paymentPen']);
 Route::view('adm/payment-approval', 'admin/transaction.payment-approval');
 Route::view('adm/shipment-pending', 'admin/transaction.shipment-pending');
 Route::view('adm/shipment-process', 'admin/transaction.shipment-process');

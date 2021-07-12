@@ -40,7 +40,7 @@
                                 <div class="card border-0" style="height: 30rem;">
                                     <a href="{{ url('detail').'/'.$product->product_id }}">
                                         <div class="img-cart" style="overflow: hidden;">
-                                            <img src="{{ asset('img/produk/yumna2.png')}}" alt="aa" class="img-fluid">
+                                            <img src="{{ asset('img/produk').'/'.$product->image}}" alt="aa" class="img-fluid">
                                         </div>
                                     </a>
                                     <div class="card-body">

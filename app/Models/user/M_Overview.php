@@ -37,8 +37,8 @@ class M_Overview extends Model
 
     public function getRandomProducts()
     {
-        $query = DB::table('product')->select('*')->inRandomOrder()->limit(4)->get();
-        return $query;
+        return DB::table('product')->join('image', 'product.product_id', '=', 'image.product_id')->select('product.*', 'image.image')->inRandomOrder()->limit(4)->get();
+
     }
 
     public function forgotPassword($input)

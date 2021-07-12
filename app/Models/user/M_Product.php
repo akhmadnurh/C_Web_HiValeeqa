@@ -13,13 +13,13 @@ class M_Product extends Model
 
     public function getProductById($id)
     {
-        $query = DB::table('product')->select('*')->where('product_id', '=', $id)->first();
+        $query = DB::table('product')->join('image', 'product.product_id', '=', 'image.product_id')->select('product.*', 'image.image')->where('product.product_id', '=', $id)->first();
         return $query;
     }
 
     public function getRandomProducts()
     {
-        return DB::table('product')->select('*')->inRandomOrder()->limit(4)->get();
+        return DB::table('product')->join('image', 'product.product_id', '=', 'image.product_id')->select('product.*', 'image.image')->inRandomOrder()->limit(4)->get();
     }
 
     public function checkWishlist($id, $product_id)
@@ -29,12 +29,12 @@ class M_Product extends Model
 
     public function showAllProducts()
     {
-        return DB::table('product')->select('*')->get();
+        return DB::table('product')->join('image', 'product.product_id', '=', 'image.product_id')->select('*')->get();
     }
 
     public function getProductsWithFilter($input)
     {
-        $filter = DB::table('product');
+        $filter = DB::table('product')->join('image', 'product.product_id', '=', 'image.product_id');
         if ($input['max'] != '') {
             $filter = $filter->where('price', '<=', intval($input['max']));
         }
