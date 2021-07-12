@@ -46,7 +46,7 @@
                                         @foreach($products as $key => $product)
                                             <tr>
                                                 <td>{{ ++$key }}</td>
-                                                <td><img src="{{ asset('img/produk/yumna2.png')}}" alt="nama produk"
+                                                <td><img src="{{ asset('img/produk').'/'.$image[--$key]->image}}" alt="nama produk"
                                                          class="img-fluid"></td>
                                                 <td>{{ $product->product_name }}</td>
                                                 <td>{{ $product->stock }}</td>
