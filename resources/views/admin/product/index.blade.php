@@ -24,6 +24,9 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
+                                @if(session()->has('msg'))
+                                    <div class="alert alert-success">{{session()->get('msg')}}</div>
+                                @endif
                                 <div class="table-responsive">
                                     <table class="table table-stripe" id="table-1">
                                         <thead>

@@ -69,7 +69,8 @@ Route::post('/edit-admin', [\App\Http\Controllers\admin\C_AdminManagement::class
 Route::get('/delete-admin/{id}', [\App\Http\Controllers\admin\C_AdminManagement::class, 'deleteAdmin'])->whereNumber('id');
 
 Route::get('adm/product', [\App\Http\Controllers\admin\C_Product::class, 'index']);
-Route::view('adm/product/add', 'admin/product.add');
+Route::post('adm/product/add', [\App\Http\Controllers\admin\C_Product::class, 'addProcess']);
+Route::get('adm/product/add', [\App\Http\Controllers\admin\C_Product::class, 'add']);
 Route::view('adm/product/edit', 'admin/product.edit');
 
 Route::get('adm/category', [\App\Http\Controllers\admin\C_Category::class, 'index']);

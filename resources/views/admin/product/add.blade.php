@@ -1,7 +1,7 @@
 @extends('admin/layout.template')
 
 @section('content')
-    
+
     <div class="main-content">
         <section class="section">
 
@@ -13,15 +13,19 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <form action="#" class="needs-validation" novalidate="">
+                            <form action="{{ url('adm/product/add') }}" class="needs-validation" method="post"
+                                  enctype="multipart/form-data">
                                 <div class="card-body">
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Upload Gambar 1</label>
                                         <div class="col-sm-9">
                                             <div class="input-group">
                                                 <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" id="productImg1">
-                                                    <label class="custom-file-label" for="productImg1">Choose file</label>
+                                                    <input type="file" class="custom-file-input" id="productImg1"
+                                                           name="productImg1" accept="image/jpeg, image/jpg, image/png"
+                                                           required>
+                                                    <label class="custom-file-label" for="productImg1">Choose
+                                                        file</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -29,7 +33,8 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label" for="productName">Nama Produk</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" required="" name="productName" id="productName">
+                                            <input type="text" class="form-control" required="" name="productName"
+                                                   id="productName">
                                             <div class="invalid-feedback">
                                                 Tidak Boleh Kosong
                                             </div>
@@ -81,10 +86,12 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label" for="productCategory">Kategori</label>
                                         <div class="col-sm-9">
-                                            <select name="productCategory" id="productCategory" class="custom-select" required>
-                                                <option value="">Pilih Kategori</option>
-                                                <option value="Chayra Abaya">Chayra Abaya</option>
-                                                <option value="Yumna Dress">Yumna Dress</option>
+                                            <select name="productCategory" id="productCategory" class="custom-select"
+                                                    required>
+                                                <option value="">-- Pilih Kategori --</option>
+                                                @foreach($categories as $category)
+                                                    <option value="{{ $category->category_id }}">{{ $category->category_name }}</option>
+                                                @endforeach
                                             </select>
                                             <div class="invalid-feedback">
                                                 Tidak Boleh Kosong
@@ -94,14 +101,16 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label" for="productDesc">Deskripsi</label>
                                         <div class="col-sm-9">
-                                            <textarea cols="5" class="form-control" required="" name="productDesc" id="productDesc"></textarea>
+                                            <textarea cols="5" class="form-control" required="" name="productDesc"
+                                                      id="productDesc"></textarea>
                                             <div class="invalid-feedback">
                                                 Tidak Boleh Kosong
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card-footer text-right">
-                                        <a class="btn btn-secondary btn-lg mr-2" href="/adm/product">Batal</a>
+                                        <a class="btn btn-secondary btn-lg mr-2"
+                                           href="{{ url('/adm/product') }}">Batal</a>
                                         <button class="btn btn-primary btn-lg" type="submit">Tambah</button>
                                     </div>
                                 </div>
