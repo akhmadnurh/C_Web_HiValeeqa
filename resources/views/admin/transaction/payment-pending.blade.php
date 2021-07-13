@@ -41,7 +41,7 @@
                                                     <td>{{ ++$key }}.</td>
                                                     <td>{{ $payment->transaction_id }}</td>
                                                     <td>{{ $payment->transaction_date }}</td>
-                                                    <td>{{ $payment->user_id }}</td>
+                                                    <td>{{ $payment->name }}</td>
                                                     <td>
                                                         <span>{{ $payment->address }}, </span><br>
                                                         <span>Desa {{ $payment->village }}, </span><br>
@@ -56,7 +56,7 @@
                                                         <div class="d-flex flex-column">
                                                             <a href="{{ url('confirm-payment') . '/' . $payment->transaction_id }}"
                                                                class="btn btn-info mb-2">Konfirmasi</a>
-                                                            <a href="{{ url('#transactionDetail') . $payment->transaction_id }}"
+                                                            <a href="{{ url('#transactionDetail') .'/'. $payment->transaction_id }}"
                                                                class="btn btn-dark mb-2"
                                                                role="button"
                                                                data-toggle="modal">Detail</a>

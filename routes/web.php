@@ -85,7 +85,7 @@ Route::get('adm/category/add', [\App\Http\Controllers\admin\C_Category::class, '
 Route::get('adm/payment-pending', [\App\Http\Controllers\admin\C_Transaction::class, 'paymentPending']);
 Route::view('adm/payment-approval', 'admin/transaction.payment-approval');
 Route::get('adm/shipment-pending', [\App\Http\Controllers\admin\C_Transaction::class, 'shipmentPending']);
-Route::view('adm/shipment-process', 'admin/transaction.shipment-process');
-Route::view('adm/order-completed', 'admin/transaction.order-completed');
-Route::view('adm/order-canceled', 'admin/transaction.order-canceled');
-Route::view('adm/all-transaction', 'admin/transaction.all-transaction');
+Route::get('adm/shipment-process', [\App\Http\Controllers\admin\C_Transaction::class, 'shipmentProcess']);
+Route::get('adm/order-completed', [\App\Http\Controllers\admin\C_Transaction::class, 'orderCompleted']);
+Route::get('adm/order-canceled', [\App\Http\Controllers\admin\C_Transaction::class, 'orderCanceled']);
+Route::get('adm/all-transaction', [\App\Http\Controllers\admin\C_Transaction::class, 'allTransaction']);

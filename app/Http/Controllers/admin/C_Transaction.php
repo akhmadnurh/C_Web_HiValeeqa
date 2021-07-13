@@ -21,7 +21,8 @@ class C_Transaction extends Controller
         return view('admin.transaction.payment-pending', $data);
     }
 
-    public function shipmentPending(){
+    public function shipmentPending()
+    {
         $model = new M_Transaction();
         $data['payments'] = $model->getShipmentPending();
 
@@ -30,5 +31,49 @@ class C_Transaction extends Controller
 
         return view('admin.transaction.shipment-pending', $data);
 
+    }
+
+    public function shipmentProcess()
+    {
+        $model = new M_Transaction();
+        $data['payments'] = $model->getShipmentProcess();
+
+        $badgeModel = new M_Transaction();
+        $data['badges'] = $badgeModel->getPaymentCount();
+
+        return view('admin.transaction.shipment-process', $data);
+    }
+
+    public function orderCompleted()
+    {
+        $model = new M_Transaction();
+        $data['payments'] = $model->getOrderCompleted();
+
+        $badgeModel = new M_Transaction();
+        $data['badges'] = $badgeModel->getPaymentCount();
+
+        return view('admin.transaction.order-completed', $data);
+    }
+
+    public function orderCanceled()
+    {
+        $model = new M_Transaction();
+        $data['payments'] = $model->getOrderCanceled();
+
+        $badgeModel = new M_Transaction();
+        $data['badges'] = $badgeModel->getPaymentCount();
+
+        return view('admin.transaction.order-canceled', $data);
+    }
+
+    public function allTransaction()
+    {
+        $model = new M_Transaction();
+        $data['payments'] = $model->getAllTransactions();
+
+        $badgeModel = new M_Transaction();
+        $data['badges'] = $badgeModel->getPaymentCount();
+
+        return view('admin.transaction.all-transaction', $data);
     }
 }

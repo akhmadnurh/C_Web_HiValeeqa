@@ -30,7 +30,6 @@
                                                 <th scope="col">Tgl Beli</th>
                                                 <th scope="col">Tgl Kirim</th>
                                                 <th scope="col">Kode Kirim</th>
-                                                <th scope="col">Kurir</th>
                                                 <th scope="col">Nama Pembeli</th>
                                                 <th scope="col">Alamat</th>
                                                 <th scope="col">Total</th>
@@ -38,31 +37,33 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach($payments as $key => $payment)
                                             <tr>
-                                                <td>1.</td>
-                                                <td>108923902</td>
-                                                <td>07/11/2021</td>
-                                                <td>08/11/2021</td>
-                                                <td>JNT123456789</td>
-                                                <td>JNT</td>
-                                                <td>Akhmad Nur</td>
+                                                <td>{{ ++$key }}.</td>
+                                                <td>{{ $payment->transaction_id }}</td>
+                                                <td>{{ $payment->transaction_date }}</td>
+                                                <td>{{ $payment->shipping_start }}</td>
+                                                <td>{{ $payment->receipt_number }}</td>
+                                                <td>{{ $payment->name }}</td>
                                                 <td>
-                                                    <span>Jl. Ahmad Yani No. 3,</span><br>
-                                                    <span>Desa Sambimulyo,</span><br>
-                                                    <span>Kecamatan Siliragung,</span><br>
-                                                    <span>Kabupaten Banyuwangi,</span><br>
-                                                    <span>Jawa Timur</span><br>
+                                                    <span>{{ $payment->address }}, </span><br>
+                                                    <span>Desa {{ $payment->village }}, </span><br>
+                                                    <span>Kecamatan {{ $payment->district }}, </span><br>
+                                                    <span>{{ $payment->city }}, </span><br>
+                                                    <span>Provinsi {{ $payment->address }}, </span><br>
+                                                    <span>{{ $payment->postal_code }}</span><br>
                                                 </td>
-                                                <td>Rp 400.000</td>
+                                                <td>Rp {{ number_format($payment->total, 0, '', '.') }}</td>
                                                 <td>
                                                     <div class="d-flex flex-column">
-                                                        <a href="#"
+                                                        <a href="{{ url('transaction-finish').'/'.$payment->transaction_id }}"
                                                            class="btn btn-info mb-2">Selesai</a>
-                                                        <a href="#"
+                                                        <a href="{{ url('cancel-transaction').'/'.$payment->transaction_id }}"
                                                            class="btn btn-danger">Batalkan</a>
                                                     </div>
                                                 </td>
                                             </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>

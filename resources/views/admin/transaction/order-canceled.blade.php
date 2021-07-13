@@ -31,25 +31,26 @@
                                                 <th scope="col">Alamat</th>
                                                 <th scope="col">No Hp</th>
                                                 <th scope="col">Total</th>
-                                                <th scope="col">Keterangan</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach($payments as $key => $payment)
                                             <tr>
-                                                <td>1.</td>
-                                                <td>108923902</td>
-                                                <td>Akhmad Nur</td>
+                                                <td>{{ ++$key }}.</td>
+                                                <td>{{ $payment->transaction_id }}</td>
+                                                <td>{{ $payment->name }}</td>
                                                 <td>
-                                                    <span>Jl. Ahmad Yani No. 3,</span><br>
-                                                    <span>Desa Sambimulyo,</span><br>
-                                                    <span>Kecamatan Siliragung,</span><br>
-                                                    <span>Kabupaten Banyuwangi,</span><br>
-                                                    <span>Jawa Timur</span><br>
+                                                    <span>{{ $payment->address }}, </span><br>
+                                                    <span>Desa {{ $payment->village }}, </span><br>
+                                                    <span>Kecamatan {{ $payment->district }}, </span><br>
+                                                    <span>{{ $payment->city }}, </span><br>
+                                                    <span>Provinsi {{ $payment->province }}, </span><br>
+                                                    <span>{{ $payment->postal_code }}</span><br>
                                                 </td>
-                                                <td>08123456789</td>
-                                                <td>Rp 400.000</td>
-                                                <td>Salah Order</td>
+                                                <td>{{ $payment->whatsapp }}</td>
+                                                <td>Rp {{ number_format($payment->total, 0, '', '.') }}</td>
                                             </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>

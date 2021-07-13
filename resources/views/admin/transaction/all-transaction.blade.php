@@ -35,30 +35,39 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        @foreach($payments as $key => $payment)
                                             <tr>
-                                                <td>1.</td>
-                                                <td>108923902</td>
-                                                <td>Akhmad Nur</td>
+                                                <td>{{ ++$key }}.</td>
+                                                <td>{{ $payment->transaction_id }}</td>
+                                                <td>{{ $payment->name }}</td>
                                                 <td>
-                                                    <span>Jl. Ahmad Yani No. 3,</span><br>
-                                                    <span>Desa Sambimulyo,</span><br>
-                                                    <span>Kecamatan Siliragung,</span><br>
-                                                    <span>Kabupaten Banyuwangi,</span><br>
-                                                    <span>Jawa Timur</span><br>
+                                                    <span>{{ $payment->address }}, </span><br>
+                                                    <span>Desa {{ $payment->village }}, </span><br>
+                                                    <span>Kecamatan {{ $payment->district }}, </span><br>
+                                                    <span>{{ $payment->city }}, </span><br>
+                                                    <span>Provinsi {{ $payment->province }}, </span><br>
+                                                    <span>{{ $payment->postal_code }}</span><br>
                                                 </td>
-                                                <td>08123456789</td>
-                                                <td>Rp 400.000</td>
+                                                <td>{{ $payment->whatsapp }}</td>
+                                                <td>Rp {{ number_format($payment->total, 0, '', '.') }}</td>
                                                 <td>
                                                     <div class="d-flex justify-content-center align-items-center">
-                                                        {{-- <span class="badge badge-light">Menunggu Bayar</span> --}}
+                                                        @if($payment->transaction_id == 1)
+                                                             <span class="badge badge-light">Menunggu Bayar</span>
+                                                        @elseif($payment->transaction_id == 2)
+                                                             <span class="badge badge-warning">Menunggu Pengiriman</span>
+                                                        @elseif($payment->transaction_id == 3)
+                                                             <span class="badge badge-primary">Proses Pengiriman</span>
+                                                        @elseif($payment->transaction_id == 4)
+                                                            <span class="badge badge-success">Selesai</span>
+                                                        @elseif($payment->transaction_id == 5)
+                                                             <span class="badge badge-dark">Dibatalkan</span>
                                                         {{-- <span class="badge badge-secondary">Menunggu Konfirmasi</span> --}}
-                                                        {{-- <span class="badge badge-warning">Menunggu Pengiriman</span> --}}
-                                                        {{-- <span class="badge badge-primary">Proses Pengiriman</span> --}}
-                                                        <span class="badge badge-success">Selesai</span>
-                                                        {{-- <span class="badge badge-dark">Dibatalkan</span> --}}
+                                                        @endif
                                                     </div>
                                                 </td>
                                             </tr>
+                                        @endforeach
                                         </tbody>
                                     </table>
                                 </div>

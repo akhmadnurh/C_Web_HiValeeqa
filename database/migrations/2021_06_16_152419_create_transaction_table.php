@@ -23,6 +23,8 @@ class CreateTransactionTable extends Migration
             $table->integer('total');
             $table->tinyInteger('status');
             $table->string('receipt_number', 15);
+            $table->date('transaction_start');
+            $table->date('transaction_end');
         });
     }
 
