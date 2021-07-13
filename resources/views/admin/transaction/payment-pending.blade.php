@@ -55,11 +55,11 @@
                                                     <td>
                                                         <div class="d-flex flex-column">
                                                             <a href="{{ url('confirm-payment') . '/' . $payment->transaction_id }}"
-                                                               class="btn btn-info mb-2">Konfirmasi</a>
+                                                               class="btn btn-info mb-2" onclick="return confirm('Are you sure?')">Konfirmasi</a>
                                                             <a href="{{ url('adm/detail-transaction').'/'.$payment->transaction_id }}"
                                                                class="btn btn-dark mb-2">Detail</a>
                                                             <a href="{{ url('cancel-transaction') . '/' . $payment->transaction_id }}"
-                                                               class="btn btn-danger">Batalkan</a>
+                                                               class="btn btn-danger" onclick="return confirm('Are you sure?')">Batalkan</a>
                                                         </div>
                                                     </td>
                                                 </tr>

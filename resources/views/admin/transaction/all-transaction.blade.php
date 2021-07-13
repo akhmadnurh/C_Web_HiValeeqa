@@ -53,16 +53,16 @@
                                                 <td>Rp {{ number_format($payment->total, 0, '', '.') }}</td>
                                                 <td>
                                                     <div class="d-flex justify-content-center align-items-center">
-                                                        @if($payment->transaction_id == 1)
+                                                        @if($payment->status== 1)
                                                              <span class="badge badge-light">Menunggu Bayar</span>
-                                                        @elseif($payment->transaction_id == 2)
+                                                        @elseif($payment->status == 2)
                                                              <span class="badge badge-warning">Menunggu Pengiriman</span>
-                                                        @elseif($payment->transaction_id == 3)
+                                                        @elseif($payment->status == 3)
                                                              <span class="badge badge-primary">Proses Pengiriman</span>
-                                                        @elseif($payment->transaction_id == 4)
+                                                        @elseif($payment->status == 4)
                                                             <span class="badge badge-success">Selesai</span>
-                                                        @elseif($payment->transaction_id == 5)
-                                                             <span class="badge badge-dark">Dibatalkan</span>
+                                                        @elseif($payment->status == 5)
+                                                             <span class="badge badge-danger">Dibatalkan</span>
                                                         {{-- <span class="badge badge-secondary">Menunggu Konfirmasi</span> --}}
                                                         @endif
                                                     </div>

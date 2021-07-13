@@ -87,4 +87,36 @@ class C_Transaction extends Controller
 
         return view('admin.transaction.detail-transaction', $data);
     }
+
+    public function cancelTransaction(Request $request){
+        $id = $request->segment(2);
+        $model = new M_Transaction();
+        $model->cancelTransaction($id);
+
+        return redirect()->back();
+    }
+
+    public function confirmPayment(Request $request){
+        $id = $request->segment(2);
+        $model = new M_Transaction();
+        $model->confirmPayment($id);
+
+        return redirect()->back();
+    }
+
+    public function confirmShipment(Request $request){
+        $id = $request->segment(2);
+        $model = new M_Transaction();
+        $model->confirmShipment($id, $request->input());
+
+        return redirect()->back();
+    }
+
+    public function transactionFinish(Request $request){
+        $id = $request->segment(2);
+        $model = new M_Transaction();
+        $model->transactionFinish($id);
+
+        return redirect()->back();
+    }
 }

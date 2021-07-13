@@ -61,7 +61,7 @@
                                                             <a href="{{ url('adm/detail-transaction').'/'.$payment->transaction_id }}"
                                                                class="btn btn-dark mb-2">Detail</a>
                                                             <a href="{{ url('cancel-transaction') . '/' . $payment->transaction_id }}"
-                                                               class="btn btn-danger">Batalkan</a>
+                                                               class="btn btn-danger" onclick="return confirm('Are you sure?')">Batalkan</a>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -96,7 +96,7 @@
                             Masukkan No. Resi #{{ $payment->transaction_id }}
                         </h5>
                     </div>
-                    <form action="#">
+                    <form action="{{ url('confirm-shipment').'/'.$payment->transaction_id }}">
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="deliverDate">Tanggal Kirim</label>
@@ -114,8 +114,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <a href="#"
-                               class="btn btn-primary ml-1">Simpan</a>
+                            <button class="btn btn-primary ml-1" type="submit">Simpan</button>
                             <button type="button"
                                     class="btn btn-secondary"
                                     data-dismiss="modal">Batal</button>

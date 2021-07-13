@@ -59,4 +59,24 @@ class M_Transaction extends Model
     {
         return DB::table('transaction')->join('user', 'user.user_id', '=', 'transaction.user_id')->select('user.*')->where('transaction_id', $id)->first();
     }
+
+    public function cancelTransaction($id)
+    {
+        return DB::table('transaction')->where('transaction_id', $id)->update(['status' => 5]);
+    }
+
+    public function confirmPayment($id)
+    {
+        return DB::table('transaction')->where('transaction_id', $id)->update(['status' => 2]);
+    }
+
+    public function confirmShipment($id, $data)
+    {
+        return DB::table('transaction')->where('transaction_id', $id)->update(['status' => 3, 'shipping_start' => $data['deliverDate'], 'receipt_number' => $data['receiptNumber']]);
+    }
+
+    public function transactionFinish($id)
+    {
+        return DB::table('transaction')->where('transaction_id', $id)->update(['status' => 4]);
+    }
 }
