@@ -5,6 +5,7 @@ namespace App\Http\Controllers\user;
 use App\Http\Controllers\Controller;
 use App\Mail\HiValeeqaMail;
 use App\Models\user\M_User;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
@@ -80,6 +81,9 @@ class C_User extends Controller
         $model = new M_User();
         $data['user'] = $model->getProfile(session()->get('id'));
 
+        $modelCart = new M_Overview();
+        $data['cart'] = $modelCart->getUserCartTotal();
+
         return view('user.account.profile', $data);
     }
 
@@ -121,6 +125,9 @@ class C_User extends Controller
     {
         $model = new M_User();
         $data['address'] = $model->getAddress(session()->get('id'));
+
+        $modelCart = new M_Overview();
+        $data['cart'] = $modelCart->getUserCartTotal();
 
         return view('user.account.address', $data);
     }

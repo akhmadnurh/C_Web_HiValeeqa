@@ -69,10 +69,10 @@
             @endif
         </div>
 
-        <a href="cart" class="text-pink position-relative">
+        <a href="{{ session()->has('loggedIn') ? url('cart') : url('login') }}" class="text-pink position-relative">
             <i class="bx bx-shopping-bag bx-sm"></i>
             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-pink" id="cartBadges">
-                0
+                {{ session()->has('loggedIn') ? $cart : 0 }}
             </span>
         </a>
     </div>
@@ -92,7 +92,6 @@
                 navLink[i].classList.add('active');
             }
         }
-
     }
     function newProductLink() {
         const newProduct = document.getElementById('newProductLink');
@@ -102,6 +101,6 @@
             if (currentLink !== baseUrl) {
                 window.location.replace(baseUrl + '/#new-product');
             }
-        });    
+        });
     }
 </script>
