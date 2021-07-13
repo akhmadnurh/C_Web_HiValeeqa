@@ -58,11 +58,9 @@
                                                                class="btn btn-info mb-2"
                                                                role="button"
                                                                data-toggle="modal">Masukkan Kode Kirim</a>
-                                                            <a href="{{ url('#transactionDetail') .'/'. $payment->transaction_id }}"
-                                                               class="btn btn-dark mb-2"
-                                                               role="button"
-                                                               data-toggle="modal">Detail</a>
-                                                            <a href="{{ url('cancel-transaction').'/'.$payment->transaction_id }}"
+                                                            <a href="{{ url('adm/detail-transaction') }}"
+                                                               class="btn btn-dark mb-2">Detail</a>
+                                                            <a href="{{ url('cancel-transaction') . '/' . $payment->transaction_id }}"
                                                                class="btn btn-danger">Batalkan</a>
                                                         </div>
                                                     </td>
@@ -128,78 +126,5 @@
         </div>
     @endforeach
     <!-- Modal Masukkan Resi End -->
-
-
-    <!-- Modal Detail -->
-    @foreach ($payments as $key => $payment)
-        <div class="modal fade"
-             id="transactionDetail{{ $payment->transaction_id }}"
-             tabindex="-1"
-             role="dialog"
-             aria-labelledby="transactionDetail{{ $payment->transaction_id }}Label"
-             aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered"
-                 role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title"
-                            id="transactionDetail{{ $payment->transaction_id }}Label">
-                            #{{ $payment->transaction_id }}
-                        </h5>
-                    </div>
-                    <div class="modal-body">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>No.</th>
-                                    <th>Barang</th>
-                                    <th class="text-center">Jumlah</th>
-                                    <th>Total</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{-- item --}}
-                                <tr>
-                                    <td>1.</td>
-                                    <td>Yumna Dress</td>
-                                    <td class="text-center">2</td>
-                                    <td>Rp 240.000</td>
-                                </tr>
-                                <tr>
-                                    <td>2.</td>
-                                    <td>Yumna Dress</td>
-                                    <td class="text-center">2</td>
-                                    <td>Rp 240.000</td>
-                                </tr>
-
-                                {{-- ongkos dan total --}}
-                                <tr>
-                                    <td colspan="3"
-                                        class="text-right">Sub Total:</td>
-                                    <td>Rp 480.000</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3"
-                                        class="text-right">Ongkir:</td>
-                                    <td>Rp 20.000</td>
-                                </tr>
-                                <tr class="h6">
-                                    <td colspan="3"
-                                        class="text-right">Grand Total:</td>
-                                    <td>Rp 500.000</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button"
-                                class="btn btn-secondary"
-                                data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endforeach
-    <!-- Modal Detail End -->
 
 @endsection
