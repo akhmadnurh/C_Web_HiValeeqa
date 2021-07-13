@@ -21,25 +21,25 @@
             <li><a class="nav-link"
                    href="{{ url('/adm/payment-pending') }}"><i class="fas fa-clock"></i>
                     <span>Menunggu Pembayaran</span>
-                    <div class="badge badge-info">10</div>
+                    <div class="badge badge-info">{{ $badges[0] }}</div>
                 </a>
             </li>
-            <li><a class="nav-link"
-                   href="{{ url('/adm/payment-approval') }}"><i class="fas fa-money-check"></i>
-                    <span>Konfirmasi Pembayaran</span>
-                    <div class="badge badge-info">10</div>
-                </a>
-            </li>
+{{--            <li><a class="nav-link"--}}
+{{--                   href="{{ url('/adm/payment-approval') }}"><i class="fas fa-money-check"></i>--}}
+{{--                    <span>Konfirmasi Pembayaran</span>--}}
+{{--                    <div class="badge badge-info">10</div>--}}
+{{--                </a>--}}
+{{--            </li>--}}
             <li><a class="nav-link"
                    href="{{ url('/adm/shipment-pending') }}"><i class="fas fa-truck-loading"></i>
                     <span>Menunggu Pengiriman</span>
-                    <div class="badge badge-info">10</div>
+                    <div class="badge badge-info">{{ $badges[1] }}</div>
                 </a>
             </li>
             <li><a class="nav-link"
                    href="{{ url('/adm/shipment-process') }}"><i class="fas fa-truck"></i>
                     <span>Proses Pengiriman</span>
-                    <div class="badge badge-info">10</div>
+                    <div class="badge badge-info">{{ $badges[2] }}</div>
                 </a>
             </li>
             <li><a class="nav-link"

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\admin\M_Product;
+use App\Models\admin\M_Transaction;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
@@ -16,6 +18,9 @@ class C_Product extends Controller
         $data['products'] = $model->getAllProducts();
         $data['image'] = $model->getAllProductImages();
 
+        $badgeModel = new M_Transaction();
+        $data['badges'] = $badgeModel->getPaymentCount();
+
         return view('admin.product.index', $data);
     }
 
@@ -23,6 +28,10 @@ class C_Product extends Controller
     {
         $model = new M_Product();
         $data['categories'] = $model->getAllCategories();
+
+        $badgeModel = new M_Transaction();
+        $data['badges'] = $badgeModel->getPaymentCount();
+
         return view('admin.product.add', $data);
     }
 
@@ -65,6 +74,9 @@ class C_Product extends Controller
         $id = $request->segment(4);
         $data['product'] = $model->getProductById($id);
         $data['categories'] = $model->getAllCategories();
+
+        $badgeModel = new M_Transaction();
+        $data['badges'] = $badgeModel->getPaymentCount();
 
         return view('admin.product.edit', $data);
 

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\admin\M_Transaction;
 
 use App\Models\admin\M_Category;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 class C_Category extends Controller
@@ -14,10 +16,13 @@ class C_Category extends Controller
         $model = new M_Category();
         $data['category'] = $model->getAllCategory();
 
+        $badgeModel = new M_Transaction();
+        $data['badges'] = $badgeModel->getPaymentCount();
+
         return view('admin.category.index', $data);
     }
 
-    public function add(Request $request)
+    public function addProcess(Request $request)
     {
         $model = new M_Category();
         $add = $model->addCategory($request->input());
@@ -26,10 +31,20 @@ class C_Category extends Controller
         }
     }
 
+    public function add(){
+        $badgeModel = new M_Transaction();
+        $data['badges'] = $badgeModel->getPaymentCount();
+
+        return view('admin.category.add', $data);
+    }
+
     public function edit(Request $request)
     {
         $model = new M_Category();
         $data['category'] = $model->getCategoryById(intval($request->segment(4)));
+
+        $badgeModel = new M_Transaction();
+        $data['badges'] = $badgeModel->getPaymentCount();
 
         return view('admin.category.edit', $data);
     }

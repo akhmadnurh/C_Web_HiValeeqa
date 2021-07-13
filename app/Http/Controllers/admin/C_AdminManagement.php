@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\admin\M_AdminManagement;
+use App\Models\admin\M_Transaction;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
@@ -13,17 +14,28 @@ class C_AdminManagement extends Controller
     {
         $model = new M_AdminManagement();
         $data['data'] = $model->getAll();
+
+        $badgeModel = new M_Transaction();
+        $data['badges'] = $badgeModel->getPaymentCount();
+
         return view('admin.manage_admin', $data);
     }
     public function manageAdminAdd()
     {
-        return view('admin.manage_admin_tambah');
+        $badgeModel = new M_Transaction();
+        $data['badges'] = $badgeModel->getPaymentCount();
+
+        return view('admin.manage_admin_tambah', $data);
     }
     public function manageAdminEdit(Request $request)
     {
         $id = $request->segment(4);
         $model = new M_AdminManagement();
         $data['user'] = $model->getDataById($id);
+
+        $badgeModel = new M_Transaction();
+        $data['badges'] = $badgeModel->getPaymentCount();
+
         return view('admin.manage_admin_edit', $data);
     }
     public function addUser(Request $request)

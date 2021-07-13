@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\admin\M_UserManagement;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\admin\M_Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -15,12 +16,20 @@ class C_UserManagement extends Controller
     {
         $model = new M_UserManagement();
         $data['data'] = $model->getAll();
+
+        $badgeModel = new M_Transaction();
+        $data['badges'] = $badgeModel->getPaymentCount();
+
         return view('admin.manage_user', $data);
     }
 
     public function manageUserAdd()
     {
-        return view('admin.manage_user_tambah');
+
+        $badgeModel = new M_Transaction();
+        $data['badges'] = $badgeModel->getPaymentCount();
+
+        return view('admin.manage_user_tambah', $data);
     }
 
     public function manageUserEdit(Request $request)
@@ -28,6 +37,10 @@ class C_UserManagement extends Controller
         $id = $request->segment(4);
         $model = new M_UserManagement();
         $data['user'] = $model->getDataById($id);
+
+        $badgeModel = new M_Transaction();
+        $data['badges'] = $badgeModel->getPaymentCount();
+
         return view('admin.manage_user_edit', $data);
     }
 

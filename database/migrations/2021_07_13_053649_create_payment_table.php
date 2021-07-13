@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTransactionDetailTable extends Migration
+class CreatePaymentTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateTransactionDetailTable extends Migration
      */
     public function up()
     {
-        Schema::create('transaction_detail', function (Blueprint $table) {
-            $table->integer('transaction_id');
-            $table->integer('product_id');
-            $table->integer('count');
+        Schema::create('payment', function (Blueprint $table) {
+            $table->tinyInteger('payment_id');
+            $table->string('payment');
         });
     }
 
@@ -27,6 +26,6 @@ class CreateTransactionDetailTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transaction_detail');
+        Schema::dropIfExists('payment');
     }
 }

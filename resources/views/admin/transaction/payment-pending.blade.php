@@ -32,24 +32,38 @@
                                                 <th scope="col">Alamat</th>
                                                 <th scope="col">No Hp</th>
                                                 <th scope="col">Total</th>
+                                                <th scope="col">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        @foreach($payments as $key => $payment)
                                             <tr>
-                                                <td>1.</td>
-                                                <td>108923902</td>
-                                                <td>07/11/2021</td>
-                                                <td>Akhmad Nur</td>
+                                                <td>{{ ++$key }}.</td>
+                                                <td>{{ $payment->transaction_id }}</td>
+                                                <td>{{ $payment->transaction_date }}</td>
+                                                <td>{{ $payment->user_id }}</td>
                                                 <td>
-                                                    <span>Jl. Ahmad Yani No. 3,</span><br>
-                                                    <span>Desa Sambimulyo,</span><br>
-                                                    <span>Kecamatan Siliragung,</span><br>
-                                                    <span>Kabupaten Banyuwangi,</span><br>
-                                                    <span>Jawa Timur</span><br>
+                                                    <span>{{ $payment->address }}, </span><br>
+                                                    <span>Desa {{ $payment->village }}, </span><br>
+                                                    <span>Kecamatan {{ $payment->district }}, </span><br>
+                                                    <span>{{ $payment->city }}, </span><br>
+                                                    <span>Provinsi {{ $payment->address }}, </span><br>
+                                                    <span>{{ $payment->postal_code }}</span><br>
                                                 </td>
-                                                <td>08123456789</td>
-                                                <td>Rp 400.000</td>
+                                                <td>{{ $payment->whatsapp }}</td>
+                                                <td>Rp {{ number_format($payment->total, 0, '', '.') }}</td>
+                                                <td>
+                                                    <div class="d-flex flex-column">
+                                                        <a href="{{ url('confirm-payment').'/'.$payment->transaction_id  }}"
+                                                           class="btn btn-info mb-2">Konfirmasi</a>
+                                                        <a href="{{ url('adm/transaction-detail').'/'.$payment->transaction_id }}"
+                                                           class="btn btn-dark mb-2">Detail</a>
+                                                        <a href="{{ url('cancel-transaction').'/'.$payment->transaction_id }}"
+                                                           class="btn btn-danger">Batalkan</a>
+                                                    </div>
+                                                </td>
                                             </tr>
+                                        @endforeach
                                         </tbody>
                                     </table>
                                 </div>
