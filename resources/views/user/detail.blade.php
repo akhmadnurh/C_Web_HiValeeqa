@@ -28,13 +28,13 @@
                     <h5 class="text-dark my-3">Rp {{ number_format($product->price, 2, ',', '.') }}</h5>
                     <p class="text-muted">Stok: {{ $product->stock }}</p>
                     <div class="d-grid gap-2 w-75">
-                        <button class="btn btn-pink btn-lg" type="button"><i class='bx bx-plus'></i> Add to Cart
-                        </button>
+                        <a href="{{ session()->has('loggedIn') ? url('add-to-card').'/'.$product->product_id : url('login') }}" class="btn btn-pink btn-lg" type="button"><i class='bx bx-plus'></i> Add to Cart
+                        </a>
                         @if($wishlist > 0)
                             <a href="{{ url('r-wishlist').'/'.$product->product_id }}" class="btn btn-outline-pink btn-lg" type="button"><i class='bx bxs-heart'></i> Wishlisted
                             </a>
                         @else
-                            <a href="{{ url('wishlist').'/'.$product->product_id }}" class="btn btn-outline-pink btn-lg" type="button"><i class='bx bxs-heart'></i> Wishlist
+                            <a href="{{ session()->has('loggedIn') ? url('wishlist').'/'.$product->product_id : url('login') }}" class="btn btn-outline-pink btn-lg" type="button"><i class='bx bxs-heart'></i> Wishlist
                             </a>
                         @endif
 

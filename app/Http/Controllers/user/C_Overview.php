@@ -17,6 +17,8 @@ class C_Overview extends Controller
     {
         $model = new M_Overview();
         $data['product'] = $model->getRandomProducts();
+        $data['cart'] = $model->getUserCartTotal();
+
         return view('user.home', $data);
     }
 

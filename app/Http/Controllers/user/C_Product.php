@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
+use App\Models\user\M_Overview;
 use App\Models\user\M_Product;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 class C_Product extends Controller
@@ -16,6 +18,9 @@ class C_Product extends Controller
         $data['etc'] = $model->getRandomProducts();
         $data['wishlist'] = $model->checkWishlist(session()->get('id'), $id);
 
+        $modelCart = new M_Overview();
+        $data['cart'] = $modelCart->getUserCartTotal();
+
         return view('user.detail', $data);
     }
 
@@ -23,12 +28,18 @@ class C_Product extends Controller
         $model = new M_Product();
         $data['products'] = $model->showAllProducts();
 
+        $modelCart = new M_Overview();
+        $data['cart'] = $modelCart->getUserCartTotal();
+
         return view('user.shop', $data);
     }
 
     public function shopFilter(Request $request){
         $model = new M_Product();
         $data['products'] = $model->getProductsWithFilter($request->input());
+
+        $modelCart = new M_Overview();
+        $data['cart'] = $modelCart->getUserCartTotal();
 
         return view('user.shop', $data);
     }

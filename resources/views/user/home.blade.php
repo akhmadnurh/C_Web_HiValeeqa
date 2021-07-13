@@ -70,7 +70,7 @@
 
     <section class="selingan my-5 pt-5">
         <div class="selingan-bg">
-            <h1 class="selingan-title">Tabungan</h1>
+            <h1 class="selingan-title">HI VALEEQA</h1>
             <p class="selingan-desc">HI VALEEQA punya fitur menarik yang bisa kamu pakai untuk beli gamis.</p>
             <a href="{{ url('shop') }}" class="btn btn-pink btn-lg">Cobain Yuk!</a>
         </div>

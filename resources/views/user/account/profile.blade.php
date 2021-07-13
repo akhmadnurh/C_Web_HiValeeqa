@@ -111,21 +111,17 @@
                                                 type="submit">Simpan</button>
                                     </form>
                                 </div>
-                                <div class="col-lg-4 px-4">
-                                    <div class="d-flex justify-content-center">
-                                        <div class="img-user-box">
-                                            <img src="{{ asset('img/users/default.png') }}"
-                                                 alt="username"
-                                                 class="">
-                                        </div>
+                                {{-- <div class="col-lg-4 px-4"> --}}
+                                {{-- <div class="d-flex justify-content-center"> --}}
+                                {{-- <div class="img-user-box"> --}}
+                                {{-- <img src="{{ asset('img/users/default.png')}}" alt="username" class=""> --}}
+                                {{-- </div> --}}
 
-                                    </div>
-                                    <div class="mb-3">
-                                        <input class="form-control"
-                                               type="file"
-                                               id="formFile">
-                                    </div>
-                                </div>
+                                {{-- </div> --}}
+                                {{-- <div class="mb-3"> --}}
+                                {{-- <input class="form-control" type="file" id="formFile"> --}}
+                                {{-- </div> --}}
+                                {{-- </div> --}}
                             </div>
 
                         </div>

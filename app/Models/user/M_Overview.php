@@ -88,4 +88,9 @@ class M_Overview extends Model
         $query = DB::table('user')->select('name')->where('email', $email)->first();
         return $query->name;
     }
+
+    public function getUserCartTotal()
+    {
+        return DB::table('cart')->select('*')->where('user_id', session()->get('id'))->count();
+    }
 }
