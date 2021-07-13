@@ -32,6 +32,7 @@
                                                 <th scope="col">No Hp</th>
                                                 <th scope="col">Total</th>
                                                 <th scope="col">Status</th>
+                                                <th scope="col">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -65,6 +66,10 @@
                                                         {{-- <span class="badge badge-secondary">Menunggu Konfirmasi</span> --}}
                                                         @endif
                                                     </div>
+                                                </td>
+                                                <td>
+                                                    <a href="{{ url('adm/detail-transaction').'/'.$payment->transaction_id }}"
+                                                       class="btn btn-dark mb-2">Detail</a>
                                                 </td>
                                             </tr>
                                         @endforeach

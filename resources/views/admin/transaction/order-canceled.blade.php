@@ -31,6 +31,7 @@
                                                 <th scope="col">Alamat</th>
                                                 <th scope="col">No Hp</th>
                                                 <th scope="col">Total</th>
+                                                <th scope="col">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -49,6 +50,10 @@
                                                 </td>
                                                 <td>{{ $payment->whatsapp }}</td>
                                                 <td>Rp {{ number_format($payment->total, 0, '', '.') }}</td>
+                                                <td>
+                                                    <a href="{{ url('adm/detail-transaction').'/'.$payment->transaction_id }}"
+                                                       class="btn btn-dark mb-2">Detail</a>
+                                                </td>
                                             </tr>
                                             @endforeach
                                         </tbody>

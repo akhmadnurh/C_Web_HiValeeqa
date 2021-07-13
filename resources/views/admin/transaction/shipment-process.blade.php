@@ -58,6 +58,8 @@
                                                     <div class="d-flex flex-column">
                                                         <a href="{{ url('transaction-finish').'/'.$payment->transaction_id }}"
                                                            class="btn btn-info mb-2">Selesai</a>
+                                                        <a href="{{ url('adm/detail-transaction').'/'.$payment->transaction_id }}"
+                                                           class="btn btn-dark mb-2">Detail</a>
                                                         <a href="{{ url('cancel-transaction').'/'.$payment->transaction_id }}"
                                                            class="btn btn-danger">Batalkan</a>
                                                     </div>

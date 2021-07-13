@@ -35,6 +35,7 @@
                                                 <th scope="col">No Hp</th>
                                                 <th scope="col">Total</th>
                                                 <th scope="col">Action</th>
+                                                <th scope="col">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>

@@ -90,4 +90,4 @@ Route::get('adm/order-completed', [\App\Http\Controllers\admin\C_Transaction::cl
 Route::get('adm/order-canceled', [\App\Http\Controllers\admin\C_Transaction::class, 'orderCanceled']);
 Route::get('adm/all-transaction', [\App\Http\Controllers\admin\C_Transaction::class, 'allTransaction']);
 
-Route::view('adm/detail-transaction', 'admin/transaction.detail-transaction');
+Route::get('adm/detail-transaction/{id}', [\App\Http\Controllers\admin\C_Transaction::class, 'detailTransaction']);

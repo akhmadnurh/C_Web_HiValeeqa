@@ -56,10 +56,8 @@
                                                         <div class="d-flex flex-column">
                                                             <a href="{{ url('confirm-payment') . '/' . $payment->transaction_id }}"
                                                                class="btn btn-info mb-2">Konfirmasi</a>
-                                                            <a href="{{ url('adm/detail-transaction') }}"
-                                                               class="btn btn-dark mb-2"
-                                                               role="button"
-                                                               data-toggle="modal">Detail</a>
+                                                            <a href="{{ url('adm/detail-transaction').'/'.$payment->transaction_id }}"
+                                                               class="btn btn-dark mb-2">Detail</a>
                                                             <a href="{{ url('cancel-transaction') . '/' . $payment->transaction_id }}"
                                                                class="btn btn-danger">Batalkan</a>
                                                         </div>

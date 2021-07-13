@@ -49,4 +49,14 @@ class M_Transaction extends Model
     {
         return DB::table('transaction')->join('user', 'user.user_id', '=', 'transaction.user_id')->select('transaction.*', 'user.*')->get();
     }
+
+    public function getDetailTransaction($id)
+    {
+        return DB::table('transaction_detail')->join('product', 'product.product_id', '=', 'transaction_detail.product_id')->select('*')->where('transaction_id', $id)->get();
+    }
+
+    public function getUserTransaction($id)
+    {
+        return DB::table('transaction')->join('user', 'user.user_id', '=', 'transaction.user_id')->select('user.*')->where('transaction_id', $id)->first();
+    }
 }

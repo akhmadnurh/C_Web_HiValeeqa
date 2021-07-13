@@ -76,4 +76,15 @@ class C_Transaction extends Controller
 
         return view('admin.transaction.all-transaction', $data);
     }
+
+    public function detailTransaction(Request $request)
+    {
+        $model = new M_Transaction();
+        $data['id'] = $request->segment(3);
+        $data['products'] = $model->getDetailTransaction($data['id']);
+        $data['user'] = $model->getUserTransaction($data['id']);
+        $data['badges'] = $model->getPaymentCount();
+
+        return view('admin.transaction.detail-transaction', $data);
+    }
 }
