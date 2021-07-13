@@ -54,8 +54,10 @@
                                                     <td>Rp {{ number_format($payment->total, 0, '', '.') }}</td>
                                                     <td>
                                                         <div class="d-flex flex-column">
-                                                            <a href="#"
-                                                               class="btn btn-info mb-2">Masukkan Kode Kirim</a>
+                                                            <a href="{{ url('#addReceiptNumber') . $payment->transaction_id }}"
+                                                               class="btn btn-info mb-2"
+                                                               role="button"
+                                                               data-toggle="modal">Masukkan Kode Kirim</a>
                                                             <a href="{{ url('#transactionDetail') . $payment->transaction_id }}"
                                                                class="btn btn-dark mb-2"
                                                                role="button"
@@ -78,6 +80,55 @@
 
         </section>
     </div>
+
+    <!-- Modal Masukkan Resi -->
+    @foreach ($payments as $key => $payment)
+        <div class="modal fade"
+             id="addReceiptNumber{{ $payment->transaction_id }}"
+             tabindex="-1"
+             role="dialog"
+             aria-labelledby="addReceiptNumber{{ $payment->transaction_id }}Label"
+             aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered"
+                 role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"
+                            id="addReceiptNumber{{ $payment->transaction_id }}Label">
+                            Masukkan No. Resi #{{ $payment->transaction_id }}
+                        </h5>
+                    </div>
+                    <form action="#">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="deliverDate">Tanggal Kirim</label>
+                                <input type="date"
+                                       name="deliverDate"
+                                       id="deliverDate"
+                                       class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="receiptNumber">No. Resi</label>
+                                <input type="text"
+                                       id="receiptNumber"
+                                       name="receiptNumber"
+                                       class="form-control">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#"
+                               class="btn btn-primary ml-1">Simpan</a>
+                            <button type="button"
+                                    class="btn btn-secondary"
+                                    data-dismiss="modal">Batal</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    @endforeach
+    <!-- Modal Masukkan Resi End -->
+
 
     <!-- Modal Detail -->
     @foreach ($payments as $key => $payment)
