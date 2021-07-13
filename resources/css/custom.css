@@ -227,6 +227,29 @@ span.item-qty {
     border: 1px solid #dee2e6;
 }
 
+/* Transaction */
+/* Order */
+/* #orderItem .list-group {
+    border-radius: 0;
+} */
+#orderItem li.list-group-item {
+    border-color: var(--bs-light) !important;
+}
+#orderItem li.list-group-item img {
+    height: 8rem;
+    margin-top: 0.1rem;
+    margin-bottom: 0.1rem;
+}
+/* Tab */
+section.tabTrans .nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+    color: var(--bs-white) !important;
+    background-color: var(--hv-pink) !important;
+}
+section.tabTrans a.nav-link {
+    color: var(--bs-secondary);
+}
+
 /* Footer */
 section.footer {
     color: var(--bs-white) !important;

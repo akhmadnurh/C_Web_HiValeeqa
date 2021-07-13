@@ -49,8 +49,12 @@ Route::view('verify-email', 'user.verify-email');
 Route::view('complete-data', 'user.complete-data');
 Route::view('forgot-password', 'user.forgot-password');
 Route::view('billing', 'user.billing');
-Route::view('transaction', 'user.transaction');
 Route::view('wishlist', 'user.wishlist');
+Route::view('transaction/payment-pending', 'user/transaction.payment-pending');
+Route::view('transaction/shipment-pending', 'user/transaction.shipment-pending');
+Route::view('transaction/shipment-process', 'user/transaction.shipment-process');
+Route::view('transaction/order-completed', 'user/transaction.order-completed');
+Route::view('transaction/order-canceled', 'user/transaction.order-canceled');
 
 //Admin
 Route::get('/adm', [\App\Http\Controllers\admin\C_Overview::class, 'index']);

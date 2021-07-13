@@ -4,13 +4,15 @@
     <div class="d-flex flex-row">
         <div class="me-2">
             <div class="img-user-side">
-                <img src="{{ asset('img/users/default.png')}}" alt="username">
+                <img src="{{ asset('img/users/default.png') }}"
+                     alt="username">
             </div>
         </div>
         <div class="d-flex flex-column">
             <div class="fw-bold">{{ session()->get('name') }}</div>
-            <a href="{{ url('profile') }}" class="text-secondary d-flex align-items-center">
-                <i class='bx bxs-pencil me-1' ></i>
+            <a href="{{ url('profile') }}"
+               class="text-secondary d-flex align-items-center">
+                <i class='bx bxs-pencil me-1'></i>
                 <span>Ubah Profile</span>
             </a>
         </div>
@@ -19,17 +21,23 @@
 
     <hr class="bg-secondary">
 
-    <ul class="list-unstyled" id="sidebarMyAcc">
+    <ul class="list-unstyled"
+        id="sidebarMyAcc">
 
         {{-- Akun saya --}}
         <li>
-            <a href="#myAccount" class="d-flex align-items-center fw-600" data-bs-toggle="collapse"
-            role="button" aria-expanded="false" aria-controls="myAccount">
+            <a href="#myAccount"
+               class="d-flex align-items-center fw-600"
+               data-bs-toggle="collapse"
+               role="button"
+               aria-expanded="false"
+               aria-controls="myAccount">
                 <i class='bx bxs-user bx-sm me-2'></i>
                 Akun Saya
             </a>
         </li>
-        <div class="collapse" id="myAccount">
+        <div class="collapse"
+             id="myAccount">
             <ul class="list-unstyled ms-5">
                 <li><a href="/profile">Profil</a></li>
                 <li><a href="/address">Alamat</a></li>
@@ -40,7 +48,8 @@
 
         {{-- history transaksi --}}
         <li>
-            <a href="/transaction" class="d-flex align-items-center fw-600">
+            <a href="/transaction/payment-pending"
+               class="d-flex align-items-center fw-600">
                 <i class='bx bxs-receipt bx-sm me-2'></i>
                 Transaksi Saya
             </a>
@@ -48,7 +57,8 @@
 
         {{-- wishlist --}}
         <li>
-            <a href="/wishlist" class="d-flex align-items-center fw-600">
+            <a href="/wishlist"
+               class="d-flex align-items-center fw-600">
                 <i class='bx bxs-heart bx-sm me-2'></i>
                 Wishlist
             </a>
