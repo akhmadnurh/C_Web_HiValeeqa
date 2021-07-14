@@ -55,6 +55,9 @@ Route::view('transaction/shipment-pending', 'user/transaction.shipment-pending')
 Route::view('transaction/shipment-process', 'user/transaction.shipment-process');
 Route::view('transaction/order-completed', 'user/transaction.order-completed');
 Route::view('transaction/order-canceled', 'user/transaction.order-canceled');
+Route::view('privacy-policy', 'user.privacy-policy');
+Route::view('terms-conditions', 'user.terms-conditions');
+Route::view('about-us', 'user.about-us');
 
 //Admin
 Route::get('/adm', [\App\Http\Controllers\admin\C_Overview::class, 'index']);

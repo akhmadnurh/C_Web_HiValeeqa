@@ -97,7 +97,8 @@
                         <li><a class="dropdown-item"
                                href="/profile"><i class='bx bx-user-circle me-2'></i> Akun Saya</a></li>
                         <li><a class="dropdown-item"
-                               href="/transaction"><i class='bx bx-receipt me-2'></i> Transaksi Saya</a></li>
+                               href="/transaction/payment-pending"><i class='bx bx-receipt me-2'></i> Transaksi Saya</a>
+                        </li>
                         <li><a class="dropdown-item"
                                href="/wishlist"><i class='bx bx-heart me-2'></i> Wishlist</a></li>
                         <li><a class="dropdown-item"
@@ -105,7 +106,7 @@
                     </ul>
                 </div>
             @else
-                <a class="btn btn-pink"
+                <a class="btn btn-outline-pink"
                    href="login">Masuk</a>
                 <a href="{{ url('register') }}"
                    class="btn btn-pink">Daftar</a>
