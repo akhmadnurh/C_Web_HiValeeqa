@@ -17,29 +17,30 @@
 
                             <div id="wishlistItem">
                                 <ul class="list-group">
+                                    @foreach($products as $key => $product)
                                     <li class="list-group-item">
                                         <div class="row justify-content-center align-items-center">
                                             <div class="col-2">
                                                 <div class="d-flex justify-content-center align-items-center">
-                                                    <img src="{{ asset('uLGsbv6d.png/yumna2.png') }}"
-                                                         alt="Yumna Dress">
+                                                    <img src="{{ asset('img/produk').'/'.$product->image }}"
+                                                         alt="">
                                                 </div>
                                             </div>
                                             <div class="col-3">
                                                 <a href="detail"
-                                                   class="text-pink"><strong>Yumna Dress</strong></a>
-                                                <h5 class="text-muted"><strong>Rp 190.000</strong></h5>
+                                                   class="text-pink"><strong>{{ $product->product_name }}</strong></a>
+                                                <h5 class="text-muted"><strong>Rp {{  number_format($product->price, 2, ',', '.')  }}</strong></h5>
                                             </div>
                                             <div class="col-3">
-                                                <div class="fw-bold">Stok: 12</div>
+                                                <div class="fw-bold">Stok: {{ $product->stock }}</div>
                                             </div>
                                             <div class="col-3">
-                                                <a href="#"
+                                                <a href="{{ url('add-to-cart').'/'.$product->product_id }}"
                                                    class="btn btn-pink">Add to Cart</a>
                                             </div>
                                             <div class="col-1">
                                                 <div class="d-flex justify-content-center align-items-center">
-                                                    <a href="#"
+                                                    <a href="{{ url('r-wishlist').'/'.$product->product_id }}"
                                                        class="text-pink">
                                                         <i class='bx bx-sm bx-trash-alt'></i>
                                                     </a>
@@ -47,36 +48,7 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="list-group-item">
-                                        <div class="row justify-content-center align-items-center">
-                                            <div class="col-2">
-                                                <div class="d-flex justify-content-center align-items-center">
-                                                    <img src="{{ asset('uLGsbv6d.png/yumna2.png') }}"
-                                                         alt="Yumna Dress">
-                                                </div>
-                                            </div>
-                                            <div class="col-3">
-                                                <a href="detail"
-                                                   class="text-pink"><strong>Yumna Dress</strong></a>
-                                                <h5 class="text-muted"><strong>Rp 190.000</strong></h5>
-                                            </div>
-                                            <div class="col-3">
-                                                <div class="fw-bold">Stok: 12</div>
-                                            </div>
-                                            <div class="col-3">
-                                                <a href="#"
-                                                   class="btn btn-pink">Add to Cart</a>
-                                            </div>
-                                            <div class="col-1">
-                                                <div class="d-flex justify-content-center align-items-center">
-                                                    <a href="#"
-                                                       class="text-pink">
-                                                        <i class='bx bx-sm bx-trash-alt'></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
+                                    @endforeach
                                 </ul>
                             </div>
 

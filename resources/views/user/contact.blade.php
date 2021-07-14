@@ -21,18 +21,18 @@
                 <div class="col-lg-5">
                     <div class="card border-radius-1 p-3">
                         <div class="card-body">
-                            <form>
+                            <form method="post" action="{{ url('contact') }}">
                                 <div class="mb-3">
                                   <label for="name" class="form-label">Nama</label>
-                                  <input type="text" class="form-control" id="name" placeholder="Nama Pengirim">
+                                  <input type="text" class="form-control" id="name" placeholder="Nama Pengirim" value="{{ session()->get('name') }}" readonly>
                                 </div>
                                 <div class="mb-3">
                                   <label for="email" class="form-label">Email</label>
-                                  <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="example@email.com">
+                                  <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="example@email.com"  value="{{ session()->get('email') }}" readonly>
                                 </div>
                                 <div class="mb-3">
                                     <label for="message" class="form-label">Pesan</label>
-                                    <textarea class="form-control" id="message" rows="5" placeholder="Pesan ditulis disini..."></textarea>
+                                    <textarea class="form-control" id="message" rows="5" placeholder="Pesan ditulis disini..." required></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-pink">Kirim</button>
                             </form>

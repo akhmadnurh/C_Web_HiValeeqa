@@ -4,7 +4,9 @@ namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
 use App\Mail\HiValeeqaMail;
+use App\Models\user\M_Product;
 use App\Models\user\M_User;
+use App\Models\user\M_Overview;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -160,5 +162,24 @@ class C_User extends Controller
         $model = new M_User();
         $model->removeWishlist(session()->get('id'), $request->segment(2));
         return redirect('/detail' . '/' . $request->segment(2));
+    }
+
+    public function changePasswordV()
+    {
+        $modelCart = new M_Overview();
+        $data['cart'] = $modelCart->getUserCartTotal();
+
+        return view('user.forgot-password', $data);
+    }
+
+    public function showWishlist()
+    {
+        $modelCart = new M_Overview();
+        $data['cart'] = $modelCart->getUserCartTotal();
+
+        $model = new M_Product();
+        $data['products'] = $model->showWishlistById(session()->get('id'));
+
+        return view('user.wishlist', $data);
     }
 }

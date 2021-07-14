@@ -33,7 +33,7 @@ Route::get('/resend-email-token', [\App\Http\Controllers\user\C_Overview::class,
 
 Route::get('/profile', [\App\Http\Controllers\user\C_User::class, 'profile']);
 Route::post('/profile', [\App\Http\Controllers\user\C_User::class, 'updateProfile']);
-Route::view('/change-password', 'user/account.change-password');
+Route::get('/change-password', [\App\Http\Controllers\user\C_User::class, 'changePasswordV']);
 Route::post('/change-password', [\App\Http\Controllers\user\C_User::class, 'changePassword']);
 Route::get('/address', [\App\Http\Controllers\user\C_User::class, 'address']);
 Route::post('/address', [\App\Http\Controllers\user\C_User::class, 'saveAddress']);
@@ -41,16 +41,18 @@ Route::get('/wishlist/{id}', [\App\Http\Controllers\user\C_User::class, 'wishlis
 Route::get('/r-wishlist/{id}', [\App\Http\Controllers\user\C_User::class, 'removeWishlist'])->whereNumber('id');
 Route::get('/shop', [\App\Http\Controllers\user\C_Product::class, 'shop']);
 Route::post('/shop', [\App\Http\Controllers\user\C_Product::class, 'shopFilter']);
+Route::get('/contact', [\App\Http\Controllers\user\C_Overview::class, 'contact']);
+Route::get('/wishlist', [\App\Http\Controllers\user\C_User::class, 'showWishlist']);
 
 Route::view('login', 'user.login');
-Route::view('contact', 'user.contact');
 Route::view('cart', 'user.cart');
 Route::view('verify-email', 'user.verify-email');
 Route::view('complete-data', 'user.complete-data');
-Route::view('forgot-password', 'user.forgot-password');
+Route::get('forgot-password', [\App\Http\Controllers\user\C_User::class, 'forgotPassword']);
 Route::view('billing', 'user.billing');
-Route::view('wishlist', 'user.wishlist');
-Route::view('transaction/payment-pending', 'user/transaction.payment-pending');
+
+
+Route::get('transaction/payment-pending', [\App\Http\Controllers\user\C_Transaction::class, 'paymentPending']);
 Route::view('transaction/shipment-pending', 'user/transaction.shipment-pending');
 Route::view('transaction/shipment-process', 'user/transaction.shipment-process');
 Route::view('transaction/order-completed', 'user/transaction.order-completed');

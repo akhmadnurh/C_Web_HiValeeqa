@@ -53,4 +53,9 @@ class M_Product extends Model
 
         return $filter->get();
     }
+
+    public function showWishlistById($id)
+    {
+        return DB::table('wishlist')->join('product', 'product.product_id', '=', 'wishlist.product_id')->join('image', 'product.product_id', '=', 'image.product_id')->select('wishlist.*', 'product.*', 'image.image')->where('wishlist.user_id', $id)->get();
+    }
 }

@@ -19,11 +19,11 @@
                 id="navList">
                 <li class="nav-item me-lg-5">
                     <a class="nav-link"
-                       href="/">Home</a>
+                       href="{{ url('/') }}">Home</a>
                 </li>
                 <li class="nav-item me-lg-5">
                     <a class="nav-link"
-                       href="/shop">Shop</a>
+                       href="{{ url('shop') }}">Shop</a>
                 </li>
                 <li class="nav-item me-lg-5">
                     <a class="nav-link"
@@ -32,7 +32,7 @@
                 </li>
                 <li class="nav-item me-lg-5">
                     <a class="nav-link"
-                       href="/contact">Contact</a>
+                       href="{{ session()->has('loggedIn') ? url('contact') : url('login') }}">Contact</a>
                 </li>
 
                 {{-- This is for Mobile --}}
@@ -66,7 +66,7 @@
                 @else
                     <li class="nav-item d-lg-none me-lg-5">
                         <a class="nav-link"
-                           href="login">Masuk</a>
+                           href="{{ url('login') }}">Masuk</a>
                     </li>
                     <li class="nav-item d-lg-none me-lg-5">
                         <a class="nav-link"

@@ -25,6 +25,7 @@ class M_Overview extends Model
                 session(['id' => $result->user_id]);
                 session(['username' => $result->username]);
                 session(['name' => $result->name]);
+                session(['email' => $result->email]);
                 session(['role' => $result->role]);
             }
             $data['status'] = 'success';

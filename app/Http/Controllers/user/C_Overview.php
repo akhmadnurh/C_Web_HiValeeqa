@@ -7,6 +7,7 @@ use App\Mail\HiValeeqaMail;
 use App\Mail\resendToken;
 use App\Mail\resetPassword;
 use App\Models\user\M_Overview;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
@@ -143,5 +144,14 @@ class C_Overview extends Controller
         session(['status' => 'success']);
         session(['msg' => 'Token berhasil dikirim! Silakan cek email anda']);
         return redirect('/login');
+    }
+
+    public function contact()
+    {
+        $modelCart = new M_Overview();
+        $data['cart'] = $modelCart->getUserCartTotal();
+
+        return view('user.contact', $data);
+
     }
 }
