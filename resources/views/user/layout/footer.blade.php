@@ -4,12 +4,17 @@
             <div class="col-12 col-lg-4 mb-5">
                 <h2 class="pb-4 mb-4 text-pink border-bottom border-foot">HI VALEEQA</h2>
                 <ul class="list-unstyled mb-5">
-                    <li class="mb-3 align-items-center d-flex"><i class='bx bxs-map bx-sm me-2'></i> Jember, Jawa Timur</li>
-                    <li class="mb-3 align-items-center d-flex"><i class='bx bxs-envelope bx-sm me-2'></i> hi-valeeqa@gmail.com</li>
+                    <li class="mb-3 align-items-center d-flex"><i class='bx bxs-map bx-sm me-2'></i> Jember, Jawa Timur
+                    </li>
+                    <li class="mb-3 align-items-center d-flex"><i class='bx bxs-envelope bx-sm me-2'></i>
+                        hi-valeeqa@gmail.com</li>
                     <li class="mb-3">
-                        <div class="align-items-center d-flex">
+                        <a href="https://www.instagram.com/hi.valeeqa"
+                           rel="nofollow"
+                           target="_blank"
+                           class="justify-content-start align-items-center d-flex">
                             <i class='bx bxl-instagram bx-sm me-2'></i> hi.valeeqa
-                        </div>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -28,13 +33,13 @@
                 <h2 class="fw-light pb-4 mb-4 border-bottom border-foot">Layanan</h2>
                 <ul class="list-unstyled mb-5">
                     <li class="mb-3">
-                        <a href="#">Tentang Kami</a>
+                        <a href="/about-us">Tentang Kami</a>
                     </li>
                     <li class="mb-3">
-                        <a href="#">Kebijakan Privasi</a>
+                        <a href="/privacy-policy">Kebijakan Privasi</a>
                     </li>
                     <li class="mb-3">
-                        <a href="#">FAQs</a>
+                        <a href="/terms-conditions">Syarat dan Ketentuan</a>
                     </li>
                 </ul>
             </div>
