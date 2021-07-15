@@ -169,7 +169,7 @@ class C_User extends Controller
         $modelCart = new M_Overview();
         $data['cart'] = $modelCart->getUserCartTotal();
 
-        return view('user.forgot-password', $data);
+        return view('user.account.change-password', $data);
     }
 
     public function showWishlist()
