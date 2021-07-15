@@ -82,4 +82,63 @@ class M_User extends Model
     {
         return DB::table('wishlist')->where('user_id', $id)->where('product_id', $product_id)->delete();
     }
+
+    public function addToCart($user_id, $product_id)
+    {
+        // Check if product already added to cart
+        $query = DB::table('cart')->select('*')->where('user_id', $user_id)->where('product_id', $product_id);
+        $check = $query->count();
+        $data = $query->first();
+        $quantity = 1;
+        if ($check > 0) {
+            $quantity += $data->quantity;
+
+            return DB::table('cart')->where('user_id', $user_id)->where('product_id', $product_id)->update(['quantity' => $quantity]);
+        } else {
+            return DB::table('cart')->insert(['user_id' => $user_id, 'product_id' => $product_id, 'quantity' => $quantity]);
+        }
+    }
+
+    public function plusItemCart($user_id, $product_id)
+    {
+        // check product stock
+        $query = DB::table('product')->select('*')->where('product_id', $product_id)->first();
+
+        $quantity = DB::table('cart')->select('quantity')->where('user_id', $user_id)->where('product_id', $product_id)->first();
+
+        if ($query->stock <= $quantity->quantity) {
+            return false;
+        } else {
+            // Get quantity from cart
+            $quantity->quantity += 1;
+            DB::table('cart')->where('user_id', $user_id)->where('product_id', $product_id)->update(['quantity' => $quantity->quantity]);
+            return true;
+        }
+
+    }
+
+    public function minusItemCart($user_id, $product_id)
+    {
+        // check product stock
+        $query = DB::table('product')->select('*')->where('product_id', $product_id)->first();
+
+        // check cart quantity
+        $quantity = DB::table('cart')->select('quantity')->where('user_id', $user_id)->where('product_id', $product_id)->first();
+
+
+        if ($quantity->quantity == 1) {
+            return false;
+        } else {
+            // Get quantity from cart
+            $quantity->quantity -= 1;
+            DB::table('cart')->where('user_id', $user_id)->where('product_id', $product_id)->update(['quantity' => $quantity->quantity]);
+            return true;
+        }
+
+    }
+
+    public function removeCart($user_id, $product_id)
+    {
+        return DB::table('cart')->where('user_id', $user_id)->where('product_id', $product_id)->delete();
+    }
 }

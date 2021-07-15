@@ -43,13 +43,18 @@ Route::get('/shop', [\App\Http\Controllers\user\C_Product::class, 'shop']);
 Route::post('/shop', [\App\Http\Controllers\user\C_Product::class, 'shopFilter']);
 Route::get('/contact', [\App\Http\Controllers\user\C_Overview::class, 'contact']);
 Route::get('/wishlist', [\App\Http\Controllers\user\C_User::class, 'showWishlist']);
+Route::get('/add-to-cart/{id}', [\App\Http\Controllers\user\C_User::class, 'addToCart']);
+Route::get('/minus-item-cart/{id}', [\App\Http\Controllers\user\C_User::class, 'minusItemCart']);
+Route::get('/plus-item-cart/{id}', [\App\Http\Controllers\user\C_User::class, 'plusItemCart']);
+Route::get('/remove-cart/{id}', [\App\Http\Controllers\user\C_User::class, 'removeCart']);
+Route::get('billing', [\App\Http\Controllers\user\C_Transaction::class, 'billing']);
+
 
 Route::view('login', 'user.login');
-Route::view('cart', 'user.cart');
+Route::get('cart', [\App\Http\Controllers\user\C_User::class, 'cart']);
 Route::view('verify-email', 'user.verify-email');
 Route::view('complete-data', 'user.complete-data');
 Route::get('forgot-password', [\App\Http\Controllers\user\C_User::class, 'forgotPassword']);
-Route::view('billing', 'user.billing');
 
 
 Route::get('transaction/payment-pending', [\App\Http\Controllers\user\C_Transaction::class, 'paymentPending']);
@@ -58,9 +63,9 @@ Route::get('transaction/shipment-process', [\App\Http\Controllers\user\C_Transac
 Route::get('transaction/confirm/{id}', [\App\Http\Controllers\user\C_Transaction::class, 'confirmTransaction']);
 Route::get('transaction/order-completed', [\App\Http\Controllers\user\C_Transaction::class, 'orderCompleted']);
 Route::get('transaction/order-canceled', [\App\Http\Controllers\user\C_Transaction::class, 'orderCanceled']);
-Route::view('privacy-policy', 'user.privacy-policy');
-Route::view('terms-conditions', 'user.terms-conditions');
-Route::view('about-us', 'user.about-us');
+Route::get('privacy-policy', [\App\Http\Controllers\user\C_Overview::class, 'privacyPolicy']);
+Route::get('terms-conditions', [\App\Http\Controllers\user\C_Overview::class, 'termsConditions']);
+Route::get('about-us', [\App\Http\Controllers\user\C_Overview::class, 'aboutUs']);
 
 //Admin
 Route::get('/adm', [\App\Http\Controllers\admin\C_Overview::class, 'index']);

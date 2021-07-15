@@ -58,4 +58,19 @@ class M_Product extends Model
     {
         return DB::table('wishlist')->join('product', 'product.product_id', '=', 'wishlist.product_id')->join('image', 'product.product_id', '=', 'image.product_id')->select('wishlist.*', 'product.*', 'image.image')->where('wishlist.user_id', $id)->get();
     }
+
+    public function showCartById($id)
+    {
+        $data['products'] = DB::table('cart')->join('product', 'cart.product_id', '=', 'product.product_id')->join('image', 'product.product_id', '=', 'image.product_id')->select('cart.*', 'product.*', 'image.image')->where('user_id', $id)->get();
+        $data['available'] = [];
+        foreach ($data['products'] as $product) {
+            array_push($data['available'], $product->stock > 0 ? 1 : 0);
+        }
+
+        $data['checkout_status'] = in_array(0, $data['available']) ? 0 : 1;
+
+        return $data;
+    }
+
+
 }

@@ -22,7 +22,7 @@
                 <h2 class="fw-light pb-4 mb-4 border-bottom border-foot">Produk</h2>
                 <ul class="list-unstyled mb-5">
                     <li class="mb-3">
-                        <a href="#">Chayra Abaya</a>
+                        <a href="">Chayra Abaya</a>
                     </li>
                     <li class="mb-3">
                         <a href="">Yumna Dress</a>
@@ -33,13 +33,13 @@
                 <h2 class="fw-light pb-4 mb-4 border-bottom border-foot">Layanan</h2>
                 <ul class="list-unstyled mb-5">
                     <li class="mb-3">
-                        <a href="/about-us">Tentang Kami</a>
+                        <a href="{{ url('about-us') }}">Tentang Kami</a>
                     </li>
                     <li class="mb-3">
-                        <a href="/privacy-policy">Kebijakan Privasi</a>
+                        <a href="{{ url('privacy-policy') }}">Kebijakan Privasi</a>
                     </li>
                     <li class="mb-3">
-                        <a href="/terms-conditions">Syarat dan Ketentuan</a>
+                        <a href="{{ url('terms-conditions') }}">Syarat dan Ketentuan</a>
                     </li>
                 </ul>
             </div>

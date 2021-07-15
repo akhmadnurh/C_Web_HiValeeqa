@@ -5,6 +5,7 @@ namespace App\Http\Controllers\user;
 use App\Http\Controllers\Controller;
 use App\Models\user\M_Transaction;
 use App\Models\user\M_Overview;
+use App\Models\user\M_User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
@@ -75,5 +76,16 @@ class C_Transaction extends Controller
         $data['cart'] = $modelCart->getUserCartTotal();
 
         return view('user.transaction.order-canceled', $data);
+    }
+
+    public function billing(){
+        $model = new M_Product();
+        $data['products'] = $model->getProductsWithFilter($request->input());
+
+        $modelCart = new M_Overview();
+        $data['cart'] = $modelCart->getUserCartTotal();
+
+
+        return view('user.shop', $data);
     }
 }

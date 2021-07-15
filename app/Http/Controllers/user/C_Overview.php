@@ -154,4 +154,25 @@ class C_Overview extends Controller
         return view('user.contact', $data);
 
     }
+
+    public function privacyPolicy(){
+        $modelCart = new M_Overview();
+        $data['cart'] = $modelCart->getUserCartTotal();
+
+        return view('user.privacy-policy', $data);
+    }
+
+    public function termsConditions(){
+        $modelCart = new M_Overview();
+        $data['cart'] = $modelCart->getUserCartTotal();
+
+        return view('user.terms-conditions', $data);
+    }
+
+    public function aboutUs(){
+        $modelCart = new M_Overview();
+        $data['cart'] = $modelCart->getUserCartTotal();
+
+        return view('user.about-us', $data);
+    }
 }

@@ -12,7 +12,7 @@
                     <p class="fs-4 my-5">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, repellendus sunt? Expedita atque esse obcaecati ullam, a explicabo autem voluptates consequuntur sit harum perspiciatis non, modi quos eos voluptatem in.
                     </p>
-                    <button class="btn btn-pink btn-lg">Explore Now</button>
+                    <a href="{{ url('shop') }}" class="btn btn-pink btn-lg">Explore Now</a>
                 </div>
                 <div class="col-lg-4">
                     <img src="{{ asset('img/hv-jumbotron.png')}}" alt="Hi Valeeqa Jumbotron" class="img-fluid">

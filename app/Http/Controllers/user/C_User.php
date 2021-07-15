@@ -182,4 +182,66 @@ class C_User extends Controller
 
         return view('user.wishlist', $data);
     }
+
+    public function cart()
+    {
+        $modelCart = new M_Overview();
+        $data['cart'] = $modelCart->getUserCartTotal();
+
+        $model = new M_Product();
+        $data['products'] = $model->showCartById(session()->get('id'));
+
+        $modelUser = new M_User();
+        $data['user'] = $modelUser->getProfile(session()->get('id'));
+
+        return view('user.cart', $data);
+    }
+
+    public function addToCart(Request $request)
+    {
+        $product_id = $request->segment(2);
+        $model = new M_User();
+        $model->addToCart(session()->get('id'), $product_id);
+
+        return redirect('cart');
+    }
+
+    public function plusItemCart(Request $request)
+    {
+        $product_id = $request->segment(2);
+        $model = new M_User();
+        $plus = $model->plusItemCart(session()->get('id'), $product_id);
+
+        if ($plus) {
+            return redirect('cart');
+        } else {
+            return redirect('cart')->with(['msg' => 'Stok tidak cukup.']);
+        }
+
+    }
+
+    public function minusItemCart(Request $request)
+    {
+        $product_id = $request->segment(2);
+        $model = new M_User();
+        $minus = $model->minusItemCart(session()->get('id'), $product_id);
+
+        if ($minus) {
+            return redirect('cart');
+        } else {
+            return redirect('cart')->with(['msg' => 'Jumlah tidak boleh kosong.']);
+        }
+    }
+
+    public function removeCart(Request $request){
+        $product_id = $request->segment(2);
+        $model = new M_User();
+        $remove = $model->removeCart(session()->get('id'), $product_id);
+
+        if ($remove) {
+            return redirect('cart');
+        } else {
+            return redirect('cart')->with(['msg' => 'Error.']);
+        }
+    }
 }

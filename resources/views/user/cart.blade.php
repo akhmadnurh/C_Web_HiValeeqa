@@ -13,65 +13,54 @@
         <div class="container py-5">
             <div class="row">
                 <div class="col-lg-8" id="cartItem">
+                    @if(session()->has('msg'))
+                        <div class="alert alert-danger">{{ session()->get('msg') }}</div>
+                    @endif
                     <ul class="list-group">
-                        <li class="list-group-item">
-                            <div class="row justify-content-center align-items-center">
-                                <div class="col-2">
-                                    <div class="d-flex justify-content-center align-items-center">
-                                        <img src="{{ asset('img/produk/yumna2.png')}}" alt="Yumna Dress">
+                        <?php $subTotal = 0 ?>
+                        @foreach($products['products'] as $key => $product)
+                            <?php $subTotal += $product->quantity * $product->price ?>
+                            <li class="list-group-item">
+                                <div class="row justify-content-center align-items-center">
+                                    <div class="col-2">
+                                        <div class="d-flex justify-content-center align-items-center">
+                                            <img src="{{ asset('img/produk').'/'.$product->image }}" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <h5 class="text-muted"><strong><a
+                                                        href="{{ url('detail').'/'.$product->product_id }}"
+                                                        class="text-muted">{{ $product->product_name }}</a></strong>
+                                        </h5>
+                                        @if($products['available'][$key] == 0)
+                                            <span class="text-danger">Stok produk kosong</span>
+                                        @endif
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="d-flex justify-content-center align-items-center">
+                                            <a href="{{ $products['available'][$key] == 0 ? '' : url('minus-item-cart').'/'.$product->product_id }}"
+                                               class="btn btn-pink"><strong>-</strong></a>
+                                            <span class="item-qty mx-1">{{ $product->quantity }}</span>
+                                            <a href="{{ $products['available'][$key] == 0 ? '' : url('plus-item-cart').'/'.$product->product_id }}"
+                                               class="btn btn-pink"><strong>+</strong></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <h5 class="text-muted">
+                                            <strong>Rp {{ number_format($product->price * $product->quantity, 2, ',', '.') }}</strong>
+                                        </h5>
+                                    </div>
+                                    <div class="col-1">
+                                        <div class="d-flex justify-content-center align-items-center">
+                                            <a href="{{ url('remove-cart').'/'.$product->product_id }}"
+                                               class="text-pink" onclick="return confirm('Apakah anda yakin?')">
+                                                <i class='bx bx-sm bx-trash-alt'></i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-3">
-                                    <h5 class="text-muted"><strong>Yumna Dress</strong></h5>
-                                </div>
-                                <div class="col-3">
-                                    <div class="d-flex justify-content-center align-items-center">
-                                        <button class="btn btn-pink"><strong>-</strong></button>
-                                        <span class="item-qty mx-1">12</span>
-                                        <button class="btn btn-pink"><strong>+</strong></button>
-                                    </div>
-                                </div>
-                                <div class="col-3">
-                                    <h5 class="text-muted"><strong>Rp 190.000</strong></h5>
-                                </div>
-                                <div class="col-1">
-                                    <div class="d-flex justify-content-center align-items-center">
-                                        <a href="#" class="text-pink">
-                                            <i class='bx bx-sm bx-trash-alt'></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="row justify-content-center align-items-center">
-                                <div class="col-2">
-                                    <div class="d-flex justify-content-center align-items-center">
-                                        <img src="{{ asset('img/produk/yumna2.png')}}" alt="Yumna Dress">
-                                    </div>
-                                </div>
-                                <div class="col-3">
-                                    <h5 class="text-muted"><strong>Yumna Dress</strong></h5>
-                                </div>
-                                <div class="col-3">
-                                    <div class="d-flex justify-content-center align-items-center">
-                                        <button class="btn btn-pink"><strong>-</strong></button>
-                                        <span class="item-qty mx-1">12</span>
-                                        <button class="btn btn-pink"><strong>+</strong></button>
-                                    </div>
-                                </div>
-                                <div class="col-3">
-                                    <h5 class="text-muted"><strong>Rp 190.000</strong></h5>
-                                </div>
-                                <div class="col-1">
-                                    <div class="d-flex justify-content-center align-items-center">
-                                        <a href="#" class="text-pink">
-                                            <i class='bx bx-sm bx-trash-alt'></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="col-lg-4">
@@ -79,10 +68,17 @@
                         <div class="card-body">
                             <div class="d-flex justify-content-between">
                                 <div>
-                                    <i class='bx bx-map' ></i> Alamat Pengiriman: <br> 
-                                    Banyuwangi, Jawa Timur
+                                    <i class='bx bx-map'></i> Alamat Pengiriman: <br>
+                                    {{ $user->address }}, Desa {{ $user->village }}, Kecamatan {{ $user->district }}
+                                    , {{ $user->city }}, Provinsi {{ $user->province }}, {{ $user->postal_code }}
                                 </div>
-                                <button class="btn btn-outline-pink">Ubah</button>
+                                <button class="btn btn-outline-pink" onclick="profile('{{ url('address') }}')">Ubah
+                                </button>
+                                <script>
+                                    const profile = (url) => {
+                                        location.href = url
+                                    }
+                                </script>
                             </div>
                         </div>
                     </div>
@@ -92,21 +88,22 @@
                             <ul class="list-group border-0 bg-transparent mt-4">
                                 <li class="d-flex list-group-item justify-content-between border-0 bg-transparent">
                                     <span class="h6">Total:</span>
-                                    <span class="h6">Rp 280.000</span>
+                                    <span class="h6">Rp {{ number_format($subTotal, 2, ',', '.') }}</span>
                                 </li>
                                 <li class="d-flex list-group-item justify-content-between border-0 bg-transparent">
                                     <span class="h6">
                                         Ongkos Pengiriman: <br>
                                     </span>
-                                    <span class="h6">Rp 20.000</span>
+                                    <span class="h6">Rp {{ number_format(20000, 2, ',', '.') }}</span>
                                 </li>
                             </ul>
                             <div class="d-flex justify-content-between border-top border-1 pt-3 mt-3">
                                 <h4>Grand Total:</h4>
-                                <h4>Rp 300.000</h4>
+                                <h4>Rp {{ number_format($subTotal + 20000, 2, ',', '.') }}</h4>
                             </div>
                             <div class="d-grid mt-5">
-                                <a href="/billing" class="btn btn-pink">Checkout</a>
+                                <a href="{{ $products['checkout_status'] == 0 || $cart == 0 ? '' : url('checkout') }}"
+                                   class="btn btn-pink">Checkout</a>
                             </div>
                         </div>
                     </div>
