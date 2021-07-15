@@ -5,6 +5,7 @@ namespace App\Http\Controllers\user;
 use App\Http\Controllers\Controller;
 use App\Models\user\M_Transaction;
 use App\Models\user\M_Overview;
+use App\Models\user\M_Product;
 use App\Models\user\M_User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
@@ -78,14 +79,38 @@ class C_Transaction extends Controller
         return view('user.transaction.order-canceled', $data);
     }
 
-    public function billing(){
-        $model = new M_Product();
-        $data['products'] = $model->getProductsWithFilter($request->input());
+    public function billing()
+    {
+        $modelCart = new M_Overview();
+        $data['cart'] = $modelCart->getUserCartTotal();
+
+        $modelProduct = new M_Transaction();
+        $data['products'] = $modelProduct->getCartItems(session()->get('id'));
+
+        return view('user.billing', $data);
+    }
+
+    public function checkout(Request $request)
+    {
+        $model = new M_Transaction();
+        // Checkout
+        $model->checkout($request->input());
+
+        return redirect('transaction/payment-pending');
+    }
+
+    public function detailTransaction(Request $request)
+    {
+        $id = $request->segment(3);
+
+        $modelProduct = new M_Transaction();
+        $data['products'] = $modelProduct->getTransactionItems($id);
+
+        $data['bank'] = $modelProduct->getBankById($id);
 
         $modelCart = new M_Overview();
         $data['cart'] = $modelCart->getUserCartTotal();
 
-
-        return view('user.shop', $data);
+        return view('user.transaction.detail-transaction', $data);
     }
 }

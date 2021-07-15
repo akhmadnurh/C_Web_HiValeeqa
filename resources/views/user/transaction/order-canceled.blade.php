@@ -32,7 +32,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-3">
-                                                        <a href="detail"
+                                                        <a href="{{ url('detail').'/'.$detail->product_id }}"
                                                            class="text-pink"><strong>{{ $detail->product_name }}</strong></a>
                                                         <h5 class="text-muted"><strong>Rp {{ number_format($detail->price, 2, ',', '.' ) }}</strong></h5>
                                                     </div>

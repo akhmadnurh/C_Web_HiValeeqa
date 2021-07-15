@@ -102,7 +102,7 @@
                                 <h4>Rp {{ number_format($subTotal + 20000, 2, ',', '.') }}</h4>
                             </div>
                             <div class="d-grid mt-5">
-                                <a href="{{ $products['checkout_status'] == 0 || $cart == 0 ? '' : url('checkout') }}"
+                                <a href="{{ $products['checkout_status'] == 0 || $cart == 0 ? '' : url('billing') }}"
                                    class="btn btn-pink">Checkout</a>
                             </div>
                         </div>

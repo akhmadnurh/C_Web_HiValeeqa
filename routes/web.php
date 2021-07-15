@@ -47,7 +47,8 @@ Route::get('/add-to-cart/{id}', [\App\Http\Controllers\user\C_User::class, 'addT
 Route::get('/minus-item-cart/{id}', [\App\Http\Controllers\user\C_User::class, 'minusItemCart']);
 Route::get('/plus-item-cart/{id}', [\App\Http\Controllers\user\C_User::class, 'plusItemCart']);
 Route::get('/remove-cart/{id}', [\App\Http\Controllers\user\C_User::class, 'removeCart']);
-Route::get('billing', [\App\Http\Controllers\user\C_Transaction::class, 'billing']);
+Route::get('/billing', [\App\Http\Controllers\user\C_Transaction::class, 'billing']);
+Route::post('/checkout', [\App\Http\Controllers\user\C_Transaction::class, 'checkout']);
 
 
 Route::view('login', 'user.login');
@@ -63,6 +64,7 @@ Route::get('transaction/shipment-process', [\App\Http\Controllers\user\C_Transac
 Route::get('transaction/confirm/{id}', [\App\Http\Controllers\user\C_Transaction::class, 'confirmTransaction']);
 Route::get('transaction/order-completed', [\App\Http\Controllers\user\C_Transaction::class, 'orderCompleted']);
 Route::get('transaction/order-canceled', [\App\Http\Controllers\user\C_Transaction::class, 'orderCanceled']);
+Route::get('transaction/detail/{id}', [\App\Http\Controllers\user\C_Transaction::class, 'detailTransaction']);
 Route::get('privacy-policy', [\App\Http\Controllers\user\C_Overview::class, 'privacyPolicy']);
 Route::get('terms-conditions', [\App\Http\Controllers\user\C_Overview::class, 'termsConditions']);
 Route::get('about-us', [\App\Http\Controllers\user\C_Overview::class, 'aboutUs']);

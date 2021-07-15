@@ -4,9 +4,9 @@
 
     <section class="billing mt-4 mb-5 pb-5">
         <div class="container">
-            <div class="bg-danger bg-gradient border-radius-1 p-3 my-3">
+            <div class="bg-warning bg-gradient border-radius-1 p-3 my-3">
                 <h5 class="text-light d-flex align-items-center mb-0">
-                    <i class='bx bx-message-square-error bx-sm me-2'></i> Silahkan lakukan transfer sebelum Anda melakukan konfirmasi.
+                    <i class='bx bx-message-square-error bx-sm me-2'></i> Harap konfirmasi pembayaran dengan menghubungi admin setelah melakukan pembayaran.
                 </h5>
             </div>
             <div class="row">
@@ -19,39 +19,39 @@
                         <div class="card-body">
                             <table class="table table-borderless mb-4">
                                 <thead>
-                                    <tr>
-                                        <th scope="col">No.</th>
-                                        <th scope="col">Nama Barang</th>
-                                        <th scope="col">Harga</th>
-                                        <th scope="col" class="text-center">Jumlah</th>
-                                        <th scope="col">Total Harga</th>
-                                    </tr>
+                                <tr>
+                                    <th scope="col">No.</th>
+                                    <th scope="col">Nama Barang</th>
+                                    <th scope="col">Harga</th>
+                                    <th scope="col" class="text-center">Jumlah</th>
+                                    <th scope="col">Total Harga</th>
+                                </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $subTotal = 0 ?>
-                                    @foreach($products as $key => $product)
-                                        <?php $subTotal += ($product->quantity * $product->price) ?>
-                                        <tr>
-                                            <td>{{ ++$key }}.</td>
-                                            <td>{{ $product->product_name }}</td>
-                                            <td>Rp {{ number_format($product->price, 2, ',', '.') }}</td>
-                                            <td class="text-center">{{ $product->quantity }}</td>
-                                            <td>Rp {{ number_format($product->quantity * $product->price, 2, ',', '.') }}</td>
-                                        </tr>
-                                    @endforeach
+                                <?php $subTotal = 0 ?>
+                                @foreach($products as $key => $product)
+                                    <?php $subTotal += ($product->count * $product->price) ?>
+                                    <tr>
+                                        <td>{{ ++$key }}.</td>
+                                        <td>{{ $product->product_name }}</td>
+                                        <td>Rp {{ number_format($product->price, 2, ',', '.') }}</td>
+                                        <td class="text-center">{{ $product->count }}</td>
+                                        <td>Rp {{ number_format($product->count * $product->price, 2, ',', '.') }}</td>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                             <hr>
                             <table class="table table-borderless">
                                 <tbody>
-                                    <tr>
-                                        <td class="w-75 text-end">Total:</td>
-                                        <td class="w-25 fw-bold">Rp {{ number_format($subTotal, 2, ',', '.') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="w-75 text-end">Ongkos Pengiriman:</td>
-                                        <td class="w-25 fw-bold">Rp {{ number_format(20000, 2, ',', '.') }}</td>
-                                    </tr>
+                                <tr>
+                                    <td class="w-75 text-end">Total:</td>
+                                    <td class="w-25 fw-bold">Rp {{ number_format($subTotal, 2, ',', '.') }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="w-75 text-end">Ongkos Pengiriman:</td>
+                                    <td class="w-25 fw-bold">Rp {{ number_format(20000, 2, ',', '.') }}</td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -131,35 +131,16 @@
                             <form action="{{ url('checkout') }}" method="post" onsubmit="return confirm('Apakah anda yakin?')">
                                 <div class="mb-3">
                                     <label for="bankName" class="form-label">Bank Anda</label>
-                                    <input type="text" class="form-control" id="bankName" name="bankName" required>
+                                    <input type="text" class="form-control" id="bankName" name="bankName" readonly value="{{ $bank->bank }}">
                                 </div>
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Nama (Sesuai Rekening)</label>
-                                    <input type="text" class="form-control" id="name"  name="name" required>
+                                    <input type="text" class="form-control" id="name"  name="name" readonly value="{{ $bank->name }}">
                                 </div>
                                 <div class="mb-3">
                                     <label for="accountNumber" class="form-label">Nomor Rekening</label>
-                                    <input type="text" class="form-control" id="accountNumber" name="accountNumber" required>
+                                    <input type="text" class="form-control" id="accountNumber" name="accountNumber" readonly value="{{ $bank->account }}">
                                 </div>
-{{--                                <div class="mb-3">--}}
-{{--                                    <label for="adminBank" class="form-label">Bank Tujuan</label>--}}
-{{--                                    <select id="adminBank" class="form-select">--}}
-{{--                                        <option selected>Pilih Bank</option>--}}
-{{--                                        <option value="BNI">BNI</option>--}}
-{{--                                        <option value="BRI">BRI</option>--}}
-{{--                                        <option value="Gopay">Gopay</option>--}}
-{{--                                        <option value="LinkAja">LinkAja</option>--}}
-{{--                                    </select>--}}
-{{--                                </div>--}}
-{{--                                <div class="mb-3">--}}
-{{--                                    <label for="trfDate" class="form-label">Tanggal Transfer</label>--}}
-{{--                                    <input type="date" id="trfDate" class="form-control">--}}
-{{--                                </div>--}}
-{{--                                <div class="mb-3">--}}
-{{--                                    <label for="trfNominal" class="form-label">Jumlah</label>--}}
-{{--                                    <input type="text" class="form-control" id="trfNominal" value="300.000">--}}
-{{--                                </div>--}}
-                                <button class="btn btn-pink btn-lg" type="submit" >Konfirmasi</button>
                             </form>
                         </div>
                     </div>
