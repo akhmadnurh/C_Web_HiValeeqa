@@ -53,10 +53,11 @@ Route::view('billing', 'user.billing');
 
 
 Route::get('transaction/payment-pending', [\App\Http\Controllers\user\C_Transaction::class, 'paymentPending']);
-Route::view('transaction/shipment-pending', 'user/transaction.shipment-pending');
-Route::view('transaction/shipment-process', 'user/transaction.shipment-process');
-Route::view('transaction/order-completed', 'user/transaction.order-completed');
-Route::view('transaction/order-canceled', 'user/transaction.order-canceled');
+Route::get('transaction/shipment-pending', [\App\Http\Controllers\user\C_Transaction::class, 'shipmentPending']);
+Route::get('transaction/shipment-process', [\App\Http\Controllers\user\C_Transaction::class, 'shipmentProcess']);
+Route::get('transaction/confirm/{id}', [\App\Http\Controllers\user\C_Transaction::class, 'confirmTransaction']);
+Route::get('transaction/order-completed', [\App\Http\Controllers\user\C_Transaction::class, 'orderCompleted']);
+Route::get('transaction/order-canceled', [\App\Http\Controllers\user\C_Transaction::class, 'orderCanceled']);
 Route::view('privacy-policy', 'user.privacy-policy');
 Route::view('terms-conditions', 'user.terms-conditions');
 Route::view('about-us', 'user.about-us');

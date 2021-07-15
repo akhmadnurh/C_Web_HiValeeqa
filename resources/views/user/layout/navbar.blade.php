@@ -107,7 +107,7 @@
                 </div>
             @else
                 <a class="btn btn-outline-pink"
-                   href="login">Masuk</a>
+                   href="{{ url('login') }}">Masuk</a>
                 <a href="{{ url('register') }}"
                    class="btn btn-pink">Daftar</a>
             @endif
