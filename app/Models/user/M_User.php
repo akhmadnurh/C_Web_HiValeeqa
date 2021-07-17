@@ -12,7 +12,7 @@ class M_User extends Model
 
     public function register($data)
     {
-        $query = DB::table('user')->insert(['name' => $data['fullname'], 'email' => $data['email'], 'username' => $data['username'], 'password' => md5($data['password']), 'gender' => '', 'address' => '', 'whatsapp' => '', 'role' => 0]);
+        $query = DB::table('user')->insert(['name' => $data['fullname'], 'email' => $data['email'], 'username' => $data['username'], 'password' => md5($data['password']), 'gender' => '', 'address' => '', 'whatsapp' => '', 'role' => 0, 'province' => '', 'city' => '', 'district' => '', 'village' => '', 'postal_code' => '']);
         return $query;
     }
 

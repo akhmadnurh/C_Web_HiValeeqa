@@ -55,14 +55,14 @@
                                    placeholder="Konfirmasi Password" onfocus="removeAlert()" required>
                         </div>
                         <div class="d-grid mb-3">
-                            <button type="submit" class="btn btn-pink btn-lg me-3">Daftar</button>
+                            <button type="submit" class="btn btn-pink btn-lg">Daftar</button>
                         </div>
                     </form>
                     <div class="d-grid">
-                        <a href="/" class="btn btn-light btn-lg">Back to Home</a>
+                        <a href="{{ url('/') }}" class="btn btn-light btn-lg">Back to Home</a>
                     </div>
                     <div class="d-flex justify-content-center align-items-center mt-3">
-                        Sudah Punya Akun? <a href="/login" class="text-pink ms-1">Masuk</a>
+                        Sudah Punya Akun? <a href="{{ url('login') }}" class="text-pink ms-1">Masuk</a>
                     </div>
                 </div>
             </div>
