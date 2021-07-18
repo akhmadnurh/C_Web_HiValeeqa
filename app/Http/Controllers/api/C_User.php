@@ -78,15 +78,16 @@ class C_User extends Controller
         }
     }
 
-    public function profile()
+    public function profile(Request $request)
     {
+        $user_id = $request->input('user_id');
         $model = new M_User();
-        $data['user'] = $model->getProfile(session()->get('id'));
+        $data['user'] = $model->getProfile($user_id);
 
         $modelCart = new M_Overview();
         $data['cart'] = $modelCart->getUserCartTotal();
 
-        return view('user.account.profile', $data);
+        return response()->json($data);
     }
 
     public function updateProfile(Request $request)
