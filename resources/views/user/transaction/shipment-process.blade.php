@@ -55,11 +55,17 @@
                                         <li class="list-group-item bg-pink-light d-flex flex-column p-4">
                                             <h5 class="mb-3 text-end">Total:
                                                 Rp {{ number_format($total, 2, ',', '.')}}</h5>
-                                            <div class="text-end">
-                                                <span class="btn btn-secondary"
-                                                  style="pointer-events: none">JNE: {{ $transaction->receipt_number }}</span>
-                                                <a href="{{ url('transaction/confirm').'/'.$transaction->transaction_id }}"
-                                                   class="btn btn-outline-pink" onclick="return confirm('Apakah anda yakin?')">Konfirmasi diterima</a>
+                                            <div class="d-flex justify-content-between">
+                                                <a href="https://wa.me/085784197425"
+                                                   class="btn btn-outline-success">Hubungi Admin</a>
+                                                <div class="justify-content-end">
+                                                    <span class="btn btn-secondary"
+                                                      style="pointer-events: none">JNE: {{ $transaction->receipt_number }}</span>
+                                                    <a href="{{ url('transaction/confirm').'/'.$transaction->transaction_id }}"
+                                                       class="btn btn-outline-pink"
+                                                       onclick="return confirm('Apakah anda yakin?')">Konfirmasi
+                                                        diterima</a>
+                                                </div>
                                             </div>
                                         </li>
                                     </ul>

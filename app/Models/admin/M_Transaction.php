@@ -79,4 +79,23 @@ class M_Transaction extends Model
     {
         return DB::table('transaction')->where('transaction_id', $id)->update(['status' => 4]);
     }
+
+    public function getAllDashboardData()
+    {
+        $data['orders'][0] = DB::table('transaction')->select('*')->where('status', 2)->count();
+        $data['orders'][1] = DB::table('transaction')->select('*')->where('status', 3)->count();
+        $data['orders'][2] = DB::table('transaction')->select('*')->where('status', 4)->count();
+        $data['orders'][3] = array_sum($data['orders']);
+
+        // All transaction counts
+        $data['orders'][4] = DB::table('transaction')->select('*')->count();
+
+        // Income
+        $data['income'] = DB::table('transaction')->where('status', 4)->sum('total');
+
+        // All last transaction
+        $data['transactions'] = DB::table('transaction')->join('user', 'user.user_id', '=', 'transaction.user_id')->select('*')->orderBy('transaction_id', 'desc')->limit(3)->get();
+        return $data;
+
+    }
 }

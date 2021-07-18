@@ -14,6 +14,9 @@ class C_Overview extends Controller
         $badgeModel = new M_Transaction();
         $data['badges'] = $badgeModel->getPaymentCount();
 
+        $data['dashboard'] = $badgeModel->getAllDashboardData();
+
+
         return view('admin.home', $data);
     }
 }
