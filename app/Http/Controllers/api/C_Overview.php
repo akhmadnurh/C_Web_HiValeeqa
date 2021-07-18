@@ -30,17 +30,12 @@ class C_Overview extends Controller
         if ($login !== null && $login['status'] !== 'error') {
             // Jika belum verifikasi
             if ($login['status'] == 'error-verification') {
-                return 'error-ver';
+                return response()->json(['msg' => 'error-verification']);
             } else {
-                // Jika sudah verifikasi
-                if (session('role') == '1') {
-                    return 'admin';
-                } else {
-                    return response()->json(['msg' => 'user']);
-                }
+                    return response()->json(['msg' => 'user', 'userdata' => $login['user']]);
             }
         } else {
-            return 'error';
+            return response()->json(['msg' => 'error']);
         }
 
 

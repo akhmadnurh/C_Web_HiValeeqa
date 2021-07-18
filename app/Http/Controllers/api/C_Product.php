@@ -13,10 +13,11 @@ class C_Product extends Controller
     public function detail(Request $request)
     {
         $id = $request->segment(3);
+        $user_id = $request->input('user_id');
         $model = new M_Product();
         $data['product'] = $model->getProductById($id);
         $data['etc'] = $model->getRandomProducts();
-        $data['wishlist'] = $model->checkWishlist(session()->get('id'), $id);
+        $data['wishlist'] = $model->checkWishlist($user_id, $id);
 
         $modelCart = new M_Overview();
         $data['cart'] = $modelCart->getUserCartTotal();

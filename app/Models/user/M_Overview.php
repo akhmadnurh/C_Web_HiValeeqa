@@ -15,8 +15,8 @@ class M_Overview extends Model
         $result = $query->first();
         if ($count > 0) {
             // Cek apakah email sudah terverifikasi atau belum
-            $query = DB::table('email_verification')->select("status")->where('email', '=', $result->email)->first();
-            if ($query->status < 1) {
+            $check = DB::table('email_verification')->select("status")->where('email', '=', $result->email)->first();
+            if ($check->status < 1) {
                 $data['email'] = $result->email;
                 $data['status'] = 'error-verification';
                 return $data;
@@ -28,6 +28,7 @@ class M_Overview extends Model
                 session(['email' => $result->email]);
                 session(['role' => $result->role]);
             }
+            $data['user'] = $result;
             $data['status'] = 'success';
         }else{
             $data['status'] = 'error';

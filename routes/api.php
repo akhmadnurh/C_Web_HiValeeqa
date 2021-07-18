@@ -37,8 +37,8 @@ Route::get('/change-password', [\App\Http\Controllers\api\C_User::class, 'change
 Route::post('/change-password', [\App\Http\Controllers\api\C_User::class, 'changePassword']);
 Route::get('/address', [\App\Http\Controllers\api\C_User::class, 'address']);
 Route::post('/address', [\App\Http\Controllers\api\C_User::class, 'saveAddress']);
-Route::get('/wishlist/{id}', [\App\Http\Controllers\api\C_User::class, 'wishlist'])->whereNumber('id');
-Route::get('/r-wishlist/{id}', [\App\Http\Controllers\api\C_User::class, 'removeWishlist'])->whereNumber('id');
+Route::get('/wishlist/{id}', [\App\Http\Controllers\api\C_User::class, 'wishlist']);
+Route::get('/r-wishlist/{id}', [\App\Http\Controllers\api\C_User::class, 'removeWishlist']);
 Route::get('/shop', [\App\Http\Controllers\api\C_Product::class, 'shop']);
 Route::post('/shop', [\App\Http\Controllers\api\C_Product::class, 'shopFilter']);
 Route::get('/contact', [\App\Http\Controllers\api\C_Overview::class, 'contact']);
