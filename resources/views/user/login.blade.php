@@ -45,7 +45,6 @@
                                 <div
                                      class="alert {{ session('status') == 'success' ? 'alert-success' : 'alert-danger' }}">
                                     {{ session('msg') }}</div>
-                                {{ session()->forget(['msg', 'status']) }}
                             @endif
                             <div class="form-floating mb-3">
                                 <input type="text"
@@ -69,11 +68,11 @@
                             </div>
                             <div
                                  class="mb-3 {{ session()->has('status') && session('status') == 'error-email' ? 'justify-content-between' : 'justify-content-end' }} d-flex">
-                                @if (session()->has('status') && session('status') == 'error-email')
+                                @if (session()->has('status') && session()->get('status') == 'error-email')
                                     <a href="{{ url('/resend-email-token') . '?email=' . session('email') }}"
                                        class="text-pink">Kirim ulang kode</a>
-                                    {{ session()->forget(['status', 'msg', 'email']) }}
                                 @endif
+                                    {{ session()->forget(['status', 'msg', 'email']) }}
                                 <a href="{{ url('/forgot-password') }}"
                                    class="text-pink">Lupa Password?</a>
                             </div>
