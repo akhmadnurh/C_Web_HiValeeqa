@@ -55,7 +55,8 @@ Route::view('login', 'user.login');
 Route::get('cart', [\App\Http\Controllers\user\C_User::class, 'cart']);
 Route::view('verify-email', 'user.verify-email');
 Route::view('complete-data', 'user.complete-data');
-Route::get('forgot-password', [\App\Http\Controllers\user\C_User::class, 'forgotPassword']);
+//Route::get('forgot-password', [\App\Http\Controllers\user\C_Overview::class, 'forgotPassword']);
+Route::view('forgot-password', 'user.forgot-password');
 
 
 Route::get('transaction/payment-pending', [\App\Http\Controllers\user\C_Transaction::class, 'paymentPending']);
