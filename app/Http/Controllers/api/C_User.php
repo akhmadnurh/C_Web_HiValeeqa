@@ -93,16 +93,13 @@ class C_User extends Controller
     public function updateProfile(Request $request)
     {
         $model = new M_User();
-        $update = $model->updateProfile($request->input(), session()->get('id'));
+        $id = $request->input('user_id');
+        $update = $model->updateProfile($request->input(), $id);
         if ($update) {
-            session(['msg' => 'Data berhasil diperbarui.']);
-            session(['status' => 'success']);
+            return response()->json(['msg' => 'success']);
         } else {
-            session(['msg' => 'Data gagal diperbarui.']);
-            session(['status' => 'error']);
+            return response()->json(['msg' => 'error']);
         }
-
-        return redirect('/profile');
     }
 
     public function changePassword(Request $request)
