@@ -85,9 +85,9 @@
                                     </div>
                                 </div>
                                 <div class="row mb-5">
-                                    <label for="postal-code" class="col-form-label col-sm-2">Kode Pos</label>
+                                    <label for="postal_code" class="col-form-label col-sm-2">Kode Pos</label>
                                     <div class="col-sm-10 col-lg-3">
-                                        <input type="text" class="form-control" name="postal-code" id="psotal-code"
+                                        <input type="text" class="form-control" name="postal_code" id="psotal_code"
                                                placeholder="Kode Pos" required onfocus="removeAlert()"
                                                value="{{ $address->postal_code }}">
                                     </div>

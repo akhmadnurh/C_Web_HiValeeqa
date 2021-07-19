@@ -25,13 +25,13 @@ class C_Product extends Controller
         return response()->json($data);
     }
 
-    public function shop()
+    public function shop(Request $request)
     {
         $model = new M_Product();
         $data['products'] = $model->showAllProducts();
 
         $modelCart = new M_Overview();
-        $data['cart'] = $modelCart->getUserCartTotal();
+        $data['cart'] = $modelCart->getUserCartTotalAPI($request->input('user_id'));
 
         return response()->json($data);
     }

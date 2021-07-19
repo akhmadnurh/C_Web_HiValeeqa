@@ -70,7 +70,7 @@ class M_User extends Model
 
     public function saveAddress($input, $id)
     {
-        return DB::table('user')->where('user_id', $id)->update(['province' => $input['province'], 'city' => $input['city'], 'district' => $input['district'], 'village' => $input['village'], 'address' => $input['address'], 'postal_code' => $input['postal-code']]);
+        return DB::table('user')->where('user_id', $id)->update(['province' => $input['province'], 'city' => $input['city'], 'district' => $input['district'], 'village' => $input['village'], 'address' => $input['address'], 'postal_code' => $input['postal_code']]);
     }
 
     public function wishlist($id, $product_id)

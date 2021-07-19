@@ -118,31 +118,24 @@ class C_User extends Controller
 
     }
 
-    public function address()
+    public function address(Request $request)
     {
         $model = new M_User();
-        $data['address'] = $model->getAddress(session()->get('id'));
+        $data['address'] = $model->getAddress($request->input('user_id'));
 
-        $modelCart = new M_Overview();
-        $data['cart'] = $modelCart->getUserCartTotal();
-
-        return view('user.account.address', $data);
+        return response()->json($data);
     }
 
     public function saveAddress(Request $request)
     {
         $model = new M_User();
-        $save = $model->saveAddress($request->input(), session()->get('id'));
+        $save = $model->saveAddress($request->input(), $request->input('user_id'));
 
         if ($save) {
-            session(['msg' => 'Data berhasil diperbarui.']);
-            session(['status' => 'success']);
+            return response()->json(['msg' => 'success']);
         } else {
-            session(['msg' => 'Data gagal diperbarui, mohon periksa kembali data anda.']);
-            session(['status' => 'error']);
+            return response()->json(['msg' => 'error']);
         }
-
-        return redirect('address');
     }
 
     public function wishlist(Request $request)

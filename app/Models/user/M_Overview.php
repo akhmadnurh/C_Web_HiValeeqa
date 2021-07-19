@@ -95,4 +95,8 @@ class M_Overview extends Model
     {
         return DB::table('cart')->select('*')->where('user_id', session()->get('id'))->count();
     }
+    public function getUserCartTotalAPI($id)
+    {
+        return DB::table('cart')->select('*')->where('user_id', $id)->count();
+    }
 }
