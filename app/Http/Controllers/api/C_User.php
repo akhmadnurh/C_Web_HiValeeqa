@@ -107,18 +107,15 @@ class C_User extends Controller
         $model = new M_User();
 
         //Check password
-        $checkPassword = $model->checkPassword($request->input('passwordNow'));
+        $checkPassword = $model->checkPassword($request->input('passwordNow'), $request->input('user_id'));
         if ($checkPassword > 0) {
-            $model->changePassword($request->input('newPassword'));
+            $model->changePassword($request->input('newPassword'), $request->input('user_id'));
 
-            session(['msg' => 'Data berhasil diperbarui.']);
-            session(['status' => 'success']);
+            return response()->json(['msg' => 'success']);
         } else {
-            session(['msg' => 'Password lama tidak sesuai.']);
-            session(['status' => 'error']);
+            return response()->json(['msg' => 'error']);
         }
 
-        return redirect('/change-password');
     }
 
     public function address()

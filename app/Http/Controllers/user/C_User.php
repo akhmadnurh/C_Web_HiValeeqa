@@ -109,9 +109,9 @@ class C_User extends Controller
         $model = new M_User();
 
         //Check password
-        $checkPassword = $model->checkPassword($request->input('passwordNow'));
+        $checkPassword = $model->checkPassword($request->input('passwordNow'), session()->get('id'));
         if ($checkPassword > 0) {
-            $model->changePassword($request->input('newPassword'));
+            $model->changePassword($request->input('newPassword'), session()->get('id'));
 
             session(['msg' => 'Data berhasil diperbarui.']);
             session(['status' => 'success']);
