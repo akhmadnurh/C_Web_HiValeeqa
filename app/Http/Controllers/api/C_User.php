@@ -165,15 +165,15 @@ class C_User extends Controller
         return view('user.account.change-password', $data);
     }
 
-    public function showWishlist()
+    public function showWishlist(Request $request)
     {
         $modelCart = new M_Overview();
-        $data['cart'] = $modelCart->getUserCartTotal();
+        $data['cart'] = $modelCart->getUserCartTotalAPI($request->input('user_id'));
 
         $model = new M_Product();
-        $data['products'] = $model->showWishlistById(session()->get('id'));
+        $data['products'] = $model->showWishlistById($request->input('user_id'));
 
-        return view('user.wishlist', $data);
+        return response()->json(['data' => $data]);
     }
 
     public function cart()

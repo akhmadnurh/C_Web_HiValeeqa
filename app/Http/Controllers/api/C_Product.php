@@ -20,7 +20,7 @@ class C_Product extends Controller
         $data['wishlist'] = $model->checkWishlist($user_id, $id);
 
         $modelCart = new M_Overview();
-        $data['cart'] = $modelCart->getUserCartTotal();
+        $data['cart'] = $modelCart->getUserCartTotalAPI($user_id);
 
         return response()->json($data);
     }
