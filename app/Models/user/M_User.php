@@ -19,14 +19,14 @@ class M_User extends Model
     public function uniqueDataCheck($data)
     {
         // Email
-        $query = DB::table('user')->select('*')->where('email', '=', $data['email'])->count();
-        if ($query > 0) {
+        $email = DB::table('user')->select('*')->where('email', '=', $data['email'])->count();
+        if ($email > 0) {
             return 'email-exist';
         }
 
         // Pasword
-        $query = DB::table('user')->select('*')->where('username', '=', $data['username'])->count();
-        if ($query > 0) {
+        $username = DB::table('user')->select('*')->where('username', '=', $data['username'])->count();
+        if ($username > 0) {
             return 'username-exist';
         } else {
             return 0;
