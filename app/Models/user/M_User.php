@@ -89,11 +89,20 @@ class M_User extends Model
         $query = DB::table('cart')->select('*')->where('user_id', $user_id)->where('product_id', $product_id);
         $check = $query->count();
         $data = $query->first();
+
+        // Get product
+        $product = DB::table('product')->select('*')->where('product_id', $product_id)->first();
+
         $quantity = 1;
         if ($check > 0) {
-            $quantity += $data->quantity;
+            //Check if stock equal to request
+            if ($product->stock == $data->quantity) {
+                return 0;
+            } else {
+                $quantity += $data->quantity;
+                return DB::table('cart')->where('user_id', $user_id)->where('product_id', $product_id)->update(['quantity' => $quantity]);
+            }
 
-            return DB::table('cart')->where('user_id', $user_id)->where('product_id', $product_id)->update(['quantity' => $quantity]);
         } else {
             return DB::table('cart')->insert(['user_id' => $user_id, 'product_id' => $product_id, 'quantity' => $quantity]);
         }

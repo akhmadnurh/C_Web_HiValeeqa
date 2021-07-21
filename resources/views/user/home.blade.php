@@ -10,8 +10,8 @@
                         Kualitas Terbaik
                     </h1>
                     <p class="fs-4 my-5">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, repellendus sunt? Expedita atque esse obcaecati ullam, a explicabo autem voluptates consequuntur sit harum perspiciatis non, modi quos eos voluptatem in.
-                    </p>
+                        Selamat datang di Hi.Valeeqa, yuk cari gamis favoritmu di sini. Dengan bahan dan model gamis
+                        yang nyaman bisa membantu kamu untuk mempercantik tampilan sehari-hari.</p>
                     <a href="{{ url('shop') }}" class="btn btn-pink btn-lg">Explore Now</a>
                 </div>
                 <div class="col-lg-4">

@@ -61,15 +61,31 @@ class M_Product extends Model
 
     public function showCartById($id)
     {
-        $data['products'] = DB::table('cart')->join('product', 'cart.product_id', '=', 'product.product_id')->join('image', 'product.product_id', '=', 'image.product_id')->select('cart.*', 'product.*', 'image.image')->where('user_id', $id)->get();
+        $query = DB::table('cart')->join('product', 'cart.product_id', '=', 'product.product_id')->join('image', 'product.product_id', '=', 'image.product_id')->select('cart.*', 'product.*', 'image.image')->where('user_id', $id);
+        $data['products'] = $query->get();
+        $dataCount = $query->count();
         $data['available'] = [];
         foreach ($data['products'] as $product) {
             array_push($data['available'], $product->stock > 0 ? 1 : 0);
         }
 
-        $data['checkout_status'] = in_array(0, $data['available']) ? 0 : 1;
+        if ($dataCount < 1) {
+            $data['checkout_status'] = 0;
+        } else {
+            $data['checkout_status'] = in_array(0, $data['available']) ? 0 : 1;
+        }
 
         return $data;
+    }
+
+    public function getQuantityById($id)
+    {
+        return DB::table('cart')->select('quantity')->where('user_id', $id)->get();
+    }
+
+    public function removeAllCart($id)
+    {
+        return DB::table('cart')->where('user_id', $id)->delete();
     }
 
 

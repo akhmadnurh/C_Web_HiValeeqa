@@ -176,66 +176,82 @@ class C_User extends Controller
         return response()->json(['data' => $data]);
     }
 
-    public function cart()
+    public function cart(Request $request)
     {
-        $modelCart = new M_Overview();
-        $data['cart'] = $modelCart->getUserCartTotal();
+//        $modelCart = new M_Overview();
+//        $data['cart'] = $modelCart->getUserCartTotal();
 
         $model = new M_Product();
-        $data['products'] = $model->showCartById(session()->get('id'));
+        $data['products'] = $model->showCartById($request->input('user_id'));
+//        $data['quantity'] = $model->getQuantityById($request->input('user_id'));
+//        $modelUser = new M_User();
+//        $data['user'] = $modelUser->getProfile(session()->get('id'));
 
-        $modelUser = new M_User();
-        $data['user'] = $modelUser->getProfile(session()->get('id'));
-
-        return view('user.cart', $data);
+        return response()->json($data);
     }
 
     public function addToCart(Request $request)
     {
-        $product_id = $request->segment(2);
+        $product_id = $request->segment(3);
         $model = new M_User();
-        $model->addToCart(session()->get('id'), $product_id);
+        $add = $model->addToCart($request->input('user_id'), $product_id);
 
-        return redirect('cart');
+        if ($add) {
+            return response()->json(['msg' => 'success']);
+        } else {
+            return response()->json(['msg' => 'error']);
+        }
     }
 
     public function plusItemCart(Request $request)
     {
-        $product_id = $request->segment(2);
+        $product_id = $request->segment(3);
         $model = new M_User();
-        $plus = $model->plusItemCart(session()->get('id'), $product_id);
+        $plus = $model->plusItemCart($request->input('user_id'), $product_id);
 
         if ($plus) {
-            return redirect('cart');
+            return response()->json(['msg' => 'success']);
         } else {
-            return redirect('cart')->with(['msg' => 'Stok tidak cukup.']);
+            return response()->json(['msg' => 'error']);
         }
 
     }
 
     public function minusItemCart(Request $request)
     {
-        $product_id = $request->segment(2);
+        $product_id = $request->segment(3);
         $model = new M_User();
-        $minus = $model->minusItemCart(session()->get('id'), $product_id);
+        $minus = $model->minusItemCart($request->input('user_id'), $product_id);
 
         if ($minus) {
-            return redirect('cart');
+            return response()->json(['msg' => 'success']);
         } else {
-            return redirect('cart')->with(['msg' => 'Jumlah tidak boleh kosong.']);
+            return response()->json(['msg' => 'error']);
         }
     }
 
     public function removeCart(Request $request)
     {
-        $product_id = $request->segment(2);
+        $product_id = $request->segment(3);
         $model = new M_User();
-        $remove = $model->removeCart(session()->get('id'), $product_id);
+        $remove = $model->removeCart($request->input('user_id'), $product_id);
 
         if ($remove) {
-            return redirect('cart');
+            return response()->json(['msg' => 'success']);
         } else {
-            return redirect('cart')->with(['msg' => 'Error.']);
+            return response()->json(['msg' => 'error']);
+        }
+    }
+
+    public function removeAllCart(Request $request)
+    {
+        $model = new M_Product();
+        $remove = $model->removeAllCart($request->input('user_id'));
+
+        if ($remove) {
+            return response()->json(['msg' => 'success']);
+        } else {
+            return response()->json(['msg' => 'error']);
         }
     }
 }

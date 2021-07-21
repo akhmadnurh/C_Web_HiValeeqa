@@ -49,7 +49,7 @@ Route::get('/plus-item-cart/{id}', [\App\Http\Controllers\api\C_User::class, 'pl
 Route::get('/remove-cart/{id}', [\App\Http\Controllers\api\C_User::class, 'removeCart']);
 Route::get('/billing', [\App\Http\Controllers\api\C_Transaction::class, 'billing']);
 Route::post('/checkout', [\App\Http\Controllers\api\C_Transaction::class, 'checkout']);
-
+Route::get('/remove-all-cart', [\App\Http\Controllers\api\C_User::class, 'removeAllCart']);
 
 Route::view('login', 'user.login');
 Route::get('cart', [\App\Http\Controllers\api\C_User::class, 'cart']);
