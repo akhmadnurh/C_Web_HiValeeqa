@@ -79,24 +79,26 @@ class C_Transaction extends Controller
         return view('user.transaction.order-canceled', $data);
     }
 
-    public function billing()
+    public function billing(Request $request)
     {
-        $modelCart = new M_Overview();
-        $data['cart'] = $modelCart->getUserCartTotal();
+//        $modelCart = new M_Overview();
+//        $data['cart'] = $modelCart->getUserCartTotal();
+        $model = new M_User();
+        $data['user'] = $model->getProfile($request->input('user_id'));
 
         $modelProduct = new M_Transaction();
-        $data['products'] = $modelProduct->getCartItems(session()->get('id'));
+        $data['products'] = $modelProduct->getCartItems($request->input('user_id'));
 
-        return view('user.billing', $data);
+        return response()->json($data);
     }
 
     public function checkout(Request $request)
     {
         $model = new M_Transaction();
         // Checkout
-        $model->checkout($request->input());
+        $model->checkout($request->input(), $request->input('user_id'));
 
-        return redirect('transaction/payment-pending');
+        return response()->json(['msg' => 'success']);
     }
 
     public function detailTransaction(Request $request)

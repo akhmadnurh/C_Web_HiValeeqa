@@ -94,7 +94,7 @@ class C_Transaction extends Controller
     {
         $model = new M_Transaction();
         // Checkout
-        $model->checkout($request->input());
+        $model->checkout($request->input(), session()->get('id'));
 
         return redirect('transaction/payment-pending');
     }
