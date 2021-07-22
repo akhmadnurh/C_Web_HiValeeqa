@@ -77,8 +77,8 @@
                     </div>
                 </form>
                 <div class="d-flex justify-content-center align-items-center">
-                    <a href="/login"
-                       class="text-pink me-1">Masuk</a> atau <a href="/register"
+                    <a href="{{ url('login') }}"
+                       class="text-pink me-1">Masuk</a> atau <a href="{{ url('register') }}"
                        class="text-pink ms-1">Daftar</a>
                 </div>
             </div>
