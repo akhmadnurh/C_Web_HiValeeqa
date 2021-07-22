@@ -15,7 +15,7 @@
           type="image/x-icon"
           href="{{ asset('img/favicon.ico') }}">
     <link rel="stylesheet"
-          href="{{ mix('css/app.css') }}">
+          href="{{ asset('css/app.css') }}">
 </head>
 
 <body class="bg-light">
@@ -72,7 +72,7 @@
                                     <a href="{{ url('/resend-email-token') . '?email=' . session('email') }}"
                                        class="text-pink">Kirim ulang kode</a>
                                 @endif
-                                    {{ session()->forget(['status', 'msg', 'email']) }}
+                                {{ session()->forget(['status', 'msg', 'email']) }}
                                 <a href="{{ url('/forgot-password') }}"
                                    class="text-pink">Lupa Password?</a>
                             </div>
@@ -94,7 +94,7 @@
             </div>
         </div>
     </div>
-    <script src="{{ mix('js/app.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 
 </html>

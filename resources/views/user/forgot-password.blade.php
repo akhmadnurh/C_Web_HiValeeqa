@@ -15,7 +15,7 @@
           type="image/x-icon"
           href="{{ asset('img/favicon.ico') }}">
     <link rel="stylesheet"
-          href="{{ mix('css/app.css') }}">
+          href="{{ asset('css/app.css') }}">
     <style>
         @media screen and (min-width: 992px) {
             #fPass {
@@ -84,7 +84,7 @@
             </div>
         </div>
     </div>
-    <script src="{{ mix('js/app.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 
 </html>

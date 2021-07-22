@@ -15,7 +15,7 @@
           type="image/x-icon"
           href="{{ asset('img/favicon.ico') }}">
     <link rel="stylesheet"
-          href="{{ mix('css/app.css') }}">
+          href="{{ asset('css/app.css') }}">
     <style>
         @media screen and (min-width: 992px) {
             #completeData {
@@ -78,14 +78,16 @@
                                    class="form-control"
                                    placeholder="81xxxxxxxxx"
                                    aria-label="Username"
-                                   aria-describedby="noHp" required>
+                                   aria-describedby="noHp"
+                                   required>
                         </div>
                         <div class="mb-3">
                             <label for="gender"
                                    class="form-label">Jenis Kelamin</label>
                             <select name="gender"
                                     id="gender"
-                                    class="form-select w-50" required>
+                                    class="form-select w-50"
+                                    required>
                                 <option selected>Pilih Jenis Kelamin</option>
                                 <option value="L">Pria</option>
                                 <option value="P">Wanita</option>
@@ -97,35 +99,40 @@
                             <input type="text"
                                    name="province"
                                    id="provinsi"
-                                   class="form-control w-75" required>
+                                   class="form-control w-75"
+                                   required>
                         </div>
                         <div class="mb-3">
                             <label for="kabupaten"
                                    class="form-label">Kabupaten</label>
                             <input name="city"
                                    id="kabupaten"
-                                   class="form-control w-75" required>
+                                   class="form-control w-75"
+                                   required>
                         </div>
                         <div class="mb-3">
                             <label for="kecamatan"
                                    class="form-label">Kecamatan</label>
                             <input name="district"
                                    id="kecamatan"
-                                   class="form-control w-75" required>
+                                   class="form-control w-75"
+                                   required>
                         </div>
                         <div class="mb-3">
                             <label for="desa"
                                    class="form-label">Desa</label>
                             <input name="village"
                                    id="desa"
-                                   class="form-control w-75" required>
+                                   class="form-control w-75"
+                                   required>
                         </div>
                         <div class="mb-3">
                             <label for="postalCode">Kode Pos</label>
                             <input type="text"
                                    name="postalCode"
                                    id="postalCode"
-                                   class="form-control w-50" required>
+                                   class="form-control w-50"
+                                   required>
                         </div>
                         <div class="mb-3">
                             <label for="alamatLengkap"
@@ -134,15 +141,17 @@
                                       id="alamatLengkap"
                                       class="form-control"
                                       rows="3"
-                                      placeholder="Misal: Jl. Mastrip 5 No. 7, Depan Mie Ayam Pak To" required></textarea>
+                                      placeholder="Misal: Jl. Mastrip 5 No. 7, Depan Mie Ayam Pak To"
+                                      required></textarea>
                         </div>
-                        <button class="btn-pink btn" type="submit">Submit</button>
+                        <button class="btn-pink btn"
+                                type="submit">Submit</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
-    <script src="{{ mix('js/app.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 
 </html>
