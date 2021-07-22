@@ -27,57 +27,59 @@ class C_Transaction extends Controller
         return response()->json($data);
     }
 
-    public function shipmentPending()
+    public function shipmentPending(Request $request)
     {
         $model = new M_Transaction();
-        $data['payments'] = $model->getShipmentPending();
+        $data['payments'] = $model->getShipmentPending($request->input('user_id'));
 
-        $modelCart = new M_Overview();
-        $data['cart'] = $modelCart->getUserCartTotal();
+//        $modelCart = new M_Overview();
+//        $data['cart'] = $modelCart->getUserCartTotal();
 
-        return view('user.transaction.shipment-pending', $data);
+        return response()->json($data);
     }
 
-    public function shipmentProcess()
+    public function shipmentProcess(Request $request)
     {
         $model = new M_Transaction();
-        $data['payments'] = $model->getShipmentProcess();
+        $data['payments'] = $model->getShipmentProcess($request->input('user_id'));
 
-        $modelCart = new M_Overview();
-        $data['cart'] = $modelCart->getUserCartTotal();
+//        $modelCart = new M_Overview();
+//        $data['cart'] = $modelCart->getUserCartTotal();
 
-        return view('user.transaction.shipment-process', $data);
+        return response()->json($data);
+
     }
 
     public function confirmTransaction(Request $request)
     {
         $model = new M_Transaction();
-        $id = $request->segment(3);
+        $id = $request->segment(4);
         $model->confirmTransaction($id);
 
-        return redirect('transaction/order-completed');
+        return response(['msg' => 'success']);
     }
 
-    public function orderCompleted()
+    public function orderCompleted(Request $request)
     {
         $model = new M_Transaction();
-        $data['payments'] = $model->getOrderCompleted();
+        $data['payments'] = $model->getOrderCompleted($request->input('user_id'));
 
-        $modelCart = new M_Overview();
-        $data['cart'] = $modelCart->getUserCartTotal();
+//        $modelCart = new M_Overview();
+//        $data['cart'] = $modelCart->getUserCartTotal();
 
-        return view('user.transaction.order-completed', $data);
+        return response()->json($data);
     }
 
-    public function orderCanceled()
+    public function orderCanceled(Request $request)
     {
         $model = new M_Transaction();
-        $data['payments'] = $model->getOrderCanceled();
+        $data['payments'] = $model->getOrderCanceled($request->input('user_id'));
 
-        $modelCart = new M_Overview();
-        $data['cart'] = $modelCart->getUserCartTotal();
+//        $modelCart = new M_Overview();
+//        $data['cart'] = $modelCart->getUserCartTotal();
 
-        return view('user.transaction.order-canceled', $data);
+        return response()->json($data);
+
     }
 
     public function billing(Request $request)
@@ -109,7 +111,7 @@ class C_Transaction extends Controller
         $modelProduct = new M_Transaction();
         $data['products'] = $modelProduct->getTransactionItems($id);
 
-//        $data['bank'] = $modelProduct->getBankById($id);
+        $data['bank'] = $modelProduct->getBankById($id);
 //
 //        $modelCart = new M_Overview();
 //        $data['cart'] = $modelCart->getUserCartTotal();
