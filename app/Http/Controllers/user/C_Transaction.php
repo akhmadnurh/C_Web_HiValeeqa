@@ -14,7 +14,7 @@ class C_Transaction extends Controller
 {
     public function paymentPending(){
         $model = new M_Transaction();
-        $data['payments'] = $model->getPaymentPending();
+        $data['payments'] = $model->getPaymentPending(session()->get('id'));
 
 
         $modelCart = new M_Overview();

@@ -10,9 +10,9 @@ class M_Transaction extends Model
 {
     use HasFactory;
 
-    public function getPaymentPending()
+    public function getPaymentPending($id)
     {
-        $transactions = DB::table('transaction')->select('transaction_id', 'status')->where('user_id', session()->get('id'))->where('status', 1)->get();
+        $transactions = DB::table('transaction')->select('transaction_id', 'status')->where('user_id', $id)->where('status', 1)->get();
         $details = [];
         foreach ($transactions as $transaction) {
             $query = DB::table('transaction_detail')->join('product', 'transaction_detail.product_id', '=', 'product.product_id')->join('image', 'product.product_id', '=', 'image.product_id')->select('*')->where('transaction_id', $transaction->transaction_id)->get();
