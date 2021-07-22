@@ -29,17 +29,16 @@ class M_Overview extends Model
                 }else{
                     // Login normal
                     session(['loggedIn' => true]);
-                    session(['id' => $result->user_id]);
-                    session(['username' => $result->username]);
-                    session(['name' => $result->name]);
-                    session(['email' => $result->email]);
-                    session(['role' => $result->role]);
+                    session(['id' => $biodata->user_id]);
+                    session(['username' => $biodata->username]);
+                    session(['name' => $biodata->name]);
+                    session(['email' => $biodata->email]);
+                    session(['role' => $biodata->role]);
+                    $data['user'] = $biodata;
                     $data['status'] = 'success';
                 }
                 return $data;
             }
-            $data['user'] = $result;
-            $data['status'] = 'success';
         }else{
             $data['status'] = 'error';
         }
