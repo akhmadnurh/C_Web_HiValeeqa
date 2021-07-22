@@ -10,9 +10,9 @@ class M_Transaction extends Model
 {
     use HasFactory;
 
-    public function getPaymentPending()
+    public function getPaymentPending($id)
     {
-        $transactions = DB::table('transaction')->select('transaction_id', 'status')->where('user_id', session()->get('id'))->where('status', 1)->get();
+        $transactions = DB::table('transaction')->select('transaction_id', 'status')->where('user_id', $id)->where('status', 1)->get();
         $details = [];
         foreach ($transactions as $transaction) {
             $query = DB::table('transaction_detail')->join('product', 'transaction_detail.product_id', '=', 'product.product_id')->join('image', 'product.product_id', '=', 'image.product_id')->select('*')->where('transaction_id', $transaction->transaction_id)->get();
@@ -92,11 +92,11 @@ class M_Transaction extends Model
         return $data;
     }
 
-    public function checkout($input)
+    public function checkout($input, $id)
     {
         // Total checkout
         $total = 0;
-        $query = DB::table('cart')->join('product', 'cart.product_id', '=', 'product.product_id')->select('*')->where('user_id', session()->get('id'))->get();
+        $query = DB::table('cart')->join('product', 'cart.product_id', '=', 'product.product_id')->select('*')->where('user_id', $id)->get();
         foreach ($query as $q) {
             $total += ($q->price * $q->quantity);
         }
@@ -104,7 +104,7 @@ class M_Transaction extends Model
 
 
         // Add data to transaction
-        DB::table('transaction')->insert(['user_id' => session()->get('id'), 'payment_method' => 1, 'shipping_method' => 2, 'transaction_date' => date('Y-m-d'), 'saving' => 0, 'total' => $total, 'status' => 1, 'receipt_number' => '', 'shipping_start' => date('Y-m-d'), 'shipping_end' => date('Y-m-d')]);
+        DB::table('transaction')->insert(['user_id' => $id, 'payment_method' => 1, 'shipping_method' => 2, 'transaction_date' => date('Y-m-d'), 'saving' => 0, 'total' => $total, 'status' => 1, 'receipt_number' => '', 'shipping_start' => date('Y-m-d'), 'shipping_end' => date('Y-m-d')]);
 
         // Get transaction id
         $transaction_id = DB::table('transaction')->select('*')->orderBy('transaction_id', 'desc')->first();
@@ -124,7 +124,7 @@ class M_Transaction extends Model
         }
 
         // Remove cart
-        DB::table('cart')->where('user_id', session()->get('id'))->delete();
+        DB::table('cart')->where('user_id', $id)->delete();
 
         // Add back account
         DB::table('bank')->insert(['transaction_id' => $transaction_id->transaction_id, 'name' => $input['name'], 'account' => $input['accountNumber'], 'bank' => $input['bankName']]);
