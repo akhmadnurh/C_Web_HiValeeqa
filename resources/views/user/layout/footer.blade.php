@@ -22,10 +22,10 @@
                 <h2 class="fw-light pb-4 mb-4 border-bottom border-foot">Produk</h2>
                 <ul class="list-unstyled mb-5">
                     <li class="mb-3">
-                        <a href="">Chayra Abaya</a>
+                        <a href="{{ url('shop') }}">Chayra Abaya</a>
                     </li>
                     <li class="mb-3">
-                        <a href="">Yumna Dress</a>
+                        <a href="{{ url('shop') }}">Yumna Dress</a>
                     </li>
                 </ul>
             </div>
@@ -34,6 +34,9 @@
                 <ul class="list-unstyled mb-5">
                     <li class="mb-3">
                         <a href="{{ url('about-us') }}">Tentang Kami</a>
+                    </li>
+                    <li class="mb-3">
+                        <a href="{{ session()->has('loggedIn') ? url('contact') : url('login') }}">Kontak</a>
                     </li>
                     <li class="mb-3">
                         <a href="{{ url('privacy-policy') }}">Kebijakan Privasi</a>
