@@ -41,7 +41,7 @@
                         <h2 class="my-4 text-pink">Welcome to Family</h2>
                         <form action="{{ url('/register') }}"
                               method="POST"
-                              onsubmit="return passwordValidation()">
+                              onsubmit="return (passwordValidation() && emailValidation())">
                             <div id="alert">
                                 @if (session()->has('status'))
                                     <div
@@ -124,6 +124,23 @@
 
             if (pwd !== pwdC) {
                 alert.innerHTML = "<div class='alert alert-danger'>Password tidak sesuai</div>"
+                return false
+            } else {
+                return true
+            }
+        }
+
+        const emailValidation = () => {
+            emailInput = document.getElementById('email').value
+
+            function validateEmail(email) {
+                const re =
+                    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(String(email).toLowerCase());
+            }
+
+            if (emailInput !== validateEmail(email)) {
+                alert.innerHTML = "<div class='alert alert-danger'>Email tidak valid</div>"
                 return false
             } else {
                 return true
