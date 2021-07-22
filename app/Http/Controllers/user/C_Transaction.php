@@ -29,7 +29,7 @@ class C_Transaction extends Controller
     public function shipmentPending()
     {
         $model = new M_Transaction();
-        $data['payments'] = $model->getShipmentPending();
+        $data['payments'] = $model->getShipmentPending(session()->get('id'));
 
         $modelCart = new M_Overview();
         $data['cart'] = $modelCart->getUserCartTotal();
@@ -40,7 +40,7 @@ class C_Transaction extends Controller
     public function shipmentProcess()
     {
         $model = new M_Transaction();
-        $data['payments'] = $model->getShipmentProcess();
+        $data['payments'] = $model->getShipmentProcess(session()->get('id'));
 
         $modelCart = new M_Overview();
         $data['cart'] = $modelCart->getUserCartTotal();
@@ -60,7 +60,7 @@ class C_Transaction extends Controller
     public function orderCompleted()
     {
         $model = new M_Transaction();
-        $data['payments'] = $model->getOrderCompleted();
+        $data['payments'] = $model->getOrderCompleted(session()->get('id'));
 
         $modelCart = new M_Overview();
         $data['cart'] = $modelCart->getUserCartTotal();
@@ -71,7 +71,7 @@ class C_Transaction extends Controller
     public function orderCanceled()
     {
         $model = new M_Transaction();
-        $data['payments'] = $model->getOrderCanceled();
+        $data['payments'] = $model->getOrderCanceled(session()->get('id'));
 
         $modelCart = new M_Overview();
         $data['cart'] = $modelCart->getUserCartTotal();
