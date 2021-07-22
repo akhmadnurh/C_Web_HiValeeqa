@@ -139,11 +139,11 @@
                 return re.test(String(email).toLowerCase());
             }
 
-            if (emailInput !== validateEmail(email)) {
+            if (validateEmail(emailInput)) {
+                return true
+            } else {
                 alert.innerHTML = "<div class='alert alert-danger'>Email tidak valid</div>"
                 return false
-            } else {
-                return true
             }
         }
 
