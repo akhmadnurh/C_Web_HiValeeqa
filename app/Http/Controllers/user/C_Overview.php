@@ -34,6 +34,8 @@ class C_Overview extends Controller
                 session(['email' => $login['email']]);
                 session(['msg' => 'Email belum diverifikasi, mohon periksa kembali email anda']);
                 return redirect('/login');
+            } elseif ($login['status'] == 'error-complete') {
+                return redirect('complete-data')->with('name', $login['user']->name)->with('email', $login['user']->email);
             } else {
                 // Jika sudah verifikasi
                 if (session('role') == '1') {

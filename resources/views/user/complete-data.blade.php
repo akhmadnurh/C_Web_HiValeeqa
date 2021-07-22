@@ -46,25 +46,26 @@
                  id="completeData">
                 <div class="card-body">
                     <h3 class="card-title text-center mb-5">Lengkapi Data Diri</h3>
-                    <form action="#"
+                    <form action="{{ url('complete-data') }}"
                           method="post">
                         <div class="mb-3">
                             <label for="fullname"
                                    class="form-label">Nama Lengkap</label>
                             <input type="text"
                                    id="fullname"
-                                   disabled
-                                   value="User"
+                                   readonly
+                                   value="{{ session()->get('name') }}"
                                    class="form-control w-75">
                         </div>
                         <div class="mb-3">
                             <label for="email"
                                    class="form-label">Email</label>
                             <input type="email"
+                                   name="email"
                                    id="email"
                                    class="form-control w-75"
-                                   disabled
-                                   value="user@email.com">
+                                   readonly
+                                   value="{{ session()->get('email') }}">
                         </div>
                         <label for="nohp"
                                class="form-label">Nomor Hp</label>
@@ -72,18 +73,19 @@
                             <span class="input-group-text"
                                   id="noHp">+62</span>
                             <input type="text"
+                                   name="whatsapp"
                                    id="nohp"
                                    class="form-control"
                                    placeholder="81xxxxxxxxx"
                                    aria-label="Username"
-                                   aria-describedby="noHp">
+                                   aria-describedby="noHp" required>
                         </div>
                         <div class="mb-3">
                             <label for="gender"
                                    class="form-label">Jenis Kelamin</label>
                             <select name="gender"
                                     id="gender"
-                                    class="form-select w-50">
+                                    class="form-select w-50" required>
                                 <option selected>Pilih Jenis Kelamin</option>
                                 <option value="L">Pria</option>
                                 <option value="P">Wanita</option>
@@ -95,46 +97,46 @@
                             <input type="text"
                                    name="province"
                                    id="provinsi"
-                                   class="form-control w-75">
+                                   class="form-control w-75" required>
                         </div>
                         <div class="mb-3">
                             <label for="kabupaten"
                                    class="form-label">Kabupaten</label>
-                            <input name="kabupaten"
+                            <input name="city"
                                    id="kabupaten"
-                                   class="form-control w-75">
+                                   class="form-control w-75" required>
                         </div>
                         <div class="mb-3">
                             <label for="kecamatan"
                                    class="form-label">Kecamatan</label>
-                            <input name="kecamatan"
+                            <input name="district"
                                    id="kecamatan"
-                                   class="form-control w-75">
+                                   class="form-control w-75" required>
                         </div>
                         <div class="mb-3">
                             <label for="desa"
                                    class="form-label">Desa</label>
-                            <input name="desa"
+                            <input name="village"
                                    id="desa"
-                                   class="form-control w-75">
+                                   class="form-control w-75" required>
                         </div>
                         <div class="mb-3">
                             <label for="postalCode">Kode Pos</label>
                             <input type="text"
                                    name="postalCode"
                                    id="postalCode"
-                                   class="form-control w-50">
+                                   class="form-control w-50" required>
                         </div>
                         <div class="mb-3">
                             <label for="alamatLengkap"
                                    class="form-label">Alamat Lengkap</label>
-                            <textarea name="alamatLengkap"
+                            <textarea name="address"
                                       id="alamatLengkap"
                                       class="form-control"
                                       rows="3"
-                                      placeholder="Misal: Jl. Mastrip 5 No. 7, Depan Mie Ayam Pak To"></textarea>
+                                      placeholder="Misal: Jl. Mastrip 5 No. 7, Depan Mie Ayam Pak To" required></textarea>
                         </div>
-                        <button class="btn-pink btn">Submit</button>
+                        <button class="btn-pink btn" type="submit">Submit</button>
                     </form>
                 </div>
             </div>

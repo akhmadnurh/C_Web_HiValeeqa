@@ -245,4 +245,12 @@ class C_User extends Controller
             return redirect('cart')->with(['msg' => 'Error.']);
         }
     }
+
+    public function completeData(Request $request)
+    {
+        $model = new M_User();
+        $model->completeData($request->input());
+
+        return redirect('login')->with('status', 'success')->with('msg', 'Silakan login kembali');
+    }
 }

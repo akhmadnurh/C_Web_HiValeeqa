@@ -150,4 +150,10 @@ class M_User extends Model
     {
         return DB::table('cart')->where('user_id', $user_id)->where('product_id', $product_id)->delete();
     }
+
+    public function completeData($input)
+    {
+        $input['whatsapp'] = '62' . $input['whatsapp'];
+        return DB::table('user')->where('email', $input['email'])->update(['gender' => $input['gender'], 'whatsapp' => $input['whatsapp'], 'address' => $input['address'], 'postal_code' => $input['postalCode'], 'village' => $input['village'], 'district' => $input['district'], 'city' => $input['city'], 'province' => $input['province']]);
+    }
 }
