@@ -32,7 +32,7 @@
                 </li>
                 <li class="nav-item me-lg-5">
                     <a class="nav-link"
-                       href="{{ session()->has('loggedIn') ? url('contact') : url('login') }}">Contact</a>
+                       href="{{ url('about-us') }}">About Us</a>
                 </li>
 
                 {{-- This is for Mobile --}}

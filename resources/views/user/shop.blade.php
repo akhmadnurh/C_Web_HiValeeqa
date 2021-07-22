@@ -9,7 +9,7 @@
         </div>
     </section>
 
-    <section class="main-content mt-5">
+    <section class="main-content mt-5 mb-5">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-5">
@@ -45,7 +45,7 @@
                                 class="btn btn-dark">Submit</button>
                     </form>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-8 mb-5">
                     <div class="row">
                         @foreach ($products as $product)
                             <div class="col-12 col-md-6 col-lg-4 col-xl-4 mb-3">
