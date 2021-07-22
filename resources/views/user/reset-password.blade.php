@@ -16,13 +16,34 @@
           href="{{ asset('img/favicon.ico') }}">
     <link rel="stylesheet"
           href="{{ asset('css/app.css') }}">
+    <style>
+        @media screen and (min-width: 992px) {
+            #resetPass {
+                width: 50%
+            }
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 991px) {
+            #resetPass {
+                width: 75%
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+            #resetPass {
+                width: 100%
+            }
+        }
+
+    </style>
 </head>
 
 <body class="bg-light">
     <div class="container d-flex align-items-center justify-content-center"
          style="height: 100vh;">
-        <div class="card bg-white border border-white px-5 py-5 w-50"
-             style="border-radius: 2rem">
+        <div class="card bg-white border border-white px-5 py-5"
+             style="border-radius: 2rem"
+             id="resetPass">
             <div class="card-body">
                 <h6 class="text-uppercase d-flex align-items-center">
                     <img src="{{ asset('img/hi-valeeqa.png') }}"
