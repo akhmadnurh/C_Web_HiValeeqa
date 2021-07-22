@@ -12,7 +12,7 @@ class M_Transaction extends Model
 
     public function getPaymentPending($id)
     {
-        $transactions = DB::table('transaction')->select('transaction_id', 'status')->where('user_id', $id)->where('status', 1)->get();
+        $transactions = DB::table('transaction')->select('transaction_id', 'status')->where('user_id', $id)->where('status', 1)->orderBy('transaction_id', 'desc')->get();
         $details = [];
         foreach ($transactions as $transaction) {
             $query = DB::table('transaction_detail')->join('product', 'transaction_detail.product_id', '=', 'product.product_id')->join('image', 'product.product_id', '=', 'image.product_id')->select('*')->where('transaction_id', $transaction->transaction_id)->get();
@@ -30,7 +30,7 @@ class M_Transaction extends Model
 
     public function getShipmentPending($id)
     {
-        $transactions = DB::table('transaction')->select('transaction_id', 'status')->where('user_id', $id)->where('status', 2)->get();
+        $transactions = DB::table('transaction')->select('transaction_id', 'status')->where('user_id', $id)->where('status', 2)->orderBy('transaction_id', 'desc')->get();
         $details = [];
         foreach ($transactions as $transaction) {
             $query = DB::table('transaction_detail')->join('product', 'transaction_detail.product_id', '=', 'product.product_id')->join('image', 'product.product_id', '=', 'image.product_id')->select('*')->where('transaction_id', $transaction->transaction_id)->get();
@@ -45,7 +45,7 @@ class M_Transaction extends Model
 
     public function getShipmentProcess($id)
     {
-        $transactions = DB::table('transaction')->select('transaction_id', 'receipt_number')->where('user_id', $id)->where('status', 3)->get();
+        $transactions = DB::table('transaction')->select('transaction_id', 'receipt_number')->where('user_id', $id)->where('status', 3)->orderBy('transaction_id', 'desc')->get();
         $details = [];
         foreach ($transactions as $transaction) {
             $query = DB::table('transaction_detail')->join('product', 'transaction_detail.product_id', '=', 'product.product_id')->join('image', 'product.product_id', '=', 'image.product_id')->select('*')->where('transaction_id', $transaction->transaction_id)->get();
@@ -65,7 +65,7 @@ class M_Transaction extends Model
 
     public function getOrderCompleted($id)
     {
-        $transactions = DB::table('transaction')->select('transaction_id', 'receipt_number')->where('user_id', $id)->where('status', 4)->get();
+        $transactions = DB::table('transaction')->select('transaction_id', 'receipt_number')->where('user_id', $id)->where('status', 4)->orderBy('transaction_id', 'desc')->get();
         $details = [];
         foreach ($transactions as $transaction) {
             $query = DB::table('transaction_detail')->join('product', 'transaction_detail.product_id', '=', 'product.product_id')->join('image', 'product.product_id', '=', 'image.product_id')->select('*')->where('transaction_id', $transaction->transaction_id)->get();
@@ -79,7 +79,7 @@ class M_Transaction extends Model
     }
     public function getOrderCanceled($id)
     {
-        $transactions = DB::table('transaction')->select('transaction_id', 'receipt_number')->where('user_id', $id)->where('status', 5)->get();
+        $transactions = DB::table('transaction')->select('transaction_id', 'receipt_number')->where('user_id', $id)->where('status', 5)->orderBy('transaction_id', 'desc')->get();
         $details = [];
         foreach ($transactions as $transaction) {
             $query = DB::table('transaction_detail')->join('product', 'transaction_detail.product_id', '=', 'product.product_id')->join('image', 'product.product_id', '=', 'image.product_id')->select('*')->where('transaction_id', $transaction->transaction_id)->get();
