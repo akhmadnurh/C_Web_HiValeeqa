@@ -17,7 +17,7 @@
             <div class="section-body">
 
                 <div class="d-flex justify-content-start mb-3">
-                    <a class="btn btn-lg btn-primary" href="/adm/product/add"><i class="fas fa-plus mr-1"></i> Tambah Produk</a>
+                    <a class="btn btn-lg btn-primary" href="{{ url('/adm/product/add') }}"><i class="fas fa-plus mr-1"></i> Tambah Produk</a>
                 </div>
 
                 <div class="row">
