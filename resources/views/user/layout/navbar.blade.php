@@ -19,7 +19,7 @@
                 id="navList">
                 <li class="nav-item me-lg-5">
                     <a class="nav-link"
-                       href="{{ url('/') . 'HiValeeqa/public' }}">Home</a>
+                       href="{{ url('/') . '/' }}">Home</a>
                 </li>
                 <li class="nav-item me-lg-5">
                     <a class="nav-link"
@@ -126,7 +126,6 @@
 
 <script>
     activeNavLink();
-    newProductLink();
 
     // Navbar Link
     function activeNavLink() {
@@ -137,16 +136,5 @@
                 navLink[i].classList.add('active');
             }
         }
-    }
-
-    function newProductLink() {
-        const newProduct = document.getElementById('newProductLink');
-        const baseUrl = window.location.origin + '/HiValeeqa/public';
-        newProduct.addEventListener('click', function() {
-            const currentLink = window.location.href;
-            if (currentLink !== baseUrl) {
-                window.location.replace(baseUrl + '/#new-product');
-            }
-        });
     }
 </script>
