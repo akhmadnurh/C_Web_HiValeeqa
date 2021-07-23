@@ -19,7 +19,7 @@
                 id="navList">
                 <li class="nav-item me-lg-5">
                     <a class="nav-link"
-                       href="{{ url('/') }}">Home</a>
+                       href="{{ url('/') . 'HiValeeqa/public' }}">Home</a>
                 </li>
                 <li class="nav-item me-lg-5">
                     <a class="nav-link"
@@ -27,7 +27,7 @@
                 </li>
                 <li class="nav-item me-lg-5">
                     <a class="nav-link"
-                       href="{{ url('/').'#new-product' }}"
+                       href="{{ url('/') . '#new-product' }}"
                        id="newProductLink">New</a>
                 </li>
                 <li class="nav-item me-lg-5">
@@ -44,18 +44,16 @@
                                role="button"
                                id="userManageMobile"
                                data-bs-toggle="dropdown"
-                               aria-expanded="false">user</a>
+                               aria-expanded="false">{{ session()->get('name') }}</a>
 
-                            <ul class="dropdown-menu dropdown-menu-lg-end"
+                            <ul class="dropdown-menu dropdown-menu-lg-end mb-4 mb-lg-0"
                                 aria-labelledby="userManageMobile">
-                                <li><span class="dropdown-item-text">Hai, {{ session()->get('name') }}<</span></li>
-                                <li>
-                                    <hr class="dropdown-divider">
+                                <li><a class="dropdown-item"
+                                       href="{{ url('profile') }}"><i class='bx bx-user-circle me-2'></i> Akun</a>
                                 </li>
                                 <li><a class="dropdown-item"
-                                       href="{{ url('profile') }}"><i class='bx bx-user-circle me-2'></i> Akun</a></li>
-                                <li><a class="dropdown-item"
-                                       href="{{ url('transaction') }}"><i class='bx bx-receipt me-2'></i> Wishlist</a></li>
+                                       href="{{ url('transaction') }}"><i class='bx bx-receipt me-2'></i> Wishlist</a>
+                                </li>
                                 <li><a class="dropdown-item"
                                        href="{{ url('wishlist') }}"><i class='bx bx-heart me-2'></i> Wishlist</a></li>
                                 <li><a class="dropdown-item"
@@ -97,7 +95,8 @@
                         <li><a class="dropdown-item"
                                href="{{ url('profile') }}"><i class='bx bx-user-circle me-2'></i> Akun Saya</a></li>
                         <li><a class="dropdown-item"
-                               href="{{ url('transaction/payment-pending') }}"><i class='bx bx-receipt me-2'></i> Transaksi Saya</a>
+                               href="{{ url('transaction/payment-pending') }}"><i class='bx bx-receipt me-2'></i>
+                                Transaksi Saya</a>
                         </li>
                         <li><a class="dropdown-item"
                                href="{{ url('wishlist') }}"><i class='bx bx-heart me-2'></i> Wishlist</a></li>
@@ -142,7 +141,7 @@
 
     function newProductLink() {
         const newProduct = document.getElementById('newProductLink');
-        const baseUrl = window.location.origin;
+        const baseUrl = window.location.origin + '/HiValeeqa/public';
         newProduct.addEventListener('click', function() {
             const currentLink = window.location.href;
             if (currentLink !== baseUrl) {

@@ -120,7 +120,7 @@ a.text-pink:hover {
 
 /* Selingan */
 .selingan-bg {
-    background: url("/img/chayra.png") no-repeat center/cover;
+    background: url("/HiValeeqa/public/img/chayra.png") no-repeat center/cover;
     text-align: center;
     color: var(--bs-white);
     padding-top: 4rem;
