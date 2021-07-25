@@ -118,4 +118,14 @@ class C_Transaction extends Controller
 
         return response()->json($data);
     }
+
+    public function cancelTransaction(Request $request)
+    {
+        $id = $request->segment(3);
+        $model = new M_Transaction();
+        $model->cancelTransaction($id);
+
+        return response()->json(['msg' => 'success']);
+    }
+
 }

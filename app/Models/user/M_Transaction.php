@@ -144,5 +144,11 @@ class M_Transaction extends Model
     {
         return DB::table('transaction_detail')->join('product', 'transaction_detail.product_id', '=', 'product.product_id')->join('image', 'product.product_id', '=', 'image.product_id')->select('*')->where('transaction_detail.transaction_id', $id)->get();
     }
+
+    public function cancelTransaction($id)
+    {
+        return DB::table('transaction')->where('transaction_id', $id)->update(['status' => 5]);
+    }
+
 }
 
