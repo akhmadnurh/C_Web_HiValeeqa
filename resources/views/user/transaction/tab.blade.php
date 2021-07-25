@@ -2,23 +2,23 @@
     <ul class="nav nav-pills nav-justified">
         <li class="nav-item">
             <a class="nav-link"
-               href="/transaction/payment-pending">Belum Bayar</a>
+               href="{{ url('/transaction/payment-pending') }}">Belum Bayar</a>
         </li>
         <li class="nav-item">
             <a class="nav-link"
-               href="/transaction/shipment-pending">Dikemas</a>
+               href="{{ url('/transaction/shipment-pending') }}">Dikemas</a>
         </li>
         <li class="nav-item">
             <a class="nav-link"
-               href="/transaction/shipment-process">Dikirim</a>
+               href="{{  url('/transaction/shipment-process') }}">Dikirim</a>
         </li>
         <li class="nav-item">
             <a class="nav-link"
-               href="/transaction/order-completed">Selesai</a>
+               href="{{ url('/transaction/order-completed') }}">Selesai</a>
         </li>
         <li class="nav-item">
             <a class="nav-link"
-               href="/transaction/order-canceled">Gagal</a>
+               href="{{ url('/transaction/order-canceled') }}">Gagal</a>
         </li>
     </ul>
 </section>

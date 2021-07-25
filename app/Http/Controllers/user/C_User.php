@@ -20,11 +20,12 @@ class C_User extends Controller
 
         // Cek keunikan email dan username
         $check = $model->uniqueDataCheck($request->input());
-        if ($check == 'email-exist') {
+        var_dump($check);
+        if ($check === 'email-exist') {
             session(['msg' => 'Email sudah pernah terdaftar!']);
             session(['status' => 'error']);
             return redirect('/register');
-        } elseif ($check == 'username-exist') {
+        } elseif ($check === 'username-exist') {
             session(['msg' => 'Username tidak tersedia, coba username lain!']);
             session(['status' => 'error']);
             return redirect('/register');
@@ -217,7 +218,6 @@ class C_User extends Controller
         } else {
             return redirect('cart')->with(['msg' => 'Stok tidak cukup.']);
         }
-
     }
 
     public function minusItemCart(Request $request)
@@ -233,7 +233,8 @@ class C_User extends Controller
         }
     }
 
-    public function removeCart(Request $request){
+    public function removeCart(Request $request)
+    {
         $product_id = $request->segment(2);
         $model = new M_User();
         $remove = $model->removeCart(session()->get('id'), $product_id);
@@ -243,5 +244,13 @@ class C_User extends Controller
         } else {
             return redirect('cart')->with(['msg' => 'Error.']);
         }
+    }
+
+    public function completeData(Request $request)
+    {
+        $model = new M_User();
+        $model->completeData($request->input());
+
+        return redirect('login')->with('status', 'success')->with('msg', 'Silakan login kembali');
     }
 }

@@ -32,7 +32,7 @@ class C_Overview extends Controller
             if ($login['status'] == 'error-verification') {
                 return response()->json(['msg' => 'error-verification']);
             } else {
-                    return response()->json(['msg' => 'user', 'userdata' => $login['user']]);
+                return response()->json(['msg' => 'user', 'userdata' => $login['user']]);
             }
         } else {
             return response()->json(['msg' => 'error']);

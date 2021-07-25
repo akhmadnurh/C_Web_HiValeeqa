@@ -56,7 +56,7 @@
                                             <h5 class="mb-3 text-end">Total:
                                                 Rp {{ number_format($total, 2, ',', '.')}}</h5>
                                             <div class="d-flex justify-content-between">
-                                                <a href="https://wa.me/085784197425"
+                                                <a href="https://wa.me/6285784197425"
                                                    class="btn btn-outline-success">Hubungi Admin</a>
                                                 <div class="justify-content-end">
                                                     <span class="btn btn-secondary"

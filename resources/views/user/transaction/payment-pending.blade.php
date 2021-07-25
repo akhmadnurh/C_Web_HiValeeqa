@@ -51,7 +51,7 @@
                                     <li class="list-group-item bg-pink-light d-flex flex-column p-4">
                                         <h5 class="mb-3 text-end">Total: Rp {{ number_format($total, 2, ',', '.' ) }}</h5>
                                         <div class="d-flex justify-content-between">
-                                            <a href="https://wa.me/085784197425"
+                                            <a href="https://wa.me/6285784197425"
                                                class="btn btn-outline-success">Hubungi Admin</a>
                                             <div class="justify-content-end">
                                                 <a href="{{ url('cancel-transaction').'/'.$transaction->transaction_id }}" class="btn btn-danger me-2" onclick="return confirm('Apakah anda yakin?')">Batalkan</a>

@@ -15,7 +15,7 @@
           type="image/x-icon"
           href="{{ asset('img/favicon.ico') }}">
     <link rel="stylesheet"
-          href="{{ mix('css/app.css') }}">
+          href="{{ asset('css/app.css') }}">
 </head>
 
 <body class="bg-light">
@@ -41,7 +41,7 @@
                         <h2 class="my-4 text-pink">Welcome to Family</h2>
                         <form action="{{ url('/register') }}"
                               method="POST"
-                              onsubmit="return passwordValidation()">
+                              onsubmit="return (passwordValidation() && emailValidation())">
                             <div id="alert">
                                 @if (session()->has('status'))
                                     <div
@@ -130,11 +130,28 @@
             }
         }
 
+        const emailValidation = () => {
+            emailInput = document.getElementById('email').value
+
+            function validateEmail(email) {
+                const re =
+                    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(String(email).toLowerCase());
+            }
+
+            if (validateEmail(emailInput)) {
+                return true
+            } else {
+                alert.innerHTML = "<div class='alert alert-danger'>Email tidak valid</div>"
+                return false
+            }
+        }
+
         const removeAlert = () => {
             alert.innerHTML = ""
         }
     </script>
-    <script src="{{ mix('js/app.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 
 </html>

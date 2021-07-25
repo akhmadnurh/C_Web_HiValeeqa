@@ -12,12 +12,12 @@ class M_Transaction extends Model
 
     public function getPaymentPending()
     {
-        return DB::table('transaction')->join('user', 'user.user_id', '=', 'transaction.user_id')->select('transaction.*', 'user.*')->where('transaction.status', 1)->get();
+        return DB::table('transaction')->join('user', 'user.user_id', '=', 'transaction.user_id')->select('transaction.*', 'user.*')->where('transaction.status', 1)->orderBy('transaction_id', 'desc')->get();
     }
 
     public function getShipmentPending()
     {
-        return DB::table('transaction')->join('user', 'user.user_id', '=', 'transaction.user_id')->select('transaction.*', 'user.*')->where('transaction.status', 2)->get();
+        return DB::table('transaction')->join('user', 'user.user_id', '=', 'transaction.user_id')->select('transaction.*', 'user.*')->where('transaction.status', 2)->orderBy('transaction_id', 'desc')->get();
     }
 
     public function getPaymentCount()
@@ -32,22 +32,22 @@ class M_Transaction extends Model
 
     public function getShipmentProcess()
     {
-        return DB::table('transaction')->join('user', 'user.user_id', '=', 'transaction.user_id')->select('transaction.*', 'user.*')->where('transaction.status', 3)->get();
+        return DB::table('transaction')->join('user', 'user.user_id', '=', 'transaction.user_id')->select('transaction.*', 'user.*')->where('transaction.status', 3)->orderBy('transaction_id', 'desc')->get();
     }
 
     public function getOrderCompleted()
     {
-        return DB::table('transaction')->join('user', 'user.user_id', '=', 'transaction.user_id')->select('transaction.*', 'user.*')->where('transaction.status', 4)->get();
+        return DB::table('transaction')->join('user', 'user.user_id', '=', 'transaction.user_id')->select('transaction.*', 'user.*')->where('transaction.status', 4)->orderBy('transaction_id', 'desc')->get();
     }
 
     public function getOrderCanceled()
     {
-        return DB::table('transaction')->join('user', 'user.user_id', '=', 'transaction.user_id')->select('transaction.*', 'user.*')->where('transaction.status', 5)->get();
+        return DB::table('transaction')->join('user', 'user.user_id', '=', 'transaction.user_id')->select('transaction.*', 'user.*')->where('transaction.status', 5)->orderBy('transaction_id', 'desc')->get();
     }
 
     public function getAllTransactions()
     {
-        return DB::table('transaction')->join('user', 'user.user_id', '=', 'transaction.user_id')->select('transaction.*', 'user.*')->get();
+        return DB::table('transaction')->join('user', 'user.user_id', '=', 'transaction.user_id')->select('transaction.*', 'user.*')->orderBy('transaction_id', 'desc')->get();
     }
 
     public function getDetailTransaction($id)

@@ -20,17 +20,20 @@ class M_User extends Model
     {
         // Email
         $email = DB::table('user')->select('*')->where('email', '=', $data['email'])->count();
+        // var_dump($email);
         if ($email > 0) {
             return 'email-exist';
+        } else {
+            $username = DB::table('user')->select('*')->where('username', '=', $data['username'])->count();
+            if ($username > 0) {
+                return 'username-exist';
+            } else {
+                return 0;
+            }
         }
 
-        // Pasword
-        $username = DB::table('user')->select('*')->where('username', '=', $data['username'])->count();
-        if ($username > 0) {
-            return 'username-exist';
-        } else {
-            return 0;
-        }
+        // // Pasword
+
     }
 
     public function saveEmailToken($data, $token)
@@ -102,7 +105,6 @@ class M_User extends Model
                 $quantity += $data->quantity;
                 return DB::table('cart')->where('user_id', $user_id)->where('product_id', $product_id)->update(['quantity' => $quantity]);
             }
-
         } else {
             return DB::table('cart')->insert(['user_id' => $user_id, 'product_id' => $product_id, 'quantity' => $quantity]);
         }
@@ -123,7 +125,6 @@ class M_User extends Model
             DB::table('cart')->where('user_id', $user_id)->where('product_id', $product_id)->update(['quantity' => $quantity->quantity]);
             return true;
         }
-
     }
 
     public function minusItemCart($user_id, $product_id)
@@ -143,11 +144,16 @@ class M_User extends Model
             DB::table('cart')->where('user_id', $user_id)->where('product_id', $product_id)->update(['quantity' => $quantity->quantity]);
             return true;
         }
-
     }
 
     public function removeCart($user_id, $product_id)
     {
         return DB::table('cart')->where('user_id', $user_id)->where('product_id', $product_id)->delete();
+    }
+
+    public function completeData($input)
+    {
+        $input['whatsapp'] = '62' . $input['whatsapp'];
+        return DB::table('user')->where('email', $input['email'])->update(['gender' => $input['gender'], 'whatsapp' => $input['whatsapp'], 'address' => $input['address'], 'postal_code' => $input['postalCode'], 'village' => $input['village'], 'district' => $input['district'], 'city' => $input['city'], 'province' => $input['province']]);
     }
 }

@@ -108,7 +108,7 @@ Route::get('adm/order-canceled', [\App\Http\Controllers\admin\C_Transaction::cla
 Route::get('adm/all-transaction', [\App\Http\Controllers\admin\C_Transaction::class, 'allTransaction']);
 
 Route::get('adm/detail-transaction/{id}', [\App\Http\Controllers\admin\C_Transaction::class, 'detailTransaction']);
-Route::get('cancel-transaction/{id}', [\App\Http\Controllers\admin\C_Transaction::class, 'cancelTransaction']);
+Route::get('cancel-transaction/{id}', [\App\Http\Controllers\api\C_Transaction::class, 'cancelTransaction']);
 Route::get('confirm-payment/{id}', [\App\Http\Controllers\admin\C_Transaction::class, 'confirmPayment']);
 Route::get('confirm-shipment/{id}', [\App\Http\Controllers\admin\C_Transaction::class, 'confirmShipment']);
 Route::get('transaction-finish/{id}', [\App\Http\Controllers\admin\C_Transaction::class, 'transactionFinish']);

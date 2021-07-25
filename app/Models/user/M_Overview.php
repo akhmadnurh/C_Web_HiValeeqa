@@ -21,15 +21,24 @@ class M_Overview extends Model
                 $data['status'] = 'error-verification';
                 return $data;
             } else {
-                session(['loggedIn' => true]);
-                session(['id' => $result->user_id]);
-                session(['username' => $result->username]);
-                session(['name' => $result->name]);
-                session(['email' => $result->email]);
-                session(['role' => $result->role]);
+                // Cek apakah user sudah mengisi data diri lengkap
+                $biodata = DB::table('user')->select("*")->where('username', '=', $data['userEmail'])->first();
+                if($biodata->address == ''){
+                    $data['user'] = $biodata;
+                    $data['status'] = 'error-complete';
+                }else{
+                    // Login normal
+                    session(['loggedIn' => true]);
+                    session(['id' => $biodata->user_id]);
+                    session(['username' => $biodata->username]);
+                    session(['name' => $biodata->name]);
+                    session(['email' => $biodata->email]);
+                    session(['role' => $biodata->role]);
+                    $data['user'] = $biodata;
+                    $data['status'] = 'success';
+                }
+                return $data;
             }
-            $data['user'] = $result;
-            $data['status'] = 'success';
         }else{
             $data['status'] = 'error';
         }

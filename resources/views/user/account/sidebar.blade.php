@@ -26,7 +26,7 @@
 
         {{-- Akun saya --}}
         <li>
-            <a href="#myAccount"
+            <a href="{{ url('/profile').'#myAccount' }}"
                class="d-flex align-items-center fw-600"
                data-bs-toggle="collapse"
                role="button"
@@ -39,16 +39,16 @@
         <div class="collapse"
              id="myAccount">
             <ul class="list-unstyled ms-5">
-                <li><a href="/profile">Profil</a></li>
-                <li><a href="/address">Alamat</a></li>
-                <li><a href="/change-password">Ubah Password</a></li>
+                <li><a href="{{ url('profile') }}">Profil</a></li>
+                <li><a href="{{ url('address') }}">Alamat</a></li>
+                <li><a href="{{ url('change-password') }}">Ubah Password</a></li>
             </ul>
         </div>
         {{-- akun saya end --}}
 
         {{-- history transaksi --}}
         <li>
-            <a href="/transaction/payment-pending"
+            <a href="{{ url('/transaction/payment-pending') }}"
                class="d-flex align-items-center fw-600">
                 <i class='bx bxs-receipt bx-sm me-2'></i>
                 Transaksi Saya
@@ -57,7 +57,7 @@
 
         {{-- wishlist --}}
         <li>
-            <a href="/wishlist"
+            <a href="{{ url('wishlist') }}"
                class="d-flex align-items-center fw-600">
                 <i class='bx bxs-heart bx-sm me-2'></i>
                 Wishlist

@@ -12,14 +12,14 @@
         </button>
 
         <a class="navbar-brand"
-           href="/"><strong>HI VALEEQA</strong></a>
+           href="{{ url('/') }}"><strong>HI VALEEQA</strong></a>
         <div class="collapse navbar-collapse sticky-top"
              id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0"
                 id="navList">
                 <li class="nav-item me-lg-5">
                     <a class="nav-link"
-                       href="{{ url('/') }}">Home</a>
+                       href="{{ url('/') . '/' }}">Home</a>
                 </li>
                 <li class="nav-item me-lg-5">
                     <a class="nav-link"
@@ -27,7 +27,7 @@
                 </li>
                 <li class="nav-item me-lg-5">
                     <a class="nav-link"
-                       href="#new-product"
+                       href="{{ url('/') . '#new-product' }}"
                        id="newProductLink">New</a>
                 </li>
                 <li class="nav-item me-lg-5">
@@ -44,20 +44,18 @@
                                role="button"
                                id="userManageMobile"
                                data-bs-toggle="dropdown"
-                               aria-expanded="false">user</a>
+                               aria-expanded="false">{{ session()->get('name') }}</a>
 
-                            <ul class="dropdown-menu dropdown-menu-lg-end"
+                            <ul class="dropdown-menu dropdown-menu-lg-end mb-4 mb-lg-0"
                                 aria-labelledby="userManageMobile">
-                                <li><span class="dropdown-item-text">Hai, user</span></li>
-                                <li>
-                                    <hr class="dropdown-divider">
+                                <li><a class="dropdown-item"
+                                       href="{{ url('profile') }}"><i class='bx bx-user-circle me-2'></i> Akun</a>
                                 </li>
                                 <li><a class="dropdown-item"
-                                       href="/profile"><i class='bx bx-user-circle me-2'></i> Akun</a></li>
+                                       href="{{ url('transaction') }}"><i class='bx bx-receipt me-2'></i> Wishlist</a>
+                                </li>
                                 <li><a class="dropdown-item"
-                                       href="/transaction"><i class='bx bx-receipt me-2'></i> Wishlist</a></li>
-                                <li><a class="dropdown-item"
-                                       href="/wishlist"><i class='bx bx-heart me-2'></i> Wishlist</a></li>
+                                       href="{{ url('wishlist') }}"><i class='bx bx-heart me-2'></i> Wishlist</a></li>
                                 <li><a class="dropdown-item"
                                        href="{{ url('logout') }}"><i class='bx bx-log-out me-2'></i> Keluar</a></li>
                             </ul>
@@ -90,17 +88,18 @@
 
                     <ul class="dropdown-menu dropdown-menu-lg-end"
                         aria-labelledby="userManage">
-                        <li><span class="dropdown-item-text">Hai, user</span></li>
+                        <li><span class="dropdown-item-text">Hai, {{ session()->get('name') }}</span></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
                         <li><a class="dropdown-item"
-                               href="/profile"><i class='bx bx-user-circle me-2'></i> Akun Saya</a></li>
+                               href="{{ url('profile') }}"><i class='bx bx-user-circle me-2'></i> Akun Saya</a></li>
                         <li><a class="dropdown-item"
-                               href="/transaction/payment-pending"><i class='bx bx-receipt me-2'></i> Transaksi Saya</a>
+                               href="{{ url('transaction/payment-pending') }}"><i class='bx bx-receipt me-2'></i>
+                                Transaksi Saya</a>
                         </li>
                         <li><a class="dropdown-item"
-                               href="/wishlist"><i class='bx bx-heart me-2'></i> Wishlist</a></li>
+                               href="{{ url('wishlist') }}"><i class='bx bx-heart me-2'></i> Wishlist</a></li>
                         <li><a class="dropdown-item"
                                href="{{ url('logout') }}"><i class='bx bx-log-out me-2'></i> Keluar</a></li>
                     </ul>
@@ -127,7 +126,6 @@
 
 <script>
     activeNavLink();
-    newProductLink();
 
     // Navbar Link
     function activeNavLink() {
@@ -138,16 +136,5 @@
                 navLink[i].classList.add('active');
             }
         }
-    }
-
-    function newProductLink() {
-        const newProduct = document.getElementById('newProductLink');
-        const baseUrl = window.location.origin;
-        newProduct.addEventListener('click', function() {
-            const currentLink = window.location.href;
-            if (currentLink !== baseUrl) {
-                window.location.replace(baseUrl + '/#new-product');
-            }
-        });
     }
 </script>
