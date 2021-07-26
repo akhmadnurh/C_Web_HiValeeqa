@@ -22,7 +22,7 @@ class M_Overview extends Model
                 return $data;
             } else {
                 // Cek apakah user sudah mengisi data diri lengkap
-                $biodata = DB::table('user')->select("*")->where('username', '=', $data['userEmail'])->first();
+                $biodata = DB::table('user')->select("*")->where(function ($query) use ($data) { $query->where('username', '=', $data['userEmail'])->orWhere('email', '=', $data['userEmail']);})->first();
                 if($biodata->address == ''){
                     $data['user'] = $biodata;
                     $data['status'] = 'error-complete';
