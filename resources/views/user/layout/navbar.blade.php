@@ -52,7 +52,8 @@
                                        href="{{ url('profile') }}"><i class='bx bx-user-circle me-2'></i> Akun</a>
                                 </li>
                                 <li><a class="dropdown-item"
-                                       href="{{ url('transaction') }}"><i class='bx bx-receipt me-2'></i> Wishlist</a>
+                                       href="{{ url('transaction/payment-pending') }}"><i
+                                           class='bx bx-receipt me-2'></i> Transaksi Saya</a>
                                 </li>
                                 <li><a class="dropdown-item"
                                        href="{{ url('wishlist') }}"><i class='bx bx-heart me-2'></i> Wishlist</a></li>
@@ -113,7 +114,7 @@
         </div>
 
         <a href="{{ session()->has('loggedIn') ? url('cart') : url('login') }}"
-           class="text-pink position-relative">
+           class="text-pink position-relative me-2 me-lg-0">
             <i class="bx bx-shopping-bag bx-sm"></i>
             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-pink"
                   id="cartBadges">
